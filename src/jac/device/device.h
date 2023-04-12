@@ -154,16 +154,20 @@ bool Device<Machine>::startMachine(std::string path) {
             self._machine->runEventLoop();
         }
         catch (jac::Exception& e) {
-            std::string message = "Uncaught " + std::string(e.what()) + "\n" + e.stackTrace();
+            std::string message = "Uncaught " + std::string(e.what()) + "\n";
+            std::string stack = e.stackTrace();
+            if (stack.size() > 0 && stack != "undefined") {
+                message += stack + "\n";
+            }
             this->_machineIO.err->write(std::span<const uint8_t>(reinterpret_cast<const uint8_t*>(message.data()), message.size()));
         }
         catch (const std::exception& e) {
-            std::string message = "Internal error: " + std::string(e.what());
+            std::string message = "Internal error: " + std::string(e.what()) + "\n";
             this->_machineIO.err->write(std::span<const uint8_t>(reinterpret_cast<const uint8_t*>(message.data()), message.size()));
             Logger::log(message);
         }
         catch (...) {
-            std::string message = "Unkown internal error";
+            std::string message = "Unkown internal error\n";
             this->_machineIO.err->write(std::span<const uint8_t>(reinterpret_cast<const uint8_t*>(message.data()), message.size()));
             Logger::log(message);
         }

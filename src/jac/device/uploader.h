@@ -66,12 +66,12 @@ private:
     std::thread _thread;
     std::atomic<bool> _stop = false;
 
-    TimeoutLock& _controllerLock;
+    TimeoutLock& _devLock;
 public:
     Uploader(std::unique_ptr<BufferedInputPacketCommunicator> input, std::unique_ptr<OutputPacketCommunicator> output, TimeoutLock& lock):
         _input(std::move(input)),
         _output(std::move(output)),
-        _controllerLock(lock)
+        _devLock(lock)
     {}
 
     Uploader(const Uploader&) = delete;
@@ -90,9 +90,9 @@ public:
                 }
                 auto [sender, data] = *res;
 
-                _controllerLock.stopTimeout(sender);  // does nothing if not locked by sender
+                _devLock.stopTimeout(sender);  // does nothing if not locked by sender
                 processPacket(sender, std::span<const uint8_t>(data.begin(), data.end()));
-                _controllerLock.resetTimeout(sender);  // does nothing if not locked by sender
+                _devLock.resetTimeout(sender);  // does nothing if not locked by sender
             }
         });
     }

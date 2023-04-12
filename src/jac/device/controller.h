@@ -33,8 +33,8 @@ class Controller {
 
     std::unique_ptr<BufferedInputPacketCommunicator> _input;
     std::unique_ptr<OutputPacketCommunicator> _output;
-    std::thread _controllerThread;
-    std::atomic<bool> _controllerStop = false;
+    std::thread _thread;
+    std::atomic<bool> _stop = false;
 
     void processPacket(int sender, std::span<const uint8_t> data);
     void processStart(int sender, std::span<const uint8_t> data);
@@ -57,16 +57,16 @@ public:
     {}
 
     ~Controller() {
-        _controllerStop = true;
+        _stop = true;
         _input->cancelRead();
-        if (_controllerThread.joinable()) {
-            _controllerThread.join();
+        if (_thread.joinable()) {
+            _thread.join();
         }
     }
 
     void start() {
-        _controllerThread = std::thread([this]() {
-            while (!_controllerStop) {
+        _thread = std::thread([this]() {
+            while (!_stop) {
                 auto res = _input->get();
                 if (!res) {
                     continue;

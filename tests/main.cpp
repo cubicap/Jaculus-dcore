@@ -22,24 +22,24 @@
 
 #include "util.h"
 
-using Machine =
-    EventLoopTerminal<
-    TimersFeature<
-    YieldFeature<
-    EventLoopFeature<
-    ModuleLoaderFeature<
-    FilesystemFeature<
-    LinkIoFeature<
-    StdioFeature<
-    BasicStreamFeature<
-    EventQueueFeature<
-    jac::MachineBase
->>>>>>>>>>;
-
-using Mux_t = jac::Mux<jac::CobsPacketizer, jac::CobsSerializer>;
-
 
 int main() {
+    using Machine =
+        EventLoopTerminal<
+        TimersFeature<
+        YieldFeature<
+        EventLoopFeature<
+        ModuleLoaderFeature<
+        FilesystemFeature<
+        LinkIoFeature<
+        StdioFeature<
+        BasicStreamFeature<
+        EventQueueFeature<
+        jac::MachineBase
+    >>>>>>>>>>;
+
+    using Mux_t = jac::Mux<jac::CobsPacketizer, jac::CobsSerializer>;
+
     // create Device
     jac::Device<Machine> device([]() { // get memory stats
         return "not implemented";

@@ -66,7 +66,7 @@ void Uploader::lockTimeout() {
 }
 
 bool Uploader::processPacket(int sender, std::span<const uint8_t> data) {
-    if (!_controllerLock.ownedBy(sender)) {
+    if (!_devLock.ownedBy(sender)) {
         Logger::debug("Uploader: lock not owned by sender " + std::to_string(sender));
         auto response = this->_output->buildPacket({sender});
         response->put(static_cast<uint8_t>(Command::LOCK_NOT_OWNED));
