@@ -4,7 +4,15 @@ set(SRC
 )
 
 
-if(NOT ESP_PLATFORM)
+if(ESP_PLATFORM)
+    idf_component_register(
+        SRCS ${SRC}
+        INCLUDE_DIRS .
+        REQUIRES jac-machine jac-link
+                pthread
+    )
+
+else()
     Include(FetchContent)
 
     FetchContent_Declare(
@@ -26,13 +34,5 @@ if(NOT ESP_PLATFORM)
     target_include_directories(jac-device PUBLIC .)
     set_target_properties(jac-device PROPERTIES LINKER_LANGUAGE CXX)
     target_link_libraries(jac-device PUBLIC jac-machine jac-link)
-
-else()
-    idf_component_register(
-        SRCS ${SRC}
-        INCLUDE_DIRS .
-        REQUIRES jac-machine jac-link
-                 pthread
-    )
 
 endif()

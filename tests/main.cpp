@@ -1,4 +1,5 @@
 #include <jac/machine/machine.h>
+#include <jac/machine/values.h>
 #include <jac/features/eventLoopFeature.h>
 #include <jac/features/eventQueueFeature.h>
 #include <jac/features/timersFeature.h>
@@ -7,18 +8,16 @@
 #include <jac/features/filesystemFeature.h>
 #include <jac/features/basicStreamFeature.h>
 #include <jac/features/stdioFeature.h>
-#include <jac/machine/values.h>
 
+#include <jac/device/controller.h>
+#include <jac/device/uploader.h>
+#include <jac/device/logger.h>
 
 #include <jac/link/mux.h>
 #include <jac/link/encoders/cobs.h>
 
 #include <string>
 #include <filesystem>
-
-#include <jac/device/controller.h>
-#include <jac/device/uploader.h>
-#include <jac/device/logger.h>
 
 #include <jac/features/linkIoFeature.h>
 
@@ -72,6 +71,8 @@ int main() {
         machine.stdio.err = std::make_unique<Machine::LinkWritable>(controller.machineIO().err.get());
         machine.stdio.in = std::make_unique<Machine::LinkReadable>(&machine, controller.machineIO().in.get());
     });
+
+    controller.start();
 
     if (std::filesystem::exists("/data/index.js")) {
         controller.startMachine("/data/index.js");

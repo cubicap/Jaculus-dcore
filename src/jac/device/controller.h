@@ -105,6 +105,15 @@ public:
         _machineIO.in = std::move(_machineIn);
         _machineIO.out = std::make_unique<TransparentOutputStreamCommunicator>(_router, 16, std::vector<int>{});
         _machineIO.err = std::make_unique<TransparentOutputStreamCommunicator>(_router, 17, std::vector<int>{});
+    }
+
+    Controller(const Controller&) = delete;
+    Controller& operator=(const Controller&) = delete;
+    Controller(Controller&&) = delete;
+    Controller& operator=(Controller&&) = delete;
+
+    void start() {
+        _uploader->start();
 
         _controllerThread = std::thread([this]() {
             while (!_controllerStop) {
@@ -120,11 +129,6 @@ public:
             }
         });
     }
-
-    Controller(const Controller&) = delete;
-    Controller& operator=(const Controller&) = delete;
-    Controller(Controller&&) = delete;
-    Controller& operator=(Controller&&) = delete;
 
     ~Controller() {
         _controllerStop = true;

@@ -72,7 +72,16 @@ public:
         _input(std::move(input)),
         _output(std::move(output)),
         _controllerLock(lock)
-    {
+    {}
+
+    Uploader(const Uploader&) = delete;
+    Uploader(Uploader&&) = delete;
+    Uploader& operator=(const Uploader&) = delete;
+    Uploader& operator=(Uploader&&) = delete;
+
+    void lockTimeout();
+
+    void start() {
         _thread = std::thread([this]() {
             while (!_stop) {
                 auto res = _input->get();
@@ -87,13 +96,6 @@ public:
             }
         });
     }
-
-    Uploader(const Uploader&) = delete;
-    Uploader(Uploader&&) = delete;
-    Uploader& operator=(const Uploader&) = delete;
-    Uploader& operator=(Uploader&&) = delete;
-
-    void lockTimeout();
 
     ~Uploader() {
         _stop = true;
