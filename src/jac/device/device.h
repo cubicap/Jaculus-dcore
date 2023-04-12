@@ -52,6 +52,13 @@ class Device : public MachineCtrl {
         _machine->setCodeDir(_rootDir / "code");
         _machine->setWorkingDir(_rootDir / "data");
 
+        _machine->setWatchdogHandler([this]() {
+            std::string message = "machine watchdog triggered\n";
+            this->_machineIO.err->write(std::span<const uint8_t>(reinterpret_cast<const uint8_t*>(message.data()), message.size()));
+            return true;
+        });
+        _machine->setWatchdogTimeout(std::chrono::seconds(1));
+
         for (auto& f : _onConfigureMachine) {
             f(*_machine);
         }
