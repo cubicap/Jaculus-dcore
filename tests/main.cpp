@@ -3,7 +3,6 @@
 #include <jac/features/eventLoopFeature.h>
 #include <jac/features/eventQueueFeature.h>
 #include <jac/features/timersFeature.h>
-#include <jac/features/yieldFeature.h>
 #include <jac/features/moduleLoaderFeature.h>
 #include <jac/features/filesystemFeature.h>
 #include <jac/features/basicStreamFeature.h>
@@ -27,7 +26,6 @@ int main() {
     using Machine =
         EventLoopTerminal<
         TimersFeature<
-        YieldFeature<
         EventLoopFeature<
         ModuleLoaderFeature<
         FilesystemFeature<
@@ -36,7 +34,7 @@ int main() {
         BasicStreamFeature<
         EventQueueFeature<
         jac::MachineBase
-    >>>>>>>>>>;
+    >>>>>>>>>;
 
     using Mux_t = jac::Mux<jac::CobsPacketizer, jac::CobsSerializer>;
 
