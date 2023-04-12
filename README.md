@@ -1,7 +1,6 @@
-# Jaculus-device - Library for creating Jaculus devices.
+# Jaculus-device-core - Core library for creating new Jaculus devices.
 
-Jaculus-device is a core library that provides the necessary functionality for
-running and uploading JavaScript code on the device.
+Jaculus-device-core provides the core functionality necessary for defining a Jaculus device.
 
 To create a port of Jaculus for a new device, it is necessary to implement a Duplex
 stream interface for controlling the device and write hardware bindings to use

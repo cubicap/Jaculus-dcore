@@ -1,5 +1,6 @@
 set(SRC
     "jac/device/uploader.cpp"
+    "jac/device/controller.cpp"
     "jac/device/logger.cpp"
 )
 

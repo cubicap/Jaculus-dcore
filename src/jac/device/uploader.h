@@ -8,7 +8,7 @@
 #include <fstream>
 #include <memory.h>
 
-#include "lock.h"
+#include "util/lock.h"
 
 
 namespace jac {
@@ -99,6 +99,7 @@ public:
 
     ~Uploader() {
         _stop = true;
+        _input->cancelRead();
         if (_thread.joinable()) {
             _thread.join();
         }

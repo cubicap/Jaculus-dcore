@@ -14,16 +14,20 @@ class TimeoutLock {
     int _owner = 0;
     std::mutex _mutex;
     int _stops = 0;
+    std::function<void()> _callback;
 public:
-    TimeoutLock(std::chrono::milliseconds duration) : _timeout(duration) {}
+    TimeoutLock(std::chrono::milliseconds duration, std::function<void()> callback):
+        _timeout(duration),
+        _callback(callback)
+    {}
 
     TimeoutLock(const TimeoutLock&) = delete;
     TimeoutLock(TimeoutLock&&) = delete;
     TimeoutLock& operator=(const TimeoutLock&) = delete;
     TimeoutLock& operator=(TimeoutLock&&) = delete;
 
-    bool lock(int who, std::function<void()> callback) {
-        std::lock_guard<std::mutex> _(_mutex);
+    bool lock(int who) {
+        std::scoped_lock<std::mutex> _(_mutex);
 
         if (_locked && _owner == who) {
             throw std::runtime_error("Lock already locked, reset() should be used to reset the timeout");
@@ -32,10 +36,10 @@ public:
         if (!_locked) {
             _locked = true;
             _owner = who;
-            _timeout.start([this, callback]() {
-                std::lock_guard<std::mutex> __(_mutex);
-                if (callback) {
-                    callback();
+            _timeout.start([this]() {
+                std::scoped_lock<std::mutex> __(_mutex);
+                if (_callback) {
+                    _callback();
                 }
                 _locked = false;
             });
@@ -46,7 +50,7 @@ public:
     }
 
     void resetTimeout(int who) {
-        std::lock_guard<std::mutex> _(_mutex);
+        std::scoped_lock<std::mutex> _(_mutex);
 
         if (!_locked || _owner != who) {
             return;
@@ -60,7 +64,7 @@ public:
     }
 
     void stopTimeout(int who) {
-        std::lock_guard<std::mutex> _(_mutex);
+        std::scoped_lock<std::mutex> _(_mutex);
 
         if (!_locked || _owner != who) {
             return;
@@ -71,7 +75,7 @@ public:
     }
 
     bool unlock(int who) {
-        std::lock_guard<std::mutex> _(_mutex);
+        std::scoped_lock<std::mutex> _(_mutex);
 
         if (_owner != who) {
             return false;
@@ -83,14 +87,14 @@ public:
     }
 
     void forceUnlock() {
-        std::lock_guard<std::mutex> _(_mutex);
+        std::scoped_lock<std::mutex> _(_mutex);
 
         _timeout.stop();
         _locked = false;
     }
 
     bool ownedBy(int who) {
-        std::lock_guard<std::mutex> _(_mutex);
+        std::scoped_lock<std::mutex> _(_mutex);
         return _locked && _owner == who;
     }
 

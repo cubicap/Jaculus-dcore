@@ -6,8 +6,6 @@
 #include <mutex>
 #include <thread>
 
-#include "logger.h"
-
 
 namespace jac {
 
@@ -49,7 +47,7 @@ public:
     Timeout& operator=(Timeout&&) = delete;
 
     void start(std::function<void()> callback) {
-        std::lock_guard<std::mutex> lock(_mutex);
+        std::unique_lock<std::mutex> lock(_mutex);
         _endTime = std::chrono::steady_clock::now() + _duration;
         _callback = callback;
         _running = true;
@@ -57,21 +55,23 @@ public:
     }
 
     void reset() {
-        std::lock_guard<std::mutex> lock(_mutex);
+        std::scoped_lock<std::mutex> lock(_mutex);
         _endTime = std::chrono::steady_clock::now() + _duration;
         _running = true;
     }
 
     void stop() {
-        std::lock_guard<std::mutex> lock(_mutex);
+        std::unique_lock<std::mutex> lock(_mutex);
         _running = false;
         _cv.notify_all();
     }
 
     ~Timeout() {
-        std::lock_guard<std::mutex> lock(_mutex);
+        std::unique_lock<std::mutex> lock(_mutex);
         _stop = true;
         _running = false;
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        lock.unlock();
         _cv.notify_all();
         _thread.join();
     }
