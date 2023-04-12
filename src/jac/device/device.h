@@ -43,10 +43,15 @@ class Device : public MachineCtrl {
     std::function<std::string()> _getMemoryStats;
     std::function<std::string()> _getStorageStats;
 
+    std::filesystem::path _rootDir;
 
     void configureMachine() {
         _machine = nullptr;
         _machine = std::make_unique<Machine>();
+
+        _machine->setCodeDir(_rootDir / "code");
+        _machine->setWorkingDir(_rootDir / "data");
+
         for (auto& f : _onConfigureMachine) {
             f(*_machine);
         }
@@ -60,10 +65,11 @@ class Device : public MachineCtrl {
     }
 public:
 
-    Device(std::function<std::string()> getMemoryStats, std::function<std::string()> getStorageStats):
+    Device(std::filesystem::path rootDir, std::function<std::string()> getMemoryStats, std::function<std::string()> getStorageStats):
         _lock(std::chrono::seconds(2), std::bind(&Device::lockTimeout, this)),
         _getMemoryStats(getMemoryStats),
-        _getStorageStats(getStorageStats)
+        _getStorageStats(getStorageStats),
+        _rootDir(rootDir.lexically_normal())
     {
         Logger::_errorStream = std::make_unique<TransparentOutputStreamCommunicator>(_router, 255, std::vector<int>{});
         Logger::_logStream = std::make_unique<TransparentOutputStreamCommunicator>(_router, 253, std::vector<int>{});
@@ -73,7 +79,7 @@ public:
         auto uploaderOutput = std::make_unique<TransparentOutputPacketCommunicator>(_router, 1);
         _router.subscribeChannel(1, *uploaderInput);
 
-        _uploader.emplace(std::move(uploaderInput), std::move(uploaderOutput), _lock);
+        _uploader.emplace(std::move(uploaderInput), std::move(uploaderOutput), _lock, _rootDir);
 
         auto controllerInput = std::make_unique<UnboundedBufferedInputPacketCommunicator>();
         auto controllerOutput = std::make_unique<TransparentOutputPacketCommunicator>(_router, 0);
@@ -134,11 +140,6 @@ bool Device<Machine>::startMachine(std::string path) {
     }
     if (_machineThread.joinable()) {
         _machineThread.join();
-    }
-
-    if (!std::filesystem::exists(path)) {
-        Logger::log("File not found: " + path);
-        return false;
     }
 
     _machineThread = std::thread([this, path]() {

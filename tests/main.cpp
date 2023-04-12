@@ -41,11 +41,15 @@ int main() {
     using Mux_t = jac::Mux<jac::CobsPacketizer, jac::CobsSerializer>;
 
     // create Device
-    jac::Device<Machine> device([]() { // get memory stats
-        return "not implemented";
-    }, []() { // get storage stats
-        return "not implemented";
-    });
+    jac::Device<Machine> device(
+        "./test_files",
+        []() { // get memory stats
+            return "not implemented";
+        },
+        []() { // get storage stats
+            return "not implemented";
+        }
+    );
 
     // configure communication interface
     auto mockStream = std::make_unique<MockDuplex>();
@@ -79,9 +83,8 @@ int main() {
     device.start();
 
     // run javascript code from default entry point
-    if (std::filesystem::exists("/data/index.js")) {
-        device.startMachine("/data/index.js");
-    }
+    jac::Logger::debug("starting machine");
+    device.startMachine("index.js");
 
     std::jthread t([&]() {
         while (true) {

@@ -1,4 +1,5 @@
 #include <jac/link/stream.h>
+#include <iostream>
 
 
 class MockDuplex : public jac::Duplex {
@@ -13,10 +14,13 @@ public:
     }
 
     bool put(uint8_t c) override {
+        std::cout << c;
         return true;
     }
 
     size_t write(std::span<const uint8_t> data) override {
+        std::cout.write(reinterpret_cast<const char*>(data.data()), data.size());
+        std::cout.flush();
         return data.size();
     }
 

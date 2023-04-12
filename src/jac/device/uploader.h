@@ -5,6 +5,7 @@
 
 #include <atomic>
 #include <deque>
+#include <filesystem>
 #include <fstream>
 #include <memory.h>
 
@@ -67,11 +68,14 @@ private:
     std::atomic<bool> _stop = false;
 
     TimeoutLock& _devLock;
+
+    std::filesystem::path _rootDir;
 public:
-    Uploader(std::unique_ptr<BufferedInputPacketCommunicator> input, std::unique_ptr<OutputPacketCommunicator> output, TimeoutLock& lock):
+    Uploader(std::unique_ptr<BufferedInputPacketCommunicator> input, std::unique_ptr<OutputPacketCommunicator> output, TimeoutLock& lock, std::filesystem::path rootDir):
         _input(std::move(input)),
         _output(std::move(output)),
-        _devLock(lock)
+        _devLock(lock),
+        _rootDir(std::move(rootDir))
     {}
 
     Uploader(const Uploader&) = delete;

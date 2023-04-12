@@ -12,7 +12,17 @@
 namespace jac {
 
 
-std::optional<std::pair<std::vector<std::string>, size_t>> listDir(std::string path) {
+std::optional<std::filesystem::path> getAbsolute(std::string filename, std::filesystem::path& rootDir) {
+    std::filesystem::path normal = (rootDir / filename).lexically_normal();
+    auto [it, _] = std::mismatch(rootDir.begin(), rootDir.end(), normal.begin(), normal.end());
+    if (it == rootDir.end()) {
+        return normal;
+    }
+    return std::nullopt;
+}
+
+
+std::optional<std::pair<std::vector<std::string>, size_t>> listDir(std::filesystem::path& path) {
     size_t dataSize = 0;
     std::vector<std::string> files;
     DIR *dir;
@@ -35,16 +45,16 @@ std::optional<std::pair<std::vector<std::string>, size_t>> listDir(std::string p
     return std::make_pair(files, dataSize);
 }
 
-bool deleteDir(std::string path) {
+bool deleteDir(std::filesystem::path& path, bool onlyContents) {
     auto list = listDir(path);
     if (!list) {
         return false;
     }
 
     for (auto& file : list->first) {
-        std::string fullPath = path + "/" + file;
+        auto fullPath = path / file;
         if (std::filesystem::is_directory(fullPath)) {
-            if (!deleteDir(fullPath)) {
+            if (!deleteDir(fullPath, false)) {
                 return false;
             }
         }
@@ -52,7 +62,8 @@ bool deleteDir(std::string path) {
             return false;
         }
     }
-    if (path == "/" || path == "/data" || path == "/data/") {
+
+    if (onlyContents) {
         return true;
     }
     return std::filesystem::remove(path);
@@ -145,8 +156,15 @@ bool Uploader::processPacket(int sender, std::span<const uint8_t> data) {
 bool Uploader::processReadFile(int sender, std::span<const uint8_t> data) {
     auto begin = data.begin();
     std::string filename(begin, data.end());
+    auto path = getAbsolute(filename, _rootDir);
+    if (!path) {
+        auto response = _output->buildPacket({sender});
+        response->put(static_cast<uint8_t>(Command::NOT_FOUND));
+        response->send();
+        return false;
+    }
 
-    _file = std::fstream(filename, std::ios::in | std::ios::binary);
+    _file = std::fstream(*path, std::ios::in | std::ios::binary);
     if (!_file.is_open()) {
         auto response = _output->buildPacket({sender});
         response->put(static_cast<uint8_t>(Command::NOT_FOUND));
@@ -187,7 +205,15 @@ bool Uploader::processWriteFile(int sender, std::span<const uint8_t> data) {
     auto begin = ++filenameEnd;
     _state = State::WAITING_FOR_DATA;
 
-    _file = std::fstream(filename, std::ios::out | std::ios::binary | std::ios::trunc);
+    auto path = getAbsolute(filename, _rootDir);
+    if (!path) {
+        auto response = _output->buildPacket({sender});
+        response->put(static_cast<uint8_t>(Command::NOT_FOUND));
+        response->send();
+        return false;
+    }
+
+    _file = std::fstream(*path, std::ios::out | std::ios::binary | std::ios::trunc);
     if (!_file.is_open()) {
         auto response = _output->buildPacket({sender});
         response->put(static_cast<uint8_t>(Command::ERROR));
@@ -221,11 +247,18 @@ bool Uploader::processWriteFile(int sender, std::span<const uint8_t> data) {
 bool Uploader::processDeleteFile(int sender, std::span<const uint8_t> data) {
     auto begin = data.begin();
     std::string filename(begin, data.end());
+    auto path = getAbsolute(filename, _rootDir);
+    if (!path) {
+        auto response = _output->buildPacket({sender});
+        response->put(static_cast<uint8_t>(Command::NOT_FOUND));
+        response->send();
+        return false;
+    }
 
     bool success;
 
     try {
-        success = !std::filesystem::is_directory(filename) && std::filesystem::remove(filename);
+        success = !std::filesystem::is_directory(*path) && std::filesystem::remove(*path);
     }
     catch (const std::filesystem::filesystem_error& e) {
         Logger::error(std::string("Failed to delete file: ") + e.what());
@@ -250,6 +283,13 @@ bool Uploader::processDeleteFile(int sender, std::span<const uint8_t> data) {
 bool Uploader::processListDir(int sender, std::span<const uint8_t> data) {
     auto dataIt = std::find(data.begin(), data.end(), '\0');
     std::string filename(data.begin(), dataIt);
+    auto path = getAbsolute(filename, _rootDir);
+    if (!path) {
+        auto response = _output->buildPacket({sender});
+        response->put(static_cast<uint8_t>(Command::NOT_FOUND));
+        response->send();
+        return false;
+    }
 
     struct {
         bool directory = false;
@@ -269,10 +309,9 @@ bool Uploader::processListDir(int sender, std::span<const uint8_t> data) {
         }
     }
 
-    std::filesystem::path path(filename);
     bool isDir;
     try {
-        isDir = std::filesystem::is_directory(path);
+        isDir = std::filesystem::is_directory(*path);
     }
     catch (const std::filesystem::filesystem_error& e) {
         Logger::error(std::string("Failed to list directory: ") + e.what());
@@ -284,8 +323,8 @@ bool Uploader::processListDir(int sender, std::span<const uint8_t> data) {
     }
 
     if (flags.directory || !isDir) {
-        if (std::filesystem::exists(path)) {
-            std::string name = path.filename().string();
+        if (std::filesystem::exists(*path)) {
+            std::string name = path->filename().string();
             auto response = _output->buildPacket({sender});
             response->put(static_cast<uint8_t>(Command::LAST_DATA));
             response->put(static_cast<uint8_t>(isDir ? 'd' : 'f'));
@@ -307,7 +346,7 @@ bool Uploader::processListDir(int sender, std::span<const uint8_t> data) {
     //     dataSize += files.back().size() + 1;
     // }
     // XXX: std::filesystem::directory_iterator not working on esp-idf
-    auto result = listDir(path);
+    auto result = listDir(*path);
 
     if (!result) {
         Logger::error(std::string("Failed to list directory"));
@@ -333,13 +372,13 @@ bool Uploader::processListDir(int sender, std::span<const uint8_t> data) {
             char type = 'f';
             uint32_t size = 0;
             try {
-                type = std::filesystem::is_directory(path / *it) ? 'd' : 'f';
+                type = std::filesystem::is_directory(*path / *it) ? 'd' : 'f';
             }
             catch (const std::filesystem::filesystem_error& e) {
                 Logger::error(std::string("Failed to check file type: ") + e.what());
             }
             try {
-                size = (flags.size && type == 'f') ? std::filesystem::file_size(path / *it) : 0;
+                size = (flags.size && type == 'f') ? std::filesystem::file_size(*path / *it) : 0;
             }
             catch (const std::filesystem::filesystem_error& e) {
                 Logger::error(std::string("Failed to get file size: ") + e.what());
@@ -362,11 +401,18 @@ bool Uploader::processListDir(int sender, std::span<const uint8_t> data) {
 bool Uploader::processCreateDir(int sender, std::span<const uint8_t> data) {
     auto begin = data.begin();
     std::string filename(begin, data.end());
+    auto path = getAbsolute(filename, _rootDir);
+    if (!path) {
+        auto response = _output->buildPacket({sender});
+        response->put(static_cast<uint8_t>(Command::NOT_FOUND));
+        response->send();
+        return false;
+    }
 
     bool success;
 
     try {
-        success = std::filesystem::create_directory(filename);
+        success = std::filesystem::create_directory(*path);
     }
     catch (const std::filesystem::filesystem_error& e) {
         Logger::error(std::string("Failed to create directory: ") + e.what());
@@ -391,11 +437,18 @@ bool Uploader::processCreateDir(int sender, std::span<const uint8_t> data) {
 bool Uploader::processDeleteDir(int sender, std::span<const uint8_t> data) {
     auto begin = data.begin();
     std::string filename(begin, data.end());
+    auto path = getAbsolute(filename, _rootDir);
+    if (!path) {
+        auto response = _output->buildPacket({sender});
+        response->put(static_cast<uint8_t>(Command::NOT_FOUND));
+        response->send();
+        return false;
+    }
 
     bool success;
 
     try {
-        success = deleteDir(filename);
+        success = deleteDir(*path, path->lexically_normal() == _rootDir);
         // XXX: std::filesystem::remove_all not working on esp-idf
     }
     catch (const std::filesystem::filesystem_error& e) {
