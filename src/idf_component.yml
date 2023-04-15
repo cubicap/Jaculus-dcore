@@ -1,10 +1,12 @@
+version: "0.0.1"
+description: "Jaculus-device-core - Core library for creating new Jaculus devices"
 dependencies:
   idf: ">=5.0"
   jac-machine:
     path: src
     git: https://github.com/cubicap/Jaculus-machine.git
-    version: f9ac60ec53f5d832508648cebdf42d42d2f8fe07
+    version: v0.0.1
   jac-link:
     path: src
     git: https://github.com/cubicap/Jaculus-link.git
-    version: d58d118d2fed7ce6c1b36c505ccbd98801830745
+    version: v0.0.1
