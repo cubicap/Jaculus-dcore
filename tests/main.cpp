@@ -50,7 +50,7 @@ int main() {
     );
 
     // configure communication interface
-    auto mockStream = std::make_unique<MockDuplex>();
+    auto mockStream = std::make_unique<DummyDuplex>();
     std::unique_ptr<jac::Duplex> stream = std::move(mockStream);
 
     Mux_t muxMock(std::move(stream));

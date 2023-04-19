@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-class MockDuplex : public jac::Duplex {
+class DummyDuplex : public jac::Duplex {
 public:
 
     int get() override {

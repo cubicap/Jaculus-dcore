@@ -49,8 +49,8 @@ private:
     };
 
     State _state = State::NONE;
-    std::function<bool(std::span<const uint8_t>)> _onData;
     std::fstream _file;
+    std::function<bool(std::span<const uint8_t>)> _onData;
     std::function<bool()> _onDataComplete;
 
     std::unique_ptr<BufferedInputPacketCommunicator> _input;
