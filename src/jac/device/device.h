@@ -119,10 +119,6 @@ public:
         return _router;
     }
 
-    Uploader& uploader() {
-        return *_uploader;
-    }
-
     TimeoutLock& lock() {
         return _lock;
     }
