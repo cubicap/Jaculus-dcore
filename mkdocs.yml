@@ -1,0 +1,63 @@
+site_url: https://device-core.jaculus.org
+site_name: Jaculus-device-core - Core library for creating Jaculus devices
+site_description: >-
+  Jaculus-device-core provides the core functionality necessary for defining a Jaculus device
+site_author: Petr Kubica
+
+repo_url: https://github.com/cubicap/Jaculus-device-core
+repo_name: cubicap/Jaculus-device-core
+
+copyright: Copyright © 2023 Petr Kubica
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  font:
+    text: Roboto
+  features:
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.expand
+    - navigation.indexes
+
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+
+plugins:
+  - search:
+      lang: en
+  - mkdoxy:
+      projects:
+        doxygen:
+          src-dirs: src
+          full-doc: True
+          doxy-cfg:
+            FILE_PATTERNS: "*.cpp *.h*"
+            EXAMPLE_PATH: examples
+            RECURSIVE: True
+
+nav:
+  - Home: index.md
+  - API:
+    - Class Index: "doxygen/classes.md"
+    - Namespace List: "doxygen/namespaces.md"
+    - File list: "doxygen/files.md"
