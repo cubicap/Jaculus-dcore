@@ -36,7 +36,7 @@ int main() {
         jac::MachineBase
     >>>>>>>>>;
 
-    using Mux_t = jac::Mux<jac::CobsPacketizer, jac::CobsSerializer>;
+    using Mux_t = jac::Mux<jac::CobsEncoder>;
 
     // create Device
     jac::Device<Machine> device(

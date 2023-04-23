@@ -31,7 +31,7 @@ class Controller {
         LOCK_NOT_OWNED = 0x22,
     };
 
-    std::unique_ptr<BufferedInputPacketCommunicator> _input;
+    std::unique_ptr<InputPacketCommunicator> _input;
     std::unique_ptr<OutputPacketCommunicator> _output;
     std::thread _thread;
     std::atomic<bool> _stop = false;
@@ -48,7 +48,7 @@ class Controller {
     MachineCtrl& _machineCtrl;
 
 public:
-    Controller(std::unique_ptr<BufferedInputPacketCommunicator> input, std::unique_ptr<OutputPacketCommunicator> output,
+    Controller(std::unique_ptr<InputPacketCommunicator> input, std::unique_ptr<OutputPacketCommunicator> output,
                TimeoutLock& lock, MachineCtrl& machineCtrl):
         _input(std::move(input)),
         _output(std::move(output)),

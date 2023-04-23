@@ -35,7 +35,7 @@ class Device : public MachineCtrl {
     std::thread _machineThread;
 
     struct MachineIO {
-        std::unique_ptr<BufferedInputStreamCommunicator> in;
+        std::unique_ptr<InputStreamCommunicator> in;
         std::unique_ptr<OutputStreamCommunicator> out;
         std::unique_ptr<OutputStreamCommunicator> err;
     } _machineIO;
@@ -78,27 +78,27 @@ public:
         _getStorageStats(getStorageStats),
         _rootDir(rootDir.lexically_normal())
     {
-        Logger::_errorStream = std::make_unique<TransparentOutputStreamCommunicator>(_router, 255, std::vector<int>{});
-        Logger::_logStream = std::make_unique<TransparentOutputStreamCommunicator>(_router, 253, std::vector<int>{});
-        Logger::_debugStream = std::make_unique<TransparentOutputStreamCommunicator>(_router, 251, std::vector<int>{});
+        Logger::_errorStream = std::make_unique<RouterOutputStreamCommunicator>(_router, 255, std::vector<int>{});
+        Logger::_logStream = std::make_unique<RouterOutputStreamCommunicator>(_router, 253, std::vector<int>{});
+        Logger::_debugStream = std::make_unique<RouterOutputStreamCommunicator>(_router, 251, std::vector<int>{});
 
-        auto uploaderInput = std::make_unique<UnboundedBufferedInputPacketCommunicator>();
-        auto uploaderOutput = std::make_unique<TransparentOutputPacketCommunicator>(_router, 1);
+        auto uploaderInput = std::make_unique<RouterInputPacketCommunicator>();
+        auto uploaderOutput = std::make_unique<RouterOutputPacketCommunicator>(_router, 1);
         _router.subscribeChannel(1, *uploaderInput);
 
         _uploader.emplace(std::move(uploaderInput), std::move(uploaderOutput), _lock, _rootDir);
 
-        auto controllerInput = std::make_unique<UnboundedBufferedInputPacketCommunicator>();
-        auto controllerOutput = std::make_unique<TransparentOutputPacketCommunicator>(_router, 0);
+        auto controllerInput = std::make_unique<RouterInputPacketCommunicator>();
+        auto controllerOutput = std::make_unique<RouterOutputPacketCommunicator>(_router, 0);
         _router.subscribeChannel(0, *controllerInput);
 
         _controller.emplace(std::move(controllerInput), std::move(controllerOutput), _lock, *this);
 
-        auto _machineIn = std::make_unique<UnboundedBufferedInputStreamCommunicator>(std::set<int>{});
+        auto _machineIn = std::make_unique<RouterInputStreamCommunicator>(std::set<int>{});
         _router.subscribeChannel(16, *_machineIn);
         _machineIO.in = std::move(_machineIn);
-        _machineIO.out = std::make_unique<TransparentOutputStreamCommunicator>(_router, 16, std::vector<int>{});
-        _machineIO.err = std::make_unique<TransparentOutputStreamCommunicator>(_router, 17, std::vector<int>{});
+        _machineIO.out = std::make_unique<RouterOutputStreamCommunicator>(_router, 16, std::vector<int>{});
+        _machineIO.err = std::make_unique<RouterOutputStreamCommunicator>(_router, 17, std::vector<int>{});
     }
 
     Device(const Device&) = delete;

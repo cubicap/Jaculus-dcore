@@ -24,7 +24,7 @@ public:
 
     class LinkReadable : public Next::Readable {
         LinkIoFeature* _machine;
-        jac::BufferedInputStreamCommunicator* _comm;
+        jac::InputStreamCommunicator* _comm;
         std::thread _thread;
         std::atomic<bool> _running = false;
 
@@ -42,7 +42,7 @@ public:
             return true;
         }
     public:
-        LinkReadable(LinkIoFeature* machine, jac::BufferedInputStreamCommunicator* comm): _machine(machine), _comm(std::move(comm)) {}
+        LinkReadable(LinkIoFeature* machine, jac::InputStreamCommunicator* comm): _machine(machine), _comm(std::move(comm)) {}
         LinkReadable(LinkReadable&) = delete;
         LinkReadable(LinkReadable&&) = delete;
 

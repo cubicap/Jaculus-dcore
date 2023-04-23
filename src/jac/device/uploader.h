@@ -53,7 +53,7 @@ private:
     std::function<bool(std::span<const uint8_t>)> _onData;
     std::function<bool()> _onDataComplete;
 
-    std::unique_ptr<BufferedInputPacketCommunicator> _input;
+    std::unique_ptr<InputPacketCommunicator> _input;
     std::unique_ptr<OutputPacketCommunicator> _output;
 
     bool processPacket(int sender, std::span<const uint8_t> data);
@@ -71,7 +71,7 @@ private:
 
     std::filesystem::path _rootDir;
 public:
-    Uploader(std::unique_ptr<BufferedInputPacketCommunicator> input, std::unique_ptr<OutputPacketCommunicator> output, TimeoutLock& lock, std::filesystem::path rootDir):
+    Uploader(std::unique_ptr<InputPacketCommunicator> input, std::unique_ptr<OutputPacketCommunicator> output, TimeoutLock& lock, std::filesystem::path rootDir):
         _input(std::move(input)),
         _output(std::move(output)),
         _devLock(lock),
