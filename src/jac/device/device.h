@@ -45,6 +45,10 @@ class Device : public MachineCtrl {
 
     std::filesystem::path _rootDir;
 
+    std::vector<std::pair<std::string, std::string>> _versionInfo = {
+        {"dcore", JAC_DCORE_VERSION}
+    };
+
     void configureMachine() {
         _machine = nullptr;
         _machine = std::make_unique<Machine>();
@@ -72,7 +76,8 @@ class Device : public MachineCtrl {
     }
 public:
 
-    Device(std::filesystem::path rootDir, std::function<std::string()> getMemoryStats, std::function<std::string()> getStorageStats):
+    Device(std::filesystem::path rootDir, std::function<std::string()> getMemoryStats,
+            std::function<std::string()> getStorageStats, std::vector<std::pair<std::string, std::string>> versionInfo):
         _lock(std::chrono::seconds(2), std::bind(&Device::lockTimeout, this)),
         _getMemoryStats(getMemoryStats),
         _getStorageStats(getStorageStats),
@@ -92,13 +97,17 @@ public:
         auto controllerOutput = std::make_unique<RouterOutputPacketCommunicator>(_router, 0);
         _router.subscribeChannel(0, *controllerInput);
 
-        _controller.emplace(std::move(controllerInput), std::move(controllerOutput), _lock, *this);
+        _controller.emplace(std::move(controllerInput), std::move(controllerOutput), _lock, *this, _versionInfo);
 
         auto _machineIn = std::make_unique<RouterInputStreamCommunicator>(std::set<int>{});
         _router.subscribeChannel(16, *_machineIn);
         _machineIO.in = std::move(_machineIn);
         _machineIO.out = std::make_unique<RouterOutputStreamCommunicator>(_router, 16, std::vector<int>{});
         _machineIO.err = std::make_unique<RouterOutputStreamCommunicator>(_router, 17, std::vector<int>{});
+
+        for (auto& [name, version] : versionInfo) {
+            _versionInfo.push_back({name, version});
+        }
     }
 
     Device(const Device&) = delete;

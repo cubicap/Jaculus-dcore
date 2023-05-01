@@ -23,6 +23,7 @@ class Controller {
         START = 0x01,
         STOP = 0x02,
         STATUS = 0x03,
+        VERSION = 0x04,
         LOCK = 0x10,
         UNLOCK = 0x11,
         FORCE_UNLOCK = 0x12,
@@ -40,20 +41,23 @@ class Controller {
     void processStart(int sender, std::span<const uint8_t> data);
     void processStop(int sender);
     void processStatus(int sender);
+    void processVersion(int sender);
     void processLock(int sender);
     void processUnlock(int sender);
     void processForceUnlock(int sender);
 
     TimeoutLock& _devLock;
     MachineCtrl& _machineCtrl;
+    std::vector<std::pair<std::string, std::string>>& _versionInfo;
 
 public:
     Controller(std::unique_ptr<InputPacketCommunicator> input, std::unique_ptr<OutputPacketCommunicator> output,
-               TimeoutLock& lock, MachineCtrl& machineCtrl):
+               TimeoutLock& lock, MachineCtrl& machineCtrl, std::vector<std::pair<std::string, std::string>>& versionInfo) :
         _input(std::move(input)),
         _output(std::move(output)),
         _devLock(lock),
-        _machineCtrl(machineCtrl)
+        _machineCtrl(machineCtrl),
+        _versionInfo(versionInfo)
     {}
 
     ~Controller() {

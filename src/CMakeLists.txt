@@ -4,6 +4,7 @@ set(SRC
     "jac/device/logger.cpp"
 )
 
+set(DCORE_VERSION "0.0.3")
 
 if(ESP_PLATFORM)
     idf_component_register(
@@ -13,13 +14,15 @@ if(ESP_PLATFORM)
                 pthread
     )
 
+    target_compile_definitions(${COMPONENT_LIB} PUBLIC -DJAC_DCORE_VERSION="${DCORE_VERSION}")
+
 else()
     Include(FetchContent)
 
     FetchContent_Declare(
         Jaculus-machine
         GIT_REPOSITORY https://github.com/cubicap/Jaculus-machine.git
-        GIT_TAG        v0.0.2
+        GIT_TAG        v0.0.3
     )
     FetchContent_MakeAvailable(Jaculus-machine)
 
@@ -35,5 +38,7 @@ else()
     target_include_directories(jac-device PUBLIC .)
     set_target_properties(jac-device PROPERTIES LINKER_LANGUAGE CXX)
     target_link_libraries(jac-device PUBLIC jac-machine jac-link)
+
+    target_compile_definitions(quickjs PUBLIC -DJAC_DCORE_VERSION="${DCORE_VERSION}")
 
 endif()

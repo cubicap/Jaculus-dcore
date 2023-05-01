@@ -1,5 +1,5 @@
-version: "0.0.2"
-description: "Jaculus-device-core - Core library for creating new Jaculus devices"
+version: "0.0.3"
+description: "Jaculus-dcore - Core library for creating new Jaculus devices"
 dependencies:
   idf: ">=5.0"
   jac-machine:

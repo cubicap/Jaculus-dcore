@@ -1,9 +1,23 @@
 #include <jac/link/stream.h>
+#include <functional>
 #include <iostream>
+#include <thread>
 
 
 class DummyDuplex : public jac::Duplex {
+    std::function<void(void)> _onData;
+    std::jthread _thread;
 public:
+    void start() {
+        _thread = std::jthread([&]() {
+            while (true) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(10));
+                if (_onData) {
+                    _onData();
+                }
+            }
+        });
+    }
 
     int get() override {
         return -1;
@@ -28,4 +42,7 @@ public:
         return true;
     }
 
+    void onData(std::function<void(void)> onData) override {
+        _onData = std::move(onData);
+    }
 };

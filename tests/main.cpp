@@ -14,12 +14,45 @@
 #include <jac/link/mux.h>
 #include <jac/link/encoders/cobs.h>
 
+#include <any>
 #include <string>
 #include <filesystem>
 
 #include <jac/features/linkIoFeature.h>
 
 #include "util.h"
+
+
+using Mux_t = jac::Mux<jac::CobsEncoder>;
+
+
+void reportMuxError(Mux_t::Error error, std::any ctx) {
+    std::string message = "Mux error: ";
+    switch (error) {
+        case Mux_t::Error::INVALID_RECEIVE:
+            {
+                auto& ref = std::any_cast<std::tuple<int, uint8_t>&>(ctx);
+                message += "INVALID_RECEIVE " + std::to_string(std::get<0>(ref));
+                message += " [" + std::to_string(std::get<1>(ref)) + "]";
+                jac::Logger::debug(message);
+            }
+            break;
+        case Mux_t::Error::PACKETIZER:
+            {
+                auto& ref = std::any_cast<int&>(ctx);
+                message += "PACKETIZER_ERROR " + std::to_string(ref);
+                jac::Logger::debug(message);
+            }
+            break;
+        case Mux_t::Error::PROCESSING:
+            {
+                auto& ref = std::any_cast<std::string&>(ctx);
+                message += "PROCESSING_ERROR '" + ref + "'";
+                jac::Logger::error(message);
+            }
+            break;
+    }
+}
 
 
 int main() {
@@ -36,8 +69,6 @@ int main() {
         jac::EventLoopTerminal
     >;
 
-    using Mux_t = jac::Mux<jac::CobsEncoder>;
-
     // create Device
     jac::Device<Machine> device(
         "./test_files",
@@ -46,7 +77,8 @@ int main() {
         },
         []() { // get storage stats
             return "not implemented";
-        }
+        },
+        {{ "test", "0.0.1" }} // version info
     );
 
     // configure communication interface
@@ -55,14 +87,7 @@ int main() {
 
     Mux_t muxMock(std::move(stream));
 
-    muxMock.setErrorHandler([](Mux_t::Error error, std::vector<int> ctx) {
-        std::string message = "Mux error: " + std::to_string(static_cast<int>(error)) + ", ctx: [";
-        for (auto c : ctx) {
-            message += std::to_string(c) + ", ";
-        }
-        message += "]";
-        jac::Logger::log(message);
-    });
+    muxMock.setErrorHandler(reportMuxError);
 
     // connect communication interface to the Device
     auto handle = device.router().subscribeTx(1, muxMock);
@@ -87,7 +112,6 @@ int main() {
     std::jthread t([&]() {
         while (true) {
             std::this_thread::sleep_for(std::chrono::milliseconds(10));
-            muxMock.receive();
         }
     });
 }

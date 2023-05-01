@@ -25,6 +25,9 @@ void Controller::processPacket(int sender, std::span<const uint8_t> data) {
         case Command::STATUS:
             processStatus(sender);
             return;
+        case Command::VERSION:
+            processVersion(sender);
+            return;
         default:
             break;
     }
@@ -85,6 +88,19 @@ void Controller::processStatus(int sender) {
     response->put(static_cast<uint8_t>(code));
 
     response->put(std::span<const uint8_t>(reinterpret_cast<const uint8_t*>(status.data()), status.size()));
+    response->send();
+}
+
+void Controller::processVersion(int sender) {
+    auto response = this->_output->buildPacket({sender});
+    response->put(static_cast<uint8_t>(Command::VERSION));
+
+    std::string version;
+    for (auto& [name, ver] : _versionInfo) {
+        version += name + "@" + ver + "\n";
+    }
+
+    response->put(std::span<const uint8_t>(reinterpret_cast<const uint8_t*>(version.data()), version.size()));
     response->send();
 }
 

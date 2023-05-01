@@ -1,3 +1,6 @@
-# Jaculus-device-core - Core library for creating new Jaculus devices
+# Jaculus - JavaScript runtime for embedded devices
 
-Jaculus-device-core provides the core functionality necessary for defining a new Jaculus device.
+Jaculus allows you to run JavaScript code on embedded platforms.
+
+It is built on top of the [Jaculus-machine](https://github.com/cubicap/Jaculus-machine),
+and uses the [QuickJS](https://bellard.org/quickjs/) JavaScript engine.
