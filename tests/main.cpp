@@ -23,18 +23,18 @@
 
 
 int main() {
-    using Machine =
-        EventLoopTerminal<
-        TimersFeature<
-        EventLoopFeature<
-        ModuleLoaderFeature<
-        FilesystemFeature<
-        LinkIoFeature<
-        StdioFeature<
-        BasicStreamFeature<
-        EventQueueFeature<
-        jac::MachineBase
-    >>>>>>>>>;
+    using Machine = jac::ComposeMachine<
+        jac::MachineBase,
+        jac::EventQueueFeature,
+        jac::BasicStreamFeature,
+        jac::StdioFeature,
+        jac::LinkIoFeature,
+        jac::FilesystemFeature,
+        jac::ModuleLoaderFeature,
+        jac::EventLoopFeature,
+        jac::TimersFeature,
+        jac::EventLoopTerminal
+    >;
 
     using Mux_t = jac::Mux<jac::CobsEncoder>;
 

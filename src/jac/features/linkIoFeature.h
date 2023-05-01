@@ -9,6 +9,9 @@
 #include <thread>
 
 
+namespace jac {
+
+
 template<class Next>
 class LinkIoFeature : public Next {
 public:
@@ -86,3 +89,6 @@ public:
         }
     };
 };
+
+
+} // namespace jac
