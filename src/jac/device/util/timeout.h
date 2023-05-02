@@ -58,6 +58,7 @@ public:
         std::scoped_lock<std::mutex> lock(_mutex);
         _endTime = std::chrono::steady_clock::now() + _duration;
         _running = true;
+        _cv.notify_all();
     }
 
     void stop() {

@@ -78,7 +78,7 @@ public:
 
     Device(std::filesystem::path rootDir, std::function<std::string()> getMemoryStats,
             std::function<std::string()> getStorageStats, std::vector<std::pair<std::string, std::string>> versionInfo):
-        _lock(std::chrono::seconds(2), std::bind(&Device::lockTimeout, this)),
+        _lock(std::chrono::seconds(1), [this] { this->lockTimeout(); }),
         _getMemoryStats(getMemoryStats),
         _getStorageStats(getStorageStats),
         _rootDir(rootDir.lexically_normal())
