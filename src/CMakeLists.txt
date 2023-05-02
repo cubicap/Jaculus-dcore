@@ -22,7 +22,7 @@ else()
     FetchContent_Declare(
         Jaculus-machine
         GIT_REPOSITORY https://github.com/cubicap/Jaculus-machine.git
-        GIT_TAG        v0.0.3
+        GIT_TAG        v0.0.4
     )
     FetchContent_MakeAvailable(Jaculus-machine)
 

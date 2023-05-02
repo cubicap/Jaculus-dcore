@@ -18,7 +18,7 @@
 #include <string>
 #include <filesystem>
 
-#include <jac/features/linkIoFeature.h>
+#include <jac/features/util/linkIo.h>
 
 #include "util.h"
 
@@ -61,7 +61,6 @@ int main() {
         jac::EventQueueFeature,
         jac::BasicStreamFeature,
         jac::StdioFeature,
-        jac::LinkIoFeature,
         jac::FilesystemFeature,
         jac::ModuleLoaderFeature,
         jac::EventLoopFeature,
@@ -97,9 +96,9 @@ int main() {
     device.onConfigureMachine([&](Machine &machine) {
         device.machineIO().in->clear();
 
-        machine.stdio.out = std::make_unique<Machine::LinkWritable>(device.machineIO().out.get());
-        machine.stdio.err = std::make_unique<Machine::LinkWritable>(device.machineIO().err.get());
-        machine.stdio.in = std::make_unique<Machine::LinkReadable>(&machine, device.machineIO().in.get());
+        machine.stdio.out = std::make_unique<jac::LinkWritable>(device.machineIO().out.get());
+        machine.stdio.err = std::make_unique<jac::LinkWritable>(device.machineIO().err.get());
+        machine.stdio.in = std::make_unique<jac::LinkReadable<Machine>>(&machine, device.machineIO().in.get());
     });
 
     // start Device services
