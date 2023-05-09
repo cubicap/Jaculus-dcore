@@ -29,7 +29,7 @@ else()
     FetchContent_Declare(
         Jaculus-link
         GIT_REPOSITORY https://github.com/cubicap/Jaculus-link.git
-        GIT_TAG        v0.0.2
+        GIT_TAG        v0.0.3
     )
     FetchContent_MakeAvailable(Jaculus-link)
 

@@ -9,4 +9,4 @@ dependencies:
   jac-link:
     path: src
     git: https://github.com/cubicap/Jaculus-link.git
-    version: v0.0.2
+    version: v0.0.3
