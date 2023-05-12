@@ -105,7 +105,6 @@ int main() {
     device.start();
 
     // run javascript code from default entry point
-    jac::Logger::debug("starting machine");
     device.startMachine("index.js");
 
     std::jthread t([&]() {

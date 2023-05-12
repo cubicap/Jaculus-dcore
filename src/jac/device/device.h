@@ -33,6 +33,7 @@ class Device : public MachineCtrl {
     std::vector<std::function<void(Machine&)>> _onConfigureMachine;
     std::atomic<bool> _machineRunning = false;
     std::thread _machineThread;
+    std::mutex _machineMutex;
 
     struct MachineIO {
         std::unique_ptr<InputStreamCommunicator> in;
@@ -150,18 +151,27 @@ bool Device<Machine>::startMachine(std::string path) {
     if (_machineRunning) {
         return false;
     }
+
+    std::scoped_lock<std::mutex> lock(_machineMutex);
+
     if (_machineThread.joinable()) {
         _machineThread.join();
     }
 
     _machineThread = std::thread([this, path]() {
         Device<Machine>& self = *this;
-        self._machineRunning = true;
 
-        Logger::log("Starting machine");
+        {
+            std::scoped_lock<std::mutex> lock_(self._machineMutex);
 
-        self.configureMachine();
-        self._machine->initialize();
+            self._machineRunning = true;
+
+            Logger::log("Starting machine");
+
+            self.configureMachine();
+            self._machine->initialize();
+        }
+
         try {
             self._machine->evalFile(path);
             self._machine->runEventLoop();
@@ -185,10 +195,8 @@ bool Device<Machine>::startMachine(std::string path) {
             Logger::log(message);
         }
 
-        {
-            std::string message = "Machine exited with code " + std::to_string(self._machine->getExitCode()) + "\n";
-            this->_machineIO.err->write(std::span<const uint8_t>(reinterpret_cast<const uint8_t*>(message.data()), message.size()));
-        }
+        std::string message = "Machine exited with code " + std::to_string(self._machine->getExitCode()) + "\n";
+        this->_machineIO.err->write(std::span<const uint8_t>(reinterpret_cast<const uint8_t*>(message.data()), message.size()));
 
         self._machineRunning = false;
     });
@@ -201,6 +209,8 @@ bool Device<Machine>::stopMachine() {
     if (!_machineRunning) {
         return false;
     }
+
+    std::unique_lock<std::mutex> lock(_machineMutex);
 
     _machine->kill();
 
