@@ -4,7 +4,7 @@ set(SRC
     "jac/device/logger.cpp"
 )
 
-set(DCORE_VERSION "0.0.5")
+set(DCORE_VERSION "0.0.6")
 
 if(ESP_PLATFORM)
     idf_component_register(
