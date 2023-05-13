@@ -54,6 +54,10 @@ class Device : public MachineCtrl {
         _machine = nullptr;
         _machine = std::make_unique<Machine>();
 
+        if (!std::filesystem::exists(_rootDir / "data")) {
+            std::filesystem::create_directory(_rootDir / "data");
+        }
+
         _machine->setCodeDir(_rootDir / "code");
         _machine->setWorkingDir(_rootDir / "data");
 
