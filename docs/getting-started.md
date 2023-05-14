@@ -49,7 +49,7 @@ To tunnel serial port over TCP, use:
 
 ## Creating and running TypeScript programs
 
-Create a new TypeScript project, from the template provided at ((TODO)).
+Create a new TypeScript project. Examples for ESP32 are available at [GitHub](https://github.com/cubicap/Jaculus-esp32/tree/master/ts-examples).
 
 Compile the project to JavaScript:
 
@@ -87,3 +87,12 @@ To control the device, use the following commands:
     jac stop
     jac status
     jac monitor
+
+
+## Updating the firmware
+
+The CLI tool caches the firmware build in the `~/.jaculus` directory for faster flashing.
+
+To update the firmware, force the tool to download the latest version:
+
+    jaculus install --port <port> --platform <platform> --upstream force

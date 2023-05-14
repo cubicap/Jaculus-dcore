@@ -58,6 +58,7 @@ plugins:
 nav:
   - Home: index.md
   - Getting-started: getting-started.md
+  - Troubleshooting: troubleshooting.md
   - DCore API:
     - Class Index: "doxygen/classes.md"
     - Namespace List: "doxygen/namespaces.md"
