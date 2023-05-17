@@ -8,6 +8,18 @@ The first step is to install the Jaculus CLI tool:
 npm install -g jaculus-tools
 ```
 
+Then, you can run the tools using:
+
+    $ jac
+
+or
+
+    $ npx jac
+
+
+To connect to the device using serial port, the correct driver must be installed - most likely [CP210x USB to UART Bridge](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers).
+
+
 ## Installing the runtime
 
 On Windows, this step requires Python 3 and git to be installed.
@@ -16,14 +28,14 @@ On Linux, this step requires python3, python3-venv, git, cmake.
 
 The runtime can be installed using the following command:
 
-    jaculus install --port <port> --platform <platform>
+    jac install --port <port> --platform <platform>
 
 The command will also need to install ESP-IDF, which can take a while.
 To use an existing ESP-IDF installation, use the `--idf` option.
 
 Verify that the runtime is installed correctly by running:
 
-    jaculus version
+    jac version
 
 
 ## Connecting to the device
@@ -49,7 +61,7 @@ To tunnel serial port over TCP, use:
 
 ## Creating and running TypeScript programs
 
-Create a new TypeScript project. Examples for ESP32 are available at [GitHub](https://github.com/cubicap/Jaculus-esp32/tree/master/ts-examples).
+Create a new TypeScript project. A template project for ESP32 with examples is available on [GitHub](https://github.com/cubicap/Jaculus-esp32/tree/master/ts-examples).
 
 Compile the project to JavaScript:
 
@@ -95,4 +107,4 @@ The CLI tool caches the firmware build in the `~/.jaculus` directory for faster 
 
 To update the firmware, force the tool to download the latest version:
 
-    jaculus install --port <port> --platform <platform> --upstream force
+    jac install --port <port> --platform <platform> --upstream force
