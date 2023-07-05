@@ -5,7 +5,7 @@ dependencies:
   jac-machine:
     path: src
     git: https://github.com/cubicap/Jaculus-machine.git
-    version: v0.0.4
+    version: v0.0.5
   jac-link:
     path: src
     git: https://github.com/cubicap/Jaculus-link.git
