@@ -143,6 +143,8 @@ bool Uploader::processPacket(int sender, std::span<const uint8_t> data) {
             return processCreateDir(sender, std::span<const uint8_t>(begin, data.end()));
         case Command::DELETE_DIR:
             return processDeleteDir(sender, std::span<const uint8_t>(begin, data.end()));
+        case Command::FORMAT_STORAGE:
+            return processFormatStorage(sender, std::span<const uint8_t>(begin, data.end()));
         default:
             auto response = _output->buildPacket({sender});
             response->put(static_cast<uint8_t>(Command::ERROR));
@@ -469,6 +471,24 @@ bool Uploader::processDeleteDir(int sender, std::span<const uint8_t> data) {
         response->send();
         return false;
     }
+}
+
+bool Uploader::processFormatStorage(int sender, std::span<const uint8_t> data) {
+    if (data.size() != 1 && data[0] != static_cast<uint8_t>(Command::OK)) {
+        auto response = _output->buildPacket({sender});
+        response->put(static_cast<uint8_t>(Command::ERROR));
+        response->send();
+        return false;
+    }
+
+    _formatFS(_rootDir);
+
+    auto response = _output->buildPacket({sender});
+    response->put(static_cast<uint8_t>(Command::OK));
+    response->send();
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+    std::exit(0);
 }
 
 

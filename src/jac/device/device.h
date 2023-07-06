@@ -58,6 +58,10 @@ class Device : public MachineCtrl {
             std::filesystem::create_directory(_rootDir / "data");
         }
 
+        if (!std::filesystem::exists(_rootDir / "code")) {
+            std::filesystem::create_directory(_rootDir / "code");
+        }
+
         _machine->setCodeDir(_rootDir / "code");
         _machine->setWorkingDir(_rootDir / "data");
 
@@ -82,7 +86,8 @@ class Device : public MachineCtrl {
 public:
 
     Device(std::filesystem::path rootDir, std::function<std::string()> getMemoryStats,
-            std::function<std::string()> getStorageStats, std::vector<std::pair<std::string, std::string>> versionInfo):
+            std::function<std::string()> getStorageStats, std::vector<std::pair<std::string, std::string>> versionInfo,
+            std::function<void(std::filesystem::path)> formatFS):
         _lock(std::chrono::seconds(1), [this] { this->lockTimeout(); }),
         _getMemoryStats(getMemoryStats),
         _getStorageStats(getStorageStats),
@@ -96,7 +101,7 @@ public:
         auto uploaderOutput = std::make_unique<RouterOutputPacketCommunicator>(_router, 1);
         _router.subscribeChannel(1, *uploaderInput);
 
-        _uploader.emplace(std::move(uploaderInput), std::move(uploaderOutput), _lock, _rootDir);
+        _uploader.emplace(std::move(uploaderInput), std::move(uploaderOutput), _lock, _rootDir, std::move(formatFS));
 
         auto controllerInput = std::make_unique<RouterInputPacketCommunicator>();
         auto controllerOutput = std::make_unique<RouterOutputPacketCommunicator>(_router, 0);

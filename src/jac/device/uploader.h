@@ -24,6 +24,7 @@ public:
         LIST_DIR = 0x04,
         CREATE_DIR = 0x05,
         DELETE_DIR = 0x06,
+        FORMAT_STORAGE = 0x07,
         HAS_MORE_DATA = 0x10,
         LAST_DATA = 0x11,
         OK = 0x20,
@@ -63,6 +64,7 @@ private:
     bool processListDir(int sender, std::span<const uint8_t> data);
     bool processCreateDir(int sender, std::span<const uint8_t> data);
     bool processDeleteDir(int sender, std::span<const uint8_t> data);
+    bool processFormatStorage(int sender, std::span<const uint8_t> data);
 
     std::thread _thread;
     std::atomic<bool> _stop = false;
@@ -70,12 +72,15 @@ private:
     TimeoutLock& _devLock;
 
     std::filesystem::path _rootDir;
+    std::function<void(std::filesystem::path)> _formatFS;
 public:
-    Uploader(std::unique_ptr<InputPacketCommunicator> input, std::unique_ptr<OutputPacketCommunicator> output, TimeoutLock& lock, std::filesystem::path rootDir):
+    Uploader(std::unique_ptr<InputPacketCommunicator> input, std::unique_ptr<OutputPacketCommunicator> output, TimeoutLock& lock,
+             std::filesystem::path rootDir, std::function<void(std::filesystem::path)> formatFS):
         _input(std::move(input)),
         _output(std::move(output)),
         _devLock(lock),
-        _rootDir(std::move(rootDir))
+        _rootDir(std::move(rootDir)),
+        _formatFS(std::move(formatFS))
     {}
 
     Uploader(const Uploader&) = delete;

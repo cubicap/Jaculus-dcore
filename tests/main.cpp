@@ -77,7 +77,12 @@ int main() {
         []() { // get storage stats
             return "not implemented";
         },
-        {{ "test", "0.0.1" }} // version info
+        {{ "test", "0.0.1" }}, // version info
+        [](std::filesystem::path path) { // format storage
+            for (auto& p : std::filesystem::directory_iterator(path)) {
+                std::filesystem::remove_all(p);
+            }
+        }
     );
 
     // configure communication interface
