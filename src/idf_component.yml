@@ -1,4 +1,4 @@
-version: "0.0.7"
+version: "0.0.8"
 description: "Jaculus-dcore - Core library for creating new Jaculus devices"
 dependencies:
   idf: ">=5.0"
