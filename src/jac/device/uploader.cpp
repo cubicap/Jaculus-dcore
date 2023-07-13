@@ -414,7 +414,11 @@ bool Uploader::processCreateDir(int sender, std::span<const uint8_t> data) {
     bool success;
 
     try {
-        success = std::filesystem::create_directory(*path);
+        if(std::filesystem::is_directory(*path)) {
+            success = true;
+        } else {
+            success = std::filesystem::create_directory(*path);
+        }
     }
     catch (const std::filesystem::filesystem_error& e) {
         Logger::error(std::string("Failed to create directory: ") + e.what());
