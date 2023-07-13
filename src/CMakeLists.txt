@@ -2,6 +2,7 @@ set(SRC
     "jac/device/uploader.cpp"
     "jac/device/controller.cpp"
     "jac/device/logger.cpp"
+    "jac/device/util/sha1.c"
 )
 
 set(DCORE_VERSION "0.0.8")
@@ -11,10 +12,10 @@ if(ESP_PLATFORM)
         SRCS ${SRC}
         INCLUDE_DIRS .
         REQUIRES jac-machine jac-link
-                pthread
+                pthread mbedtls
     )
 
-    target_compile_definitions(${COMPONENT_LIB} PUBLIC -DJAC_DCORE_VERSION="${DCORE_VERSION}")
+    target_compile_definitions(${COMPONENT_LIB} PUBLIC -DJAC_DCORE_USE_MBEDTLS=1 -DJAC_DCORE_VERSION="${DCORE_VERSION}")
 
 else()
     Include(FetchContent)

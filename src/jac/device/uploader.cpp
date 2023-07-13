@@ -1,5 +1,6 @@
 #include "uploader.h"
 #include "logger.h"
+#include "util/sha1.h"
 
 #include <fstream>
 #include <memory>
@@ -8,11 +9,46 @@
 #include <dirent.h>
 #include <optional>
 
-
 namespace jac {
 
+class Sha1Hasher {
+public:
+    Sha1Hasher() {
+        mbedtls_sha1_init(&_ctx);
+    }
+    Sha1Hasher(const Sha1Hasher&) = delete;
+    ~Sha1Hasher() {
+         mbedtls_sha1_free(&_ctx);
+    }
 
-std::optional<std::filesystem::path> getAbsolute(std::string filename, std::filesystem::path& rootDir) {
+    std::span<const uint8_t, 20> processFile(const std::filesystem::path& path) {
+        _res.fill(0);
+
+        auto file = std::fstream(path, std::ios::in | std::ios::binary);
+        if (!file.is_open()) {
+            return _res;
+        }
+
+        mbedtls_sha1_starts(&_ctx);
+
+        uint8_t buf[256];
+        size_t read = 0;
+        do {
+            file.read(reinterpret_cast<char*>(buf), sizeof(buf));;
+            read = file.gcount();
+            mbedtls_sha1_update(&_ctx, buf, read);
+        } while(read > 0);
+
+        mbedtls_sha1_finish(&_ctx, _res.data());
+        return _res;
+    }
+
+private:
+    std::array<uint8_t, 20> _res;
+    mbedtls_sha1_context _ctx;
+};
+
+static std::optional<std::filesystem::path> getAbsolute(std::string filename, std::filesystem::path& rootDir) {
     std::filesystem::path normal = (rootDir / filename).lexically_normal();
     auto [it, _] = std::mismatch(rootDir.begin(), rootDir.end(), normal.begin(), normal.end());
     if (it == rootDir.end()) {
@@ -22,7 +58,7 @@ std::optional<std::filesystem::path> getAbsolute(std::string filename, std::file
 }
 
 
-std::optional<std::pair<std::vector<std::string>, size_t>> listDir(std::filesystem::path& path) {
+static std::optional<std::pair<std::vector<std::string>, size_t>> listDir(std::filesystem::path& path) {
     size_t dataSize = 0;
     std::vector<std::string> files;
     DIR *dir;
@@ -45,7 +81,8 @@ std::optional<std::pair<std::vector<std::string>, size_t>> listDir(std::filesyst
     return std::make_pair(files, dataSize);
 }
 
-bool deleteDir(std::filesystem::path& path, bool onlyContents) {
+
+static bool deleteDir(std::filesystem::path& path, bool onlyContents) {
     auto list = listDir(path);
     if (!list) {
         return false;
@@ -145,6 +182,8 @@ bool Uploader::processPacket(int sender, std::span<const uint8_t> data) {
             return processDeleteDir(sender, std::span<const uint8_t>(begin, data.end()));
         case Command::FORMAT_STORAGE:
             return processFormatStorage(sender, std::span<const uint8_t>(begin, data.end()));
+        case Command::GET_DIR_HASHES:
+            return processGetHashes(sender, std::span<const uint8_t>(begin, data.end()));
         default:
             auto response = _output->buildPacket({sender});
             response->put(static_cast<uint8_t>(Command::ERROR));
@@ -225,13 +264,13 @@ bool Uploader::processWriteFile(int sender, std::span<const uint8_t> data) {
     }
     _onData = [this, sender](std::span<const uint8_t> data_) {
         _file.write(reinterpret_cast<const char*>(data_.data()), data_.size());
-        _file.sync();
         auto response = _output->buildPacket({sender});
         response->put(static_cast<uint8_t>(Command::CONTINUE));
         response->send();
         return true;
     };
     _onDataComplete = [this, sender]() {
+        _file.sync();
         _file.close();
         auto response = _output->buildPacket({sender});
         response->put(static_cast<uint8_t>(Command::OK));
@@ -360,7 +399,7 @@ bool Uploader::processListDir(int sender, std::span<const uint8_t> data) {
     }
 
     std::tie(files, dataSize) = *result;
-    dataSize += files.size() * 5;  // for the type byte and size
+    dataSize += files.size() * 5; // for the type byte and size
 
     auto it = files.begin();
     Command prefix = Command::HAS_MORE_DATA;
@@ -493,6 +532,111 @@ bool Uploader::processFormatStorage(int sender, std::span<const uint8_t> data) {
 
     std::this_thread::sleep_for(std::chrono::milliseconds(200));
     std::exit(0);
+}
+
+bool Uploader::processGetHashes(int sender, std::span<const uint8_t> data) {
+    auto dataIt = std::find(data.begin(), data.end(), '\0');
+    std::string filename(data.begin(), dataIt);
+    auto path = getAbsolute(filename, _rootDir);
+    if (!path) {
+        auto response = _output->buildPacket({sender});
+        response->put(static_cast<uint8_t>(Command::NOT_FOUND));
+        response->send();
+        return false;
+    }
+
+    bool isDir = false;
+    try {
+        isDir = std::filesystem::is_directory(*path);
+    }
+    catch (const std::filesystem::filesystem_error& e) {
+        Logger::error(std::string("Failed to list directory: ") + e.what());
+    }
+
+    if (!isDir) {
+        auto response = _output->buildPacket({sender});
+        response->put(static_cast<uint8_t>(Command::ERROR));
+        response->put(static_cast<uint8_t>(Error::DIR_OPEN_FAILED));
+        response->send();
+        return false;
+    }
+
+    const size_t root_path_len = path->string().size() + 1;
+    std::vector<std::string> files;
+    std::vector<std::filesystem::path> dirs = { *path };
+
+    Sha1Hasher hasher;
+
+    while(!dirs.empty()) {
+        std::filesystem::path cur_path = dirs.back();
+        dirs.pop_back();
+        const auto cur_path_str = cur_path.string();
+        const auto rel_cur_path = cur_path_str.size() > root_path_len ? cur_path_str.substr(root_path_len) : std::string();
+
+        DIR *dir = opendir(cur_path_str.c_str());
+        if (dir == NULL) {
+            continue;
+        }
+
+        auto response = _output->buildPacket({sender});
+        response->put(static_cast<uint8_t>(Command::HAS_MORE_DATA));
+
+        bool hasAnyData = false;
+
+        struct dirent *ent;
+        while ((ent = readdir(dir)) != NULL) {
+            try {
+                if(ent->d_type == DT_DIR) {
+                    dirs.push_back(cur_path / ent->d_name);
+                    continue;
+                } else if(ent->d_type != DT_REG) {
+                    continue;
+                }
+
+                std::string file_path;
+                if(!rel_cur_path.empty()) {
+                    file_path = rel_cur_path + "/" +  ent->d_name;
+                } else {
+                    file_path = std::string(ent->d_name);
+                }
+
+                if(file_path.size() + 1 > response->space()) {
+                    response->send();
+                    response = _output->buildPacket({sender});
+                    response->put(static_cast<uint8_t>(Command::HAS_MORE_DATA));
+                }
+
+                response->put(std::span<const uint8_t>(reinterpret_cast<const uint8_t*>(file_path.c_str()), file_path.size()));
+                response->put(static_cast<uint8_t>('\0'));
+
+                if(20 > response->space()) {
+                    response->send();
+                    response = _output->buildPacket({sender});
+                    response->put(static_cast<uint8_t>(Command::HAS_MORE_DATA));
+                }
+                response->put(hasher.processFile(cur_path / ent->d_name));
+                hasAnyData = true;
+            }
+            catch (std::bad_alloc& e) {
+                closedir(dir);
+                response = _output->buildPacket({sender});
+                response->put(static_cast<uint8_t>(Command::ERROR));
+                response->put(static_cast<uint8_t>(Error::FILE_OPEN_FAILED));
+                response->send();
+                return false;
+            }
+        }
+        closedir(dir);
+
+        if(hasAnyData) {
+            response->send();
+        }
+    }
+
+    auto response = _output->buildPacket({sender});
+    response->put(static_cast<uint8_t>(Command::LAST_DATA));
+    response->send();
+    return true;
 }
 
 

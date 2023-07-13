@@ -32,6 +32,7 @@ public:
         NOT_FOUND = 0x22,
         CONTINUE = 0x23,
         LOCK_NOT_OWNED = 0x24,
+        GET_DIR_HASHES = 0x25,
     };
 
     enum class Error : uint8_t {
@@ -65,6 +66,7 @@ private:
     bool processCreateDir(int sender, std::span<const uint8_t> data);
     bool processDeleteDir(int sender, std::span<const uint8_t> data);
     bool processFormatStorage(int sender, std::span<const uint8_t> data);
+    bool processGetHashes(int sender, std::span<const uint8_t> data);
 
     std::thread _thread;
     std::atomic<bool> _stop = false;
