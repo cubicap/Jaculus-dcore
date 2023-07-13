@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_7dcf813d97a5be213fa89559baaee677" kind="dir">
+    <compoundname>src/jac/device</compoundname>
+    <innerdir refid="dir_5f36e4b8294e45bcbbea85a29a4cc9c0">src/jac/device/util</innerdir>
+    <innerfile refid="controller_8cpp">controller.cpp</innerfile>
+    <innerfile refid="controller_8h">controller.h</innerfile>
+    <innerfile refid="device_8h">device.h</innerfile>
+    <innerfile refid="logger_8cpp">logger.cpp</innerfile>
+    <innerfile refid="logger_8h">logger.h</innerfile>
+    <innerfile refid="uploader_8cpp">uploader.cpp</innerfile>
+    <innerfile refid="uploader_8h">uploader.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/device/"/>
+  </compounddef>
+</doxygen>

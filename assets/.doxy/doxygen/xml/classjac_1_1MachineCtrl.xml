@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1MachineCtrl" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>jac::MachineCtrl</compoundname>
+    <derivedcompoundref refid="classjac_1_1Device" prot="public" virt="non-virtual">jac::Device&lt; Machine &gt;</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1MachineCtrl_1a4330c7e6f67b557bfbc41da7d91fb102" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool jac::MachineCtrl::startMachine</definition>
+        <argsstring>(std::string path)=0</argsstring>
+        <name>startMachine</name>
+        <reimplementedby refid="classjac_1_1Device_1a6b13edfd52735ca2dd293dc03bf49632">startMachine</reimplementedby>
+        <param>
+          <type>std::string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/machineCtrl.h" line="12" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1MachineCtrl_1a08e943c1322dd7b3373aeb03341f370c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool jac::MachineCtrl::stopMachine</definition>
+        <argsstring>()=0</argsstring>
+        <name>stopMachine</name>
+        <reimplementedby refid="classjac_1_1Device_1a7255f4776520b7593b72f214d617bf6b">stopMachine</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/machineCtrl.h" line="13" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1MachineCtrl_1a95a0e3f387677af32aa35d98827abf2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::tuple&lt; bool, int, std::string &gt;</type>
+        <definition>virtual std::tuple&lt;bool, int, std::string&gt; jac::MachineCtrl::getMachineStatus</definition>
+        <argsstring>()=0</argsstring>
+        <name>getMachineStatus</name>
+        <reimplementedby refid="classjac_1_1Device_1ab61ae515bb4eea75ec374157d3f26d4e">getMachineStatus</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/machineCtrl.h" line="14" column="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>jac::Device&lt; Machine &gt;</label>
+        <link refid="classjac_1_1Device"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>jac::MachineCtrl</label>
+        <link refid="classjac_1_1MachineCtrl"/>
+      </node>
+    </inheritancegraph>
+    <location file="src/jac/device/util/machineCtrl.h" line="10" column="1" bodyfile="src/jac/device/util/machineCtrl.h" bodystart="10" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classjac_1_1MachineCtrl_1a95a0e3f387677af32aa35d98827abf2c" prot="public" virt="pure-virtual"><scope>jac::MachineCtrl</scope><name>getMachineStatus</name></member>
+      <member refid="classjac_1_1MachineCtrl_1a4330c7e6f67b557bfbc41da7d91fb102" prot="public" virt="pure-virtual"><scope>jac::MachineCtrl</scope><name>startMachine</name></member>
+      <member refid="classjac_1_1MachineCtrl_1a08e943c1322dd7b3373aeb03341f370c" prot="public" virt="pure-virtual"><scope>jac::MachineCtrl</scope><name>stopMachine</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

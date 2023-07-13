@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmbedtls__sha1__context" kind="struct" language="C++" prot="public">
+    <compoundname>mbedtls_sha1_context</compoundname>
+    <includes refid="sha1_8h" local="no">sha1.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmbedtls__sha1__context_1af42c660c3451b969b9618546dcc7ddeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t mbedtls_sha1_context::MBEDTLS_PRIVATE</definition>
+        <argsstring>(total)[2]</argsstring>
+        <name>MBEDTLS_PRIVATE</name>
+        <param>
+          <type>total</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The number of Bytes processed. <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="61" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structmbedtls__sha1__context_1a9013ba948d6cb7008b96e5db8a293d07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>uint32_t</type>
+        <definition>uint32_t mbedtls_sha1_context::MBEDTLS_PRIVATE</definition>
+        <argsstring>(state)[5]</argsstring>
+        <name>MBEDTLS_PRIVATE</name>
+        <param>
+          <type>state</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The intermediate digest state. <linebreak/>
+ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="62" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structmbedtls__sha1__context_1aff2d8075116ee7871206d3684cc1106e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned char</type>
+        <definition>unsigned char mbedtls_sha1_context::MBEDTLS_PRIVATE</definition>
+        <argsstring>(buffer)[64]</argsstring>
+        <name>MBEDTLS_PRIVATE</name>
+        <param>
+          <type>buffer</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The data block being processed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="63" column="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>The SHA-1 context structure. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="warning"><para>SHA-1 is considered a weak message digest and its use constitutes a security risk. We recommend considering stronger message digests instead. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="src/jac/device/util/sha1.h" line="60" column="1" bodyfile="src/jac/device/util/sha1.h" bodystart="60" bodyend="64"/>
+    <listofallmembers>
+      <member refid="structmbedtls__sha1__context_1af42c660c3451b969b9618546dcc7ddeb" prot="public" virt="non-virtual"><scope>mbedtls_sha1_context</scope><name>MBEDTLS_PRIVATE</name></member>
+      <member refid="structmbedtls__sha1__context_1a9013ba948d6cb7008b96e5db8a293d07" prot="public" virt="non-virtual"><scope>mbedtls_sha1_context</scope><name>MBEDTLS_PRIVATE</name></member>
+      <member refid="structmbedtls__sha1__context_1aff2d8075116ee7871206d3684cc1106e" prot="public" virt="non-virtual"><scope>mbedtls_sha1_context</scope><name>MBEDTLS_PRIVATE</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
