@@ -20,9 +20,14 @@ class Timeout {
     std::condition_variable _cv;
     std::thread _thread;
 public:
-    Timeout(std::chrono::milliseconds duration):
-        _duration(duration)
-    {
+    Timeout(std::chrono::milliseconds duration) : _duration(duration) {}
+
+    Timeout(const Timeout&) = delete;
+    Timeout(Timeout&&) = delete;
+    Timeout& operator=(const Timeout&) = delete;
+    Timeout& operator=(Timeout&&) = delete;
+
+    void init() {
         _thread = std::thread([this]() {
             while (!_stop) {
                 std::unique_lock<std::mutex> lock(_mutex);
@@ -40,11 +45,6 @@ public:
             }
         });
     }
-
-    Timeout(const Timeout&) = delete;
-    Timeout(Timeout&&) = delete;
-    Timeout& operator=(const Timeout&) = delete;
-    Timeout& operator=(Timeout&&) = delete;
 
     void start(std::function<void()> callback) {
         std::unique_lock<std::mutex> lock(_mutex);
@@ -74,7 +74,9 @@ public:
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
         lock.unlock();
         _cv.notify_all();
-        _thread.join();
+        if (_thread.joinable()) {
+            _thread.join();
+        }
     }
 };
 

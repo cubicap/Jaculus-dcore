@@ -26,6 +26,10 @@ public:
     TimeoutLock& operator=(const TimeoutLock&) = delete;
     TimeoutLock& operator=(TimeoutLock&&) = delete;
 
+    void init() {
+        _timeout.init();
+    }
+
     bool lock(int who) {
         std::scoped_lock<std::mutex> _(_mutex);
 

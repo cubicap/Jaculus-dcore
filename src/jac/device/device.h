@@ -126,6 +126,7 @@ public:
     Device& operator=(Device&&) = delete;
 
     void start() {
+        _lock.init();
         _uploader->start();
         _controller->start();
     }
