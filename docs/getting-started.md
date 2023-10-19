@@ -17,21 +17,18 @@ or
     $ npx jac
 
 
-To connect to the device using serial port, the correct driver must be installed - most likely [CP210x USB to UART Bridge](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers).
+To connect to the device using serial port, the correct driver must be installed — most likely [CP210x USB to UART Bridge](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers).
 
 
-## Installing the runtime
+### Installing Jaculus firmware to the device
 
-On Windows, this step requires Python 3 and git to be installed.
-
-On Linux, this step requires python3, python3-venv, git, cmake.
+First, the Jaculus runtime must be installed on the device.
 
 The runtime can be installed using the following command:
 
-    jac install --port <port> --platform <platform>
+    jac install --package <package.tar.gz> --port <port>
 
-The command will also need to install ESP-IDF, which can take a while.
-To use an existing ESP-IDF installation, use the `--idf` option.
+The command will download the selected package and install it on the device (packages can be found on the [downloads page](https://f.jaculus.org)). The package info can be viewed using the `--info` flag.
 
 Verify that the runtime is installed correctly by running:
 
@@ -103,8 +100,6 @@ To control the device, use the following commands:
 
 ## Updating the firmware
 
-The CLI tool caches the firmware build in the `~/.jaculus` directory for faster flashing.
+To update the firmware, just install the new runtime package using the `install` command.
 
-To update the firmware, force the tool to download the latest version:
-
-    jac install --port <port> --platform <platform> --upstream force
+Note that this will erase all data stored on the device. It may be also necessary to update the type definitions for the runtime. They can be found in the example project on [GitHub](https://github.com/cubicap/Jaculus-esp32/tree/master/ts-examples).
