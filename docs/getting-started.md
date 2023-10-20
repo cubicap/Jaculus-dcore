@@ -2,7 +2,9 @@
 
 ## Setup
 
-The first step is to install the Jaculus CLI tool:
+Make sure, you have [Node.js](https://nodejs.org) installed. The recommended version is 18.0.0 or newer.
+
+Next, install the Jaculus CLI tool:
 
 ```bash
 npm install -g jaculus-tools
