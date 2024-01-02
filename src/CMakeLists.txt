@@ -35,10 +35,10 @@ else()
     FetchContent_MakeAvailable(Jaculus-link)
 
 
-    add_library(jac-device STATIC ${SRC})
-    target_include_directories(jac-device PUBLIC .)
-    set_target_properties(jac-device PROPERTIES LINKER_LANGUAGE CXX)
-    target_link_libraries(jac-device PUBLIC jac-machine jac-link)
+    add_library(jac-dcore STATIC ${SRC})
+    target_include_directories(jac-dcore PUBLIC .)
+    set_target_properties(jac-dcore PROPERTIES LINKER_LANGUAGE CXX)
+    target_link_libraries(jac-dcore PUBLIC jac-machine jac-link)
 
     target_compile_definitions(quickjs PUBLIC -DJAC_DCORE_VERSION="${DCORE_VERSION}")
 

@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.0)
 if(ESP_PLATFORM)
     set(EXTRA_COMPONENT_DIRS ${EXTRA_COMPONENT_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/src)
 else()
-    project(Jaculus-device)
+    project(Jaculus-dcore)
 
 
     if(CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
