@@ -22,6 +22,8 @@
 
 #include "util.h"
 
+#include "resources.h"
+
 
 using Mux_t = jac::Mux<jac::CobsEncoder>;
 
@@ -82,6 +84,9 @@ int main() {
             for (auto& p : std::filesystem::directory_iterator(path)) {
                 std::filesystem::remove_all(p);
             }
+        },
+        {
+            { "test_files", resources::testFilesTar }
         }
     );
 

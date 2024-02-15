@@ -184,14 +184,28 @@ bool Uploader::processPacket(int sender, std::span<const uint8_t> data) {
             return processFormatStorage(sender, std::span<const uint8_t>(begin, data.end()));
         case Command::GET_DIR_HASHES:
             return processGetHashes(sender, std::span<const uint8_t>(begin, data.end()));
-        default:
-            auto response = _output->buildPacket({sender});
-            response->put(static_cast<uint8_t>(Command::ERROR));
-            response->put(static_cast<uint8_t>(Error::UNKNOWN_COMMAND));
-            response->put(static_cast<uint8_t>(cmd));
-            response->send();
-            return false;
+        case Command::LIST_RESOURCES:
+            return processListResources(sender, std::span<const uint8_t>(begin, data.end()));
+        case Command::READ_RESOURCE:
+            return processReadResource(sender, std::span<const uint8_t>(begin, data.end()));
+        case Command::HAS_MORE_DATA:
+        case Command::LAST_DATA:
+        case Command::OK:
+        case Command::ERROR:
+        case Command::NOT_FOUND:
+        case Command::CONTINUE:
+        case Command::LOCK_NOT_OWNED:
+            // these commands are invalid in this context
+            break;
     }
+
+    // unknown command
+    auto response = _output->buildPacket({sender});
+    response->put(static_cast<uint8_t>(Command::ERROR));
+    response->put(static_cast<uint8_t>(Error::UNKNOWN_COMMAND));
+    response->put(static_cast<uint8_t>(cmd));
+    response->send();
+    return false;
 }
 
 bool Uploader::processReadFile(int sender, std::span<const uint8_t> data) {
@@ -639,5 +653,56 @@ bool Uploader::processGetHashes(int sender, std::span<const uint8_t> data) {
     return true;
 }
 
+bool Uploader::processListResources(int sender, std::span<const uint8_t> data) {
+    auto response = this->_output->buildPacket({sender});
+    response->put(static_cast<uint8_t>(Command::LAST_DATA));
+
+    std::string out;
+    for (auto& [name, rdata] : _resources) {
+        response->put(std::span<const uint8_t>(reinterpret_cast<const uint8_t*>(name.data()), name.size()));
+        response->put(static_cast<uint8_t>('\0'));
+        for (int i = 3; i >= 0; i--) {
+            response->put(static_cast<uint8_t>((rdata.size() & (uint32_t(0xff) << (i * 8))) >> (i * 8)));
+        }
+    }
+
+    response->send();
+
+    return true;
+}
+
+bool Uploader::processReadResource(int sender, std::span<const uint8_t> data) {
+    auto begin = data.begin();
+    std::string resource(begin, data.end());
+
+    auto it = _resources.find(resource);
+    if (it == _resources.end()) {
+        auto response = _output->buildPacket({sender});
+        response->put(static_cast<uint8_t>(Command::NOT_FOUND));
+        response->send();
+        return false;
+    }
+
+    std::span<const uint8_t> dataSpan = it->second;
+
+    size_t windowSize = _output->maxPacketSize({sender}) - 1;
+
+    Command prefix = Command::HAS_MORE_DATA;
+    size_t sent = std::max(dataSpan.size(), std::size_t(1));
+    while (sent > 0) {
+        if (dataSpan.size() <= windowSize) {
+            prefix = Command::LAST_DATA;
+        }
+
+        auto response = _output->buildPacket({sender});
+        response->put(static_cast<uint8_t>(prefix));
+        sent = response->put(dataSpan);
+        Logger::debug("Read " + std::to_string(sent) + " bytes");
+        response->send();
+
+        dataSpan = dataSpan.subspan(sent);
+    }
+    return true;
+}
 
 } // namespace jac

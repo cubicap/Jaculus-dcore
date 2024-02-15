@@ -25,6 +25,8 @@ public:
         CREATE_DIR = 0x05,
         DELETE_DIR = 0x06,
         FORMAT_STORAGE = 0x07,
+        LIST_RESOURCES = 0x08,
+        READ_RESOURCE = 0x09,
         HAS_MORE_DATA = 0x10,
         LAST_DATA = 0x11,
         OK = 0x20,
@@ -67,6 +69,8 @@ private:
     bool processDeleteDir(int sender, std::span<const uint8_t> data);
     bool processFormatStorage(int sender, std::span<const uint8_t> data);
     bool processGetHashes(int sender, std::span<const uint8_t> data);
+    bool processListResources(int sender, std::span<const uint8_t> data);
+    bool processReadResource(int sender, std::span<const uint8_t> data);
 
     std::thread _thread;
     std::atomic<bool> _stop = false;
@@ -75,14 +79,23 @@ private:
 
     std::filesystem::path _rootDir;
     std::function<void(std::filesystem::path)> _formatFS;
+
+    std::unordered_map<std::string, std::span<const uint8_t>> _resources;
 public:
-    Uploader(std::unique_ptr<InputPacketCommunicator> input, std::unique_ptr<OutputPacketCommunicator> output, TimeoutLock& lock,
-             std::filesystem::path rootDir, std::function<void(std::filesystem::path)> formatFS):
+    Uploader(
+        std::unique_ptr<InputPacketCommunicator> input,
+        std::unique_ptr<OutputPacketCommunicator> output,
+        TimeoutLock& lock,
+        std::filesystem::path rootDir,
+        std::function<void(std::filesystem::path)> formatFS,
+        std::unordered_map<std::string, std::span<const uint8_t>> resources
+    ):
         _input(std::move(input)),
         _output(std::move(output)),
         _devLock(lock),
         _rootDir(std::move(rootDir)),
-        _formatFS(std::move(formatFS))
+        _formatFS(std::move(formatFS)),
+        _resources(std::move(resources))
     {}
 
     Uploader(const Uploader&) = delete;

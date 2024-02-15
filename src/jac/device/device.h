@@ -85,9 +85,14 @@ class Device : public MachineCtrl {
     }
 public:
 
-    Device(std::filesystem::path rootDir, std::function<std::string()> getMemoryStats,
-            std::function<std::string()> getStorageStats, std::vector<std::pair<std::string, std::string>> versionInfo,
-            std::function<void(std::filesystem::path)> formatFS):
+    Device(
+        std::filesystem::path rootDir,
+        std::function<std::string()> getMemoryStats,
+        std::function<std::string()> getStorageStats,
+        std::vector<std::pair<std::string, std::string>> versionInfo,
+        std::function<void(std::filesystem::path)> formatFS,
+        std::unordered_map<std::string, std::span<const uint8_t>> resources
+    ):
         _lock(std::chrono::seconds(1), [this] { this->lockTimeout(); }),
         _getMemoryStats(getMemoryStats),
         _getStorageStats(getStorageStats),
@@ -101,7 +106,14 @@ public:
         auto uploaderOutput = std::make_unique<RouterOutputPacketCommunicator>(_router, 1);
         _router.subscribeChannel(1, *uploaderInput);
 
-        _uploader.emplace(std::move(uploaderInput), std::move(uploaderOutput), _lock, _rootDir, std::move(formatFS));
+        _uploader.emplace(
+            std::move(uploaderInput),
+            std::move(uploaderOutput),
+            _lock,
+            _rootDir,
+            std::move(formatFS),
+            std::move(resources)
+        );
 
         auto controllerInput = std::make_unique<RouterInputPacketCommunicator>();
         auto controllerOutput = std::make_unique<RouterOutputPacketCommunicator>(_router, 0);
