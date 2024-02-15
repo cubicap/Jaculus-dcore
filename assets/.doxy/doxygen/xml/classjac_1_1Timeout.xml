@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1Timeout" kind="class" language="C++" prot="public">
+    <compoundname>jac::Timeout</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1Timeout_1ad0b6ecfb3a92ad72e655d7a51cea37f3" prot="private" static="no" mutable="no">
+        <type>std::function&lt; void()&gt;</type>
+        <definition>std::function&lt;void()&gt; jac::Timeout::_callback</definition>
+        <argsstring></argsstring>
+        <name>_callback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="14" column="19" bodyfile="src/jac/device/util/timeout.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Timeout_1a0c141eb3537c58d5d605e3d838c89c75" prot="private" static="no" mutable="no">
+        <type>std::chrono::milliseconds</type>
+        <definition>std::chrono::milliseconds jac::Timeout::_duration</definition>
+        <argsstring></argsstring>
+        <name>_duration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="15" column="31" bodyfile="src/jac/device/util/timeout.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Timeout_1a4db68a41e33c2fe32982abddb1a0949b" prot="private" static="no" mutable="no">
+        <type>std::chrono::steady_clock::time_point</type>
+        <definition>std::chrono::steady_clock::time_point jac::Timeout::_endTime</definition>
+        <argsstring></argsstring>
+        <name>_endTime</name>
+        <initializer>= std::chrono::steady_clock::time_point::max()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="16" column="43" bodyfile="src/jac/device/util/timeout.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Timeout_1a632df8edf1bc1645c718ce043a96ef66" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool jac::Timeout::_stop</definition>
+        <argsstring></argsstring>
+        <name>_stop</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="17" column="10" bodyfile="src/jac/device/util/timeout.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Timeout_1a5e22f70fe251bcca690b298481966ead" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool jac::Timeout::_running</definition>
+        <argsstring></argsstring>
+        <name>_running</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="18" column="10" bodyfile="src/jac/device/util/timeout.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Timeout_1a6944d635075eb2cbfe032ccc721be460" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex jac::Timeout::_mutex</definition>
+        <argsstring></argsstring>
+        <name>_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="19" column="16" bodyfile="src/jac/device/util/timeout.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Timeout_1a76c3528c262e7b6871eda535c583f918" prot="private" static="no" mutable="no">
+        <type>std::condition_variable</type>
+        <definition>std::condition_variable jac::Timeout::_cv</definition>
+        <argsstring></argsstring>
+        <name>_cv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="20" column="29" bodyfile="src/jac/device/util/timeout.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Timeout_1a99eb9d0e7e9182493b644a5e77e02c91" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread jac::Timeout::_thread</definition>
+        <argsstring></argsstring>
+        <name>_thread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="21" column="17" bodyfile="src/jac/device/util/timeout.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1Timeout_1a3b58ae428037e2d148ab50c3373c95cf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Timeout::Timeout</definition>
+        <argsstring>(std::chrono::milliseconds duration)</argsstring>
+        <name>Timeout</name>
+        <param>
+          <type>std::chrono::milliseconds</type>
+          <declname>duration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="23" column="5" bodyfile="src/jac/device/util/timeout.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Timeout_1ac1c64ac2e3a94afcbf8300e1d0d1c679" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Timeout::Timeout</definition>
+        <argsstring>(const Timeout &amp;)=delete</argsstring>
+        <name>Timeout</name>
+        <param>
+          <type>const <ref refid="classjac_1_1Timeout" kindref="compound">Timeout</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="25" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Timeout_1a21955b09191d7d837ba3f94cf198d892" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Timeout::Timeout</definition>
+        <argsstring>(Timeout &amp;&amp;)=delete</argsstring>
+        <name>Timeout</name>
+        <param>
+          <type><ref refid="classjac_1_1Timeout" kindref="compound">Timeout</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="26" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Timeout_1a58d2b0810a077623792f4c29b445aa9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Timeout" kindref="compound">Timeout</ref> &amp;</type>
+        <definition>Timeout&amp; jac::Timeout::operator=</definition>
+        <argsstring>(const Timeout &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classjac_1_1Timeout" kindref="compound">Timeout</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="27" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Timeout_1ac51f28a56b5a5f2b3da064befde50701" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Timeout" kindref="compound">Timeout</ref> &amp;</type>
+        <definition>Timeout&amp; jac::Timeout::operator=</definition>
+        <argsstring>(Timeout &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classjac_1_1Timeout" kindref="compound">Timeout</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="28" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Timeout_1acaaf5afe858b7454f04ee2d524cdece9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void jac::Timeout::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="30" column="10" bodyfile="src/jac/device/util/timeout.h" bodystart="30" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Timeout_1a2bfeee7c3052ff48c4b5588c8697499c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void jac::Timeout::start</definition>
+        <argsstring>(std::function&lt; void()&gt; callback)</argsstring>
+        <name>start</name>
+        <param>
+          <type>std::function&lt; void()&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="49" column="10" bodyfile="src/jac/device/util/timeout.h" bodystart="49" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Timeout_1a753c19bf705a604113aca6b919cf53fb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void jac::Timeout::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="57" column="10" bodyfile="src/jac/device/util/timeout.h" bodystart="57" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Timeout_1a18ac8f04f680d0082b1de18cdf909a2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void jac::Timeout::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="64" column="10" bodyfile="src/jac/device/util/timeout.h" bodystart="64" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Timeout_1a72011e6a9d854b1981a71fea6a47a7ba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Timeout::~Timeout</definition>
+        <argsstring>()</argsstring>
+        <name>~Timeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/timeout.h" line="70" column="5" bodyfile="src/jac/device/util/timeout.h" bodystart="70" bodyend="80"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/device/util/timeout.h" line="13" column="1" bodyfile="src/jac/device/util/timeout.h" bodystart="13" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classjac_1_1Timeout_1ad0b6ecfb3a92ad72e655d7a51cea37f3" prot="private" virt="non-virtual"><scope>jac::Timeout</scope><name>_callback</name></member>
+      <member refid="classjac_1_1Timeout_1a76c3528c262e7b6871eda535c583f918" prot="private" virt="non-virtual"><scope>jac::Timeout</scope><name>_cv</name></member>
+      <member refid="classjac_1_1Timeout_1a0c141eb3537c58d5d605e3d838c89c75" prot="private" virt="non-virtual"><scope>jac::Timeout</scope><name>_duration</name></member>
+      <member refid="classjac_1_1Timeout_1a4db68a41e33c2fe32982abddb1a0949b" prot="private" virt="non-virtual"><scope>jac::Timeout</scope><name>_endTime</name></member>
+      <member refid="classjac_1_1Timeout_1a6944d635075eb2cbfe032ccc721be460" prot="private" virt="non-virtual"><scope>jac::Timeout</scope><name>_mutex</name></member>
+      <member refid="classjac_1_1Timeout_1a5e22f70fe251bcca690b298481966ead" prot="private" virt="non-virtual"><scope>jac::Timeout</scope><name>_running</name></member>
+      <member refid="classjac_1_1Timeout_1a632df8edf1bc1645c718ce043a96ef66" prot="private" virt="non-virtual"><scope>jac::Timeout</scope><name>_stop</name></member>
+      <member refid="classjac_1_1Timeout_1a99eb9d0e7e9182493b644a5e77e02c91" prot="private" virt="non-virtual"><scope>jac::Timeout</scope><name>_thread</name></member>
+      <member refid="classjac_1_1Timeout_1acaaf5afe858b7454f04ee2d524cdece9" prot="public" virt="non-virtual"><scope>jac::Timeout</scope><name>init</name></member>
+      <member refid="classjac_1_1Timeout_1a58d2b0810a077623792f4c29b445aa9b" prot="public" virt="non-virtual"><scope>jac::Timeout</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Timeout_1ac51f28a56b5a5f2b3da064befde50701" prot="public" virt="non-virtual"><scope>jac::Timeout</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Timeout_1a753c19bf705a604113aca6b919cf53fb" prot="public" virt="non-virtual"><scope>jac::Timeout</scope><name>reset</name></member>
+      <member refid="classjac_1_1Timeout_1a2bfeee7c3052ff48c4b5588c8697499c" prot="public" virt="non-virtual"><scope>jac::Timeout</scope><name>start</name></member>
+      <member refid="classjac_1_1Timeout_1a18ac8f04f680d0082b1de18cdf909a2a" prot="public" virt="non-virtual"><scope>jac::Timeout</scope><name>stop</name></member>
+      <member refid="classjac_1_1Timeout_1a3b58ae428037e2d148ab50c3373c95cf" prot="public" virt="non-virtual"><scope>jac::Timeout</scope><name>Timeout</name></member>
+      <member refid="classjac_1_1Timeout_1ac1c64ac2e3a94afcbf8300e1d0d1c679" prot="public" virt="non-virtual"><scope>jac::Timeout</scope><name>Timeout</name></member>
+      <member refid="classjac_1_1Timeout_1a21955b09191d7d837ba3f94cf198d892" prot="public" virt="non-virtual"><scope>jac::Timeout</scope><name>Timeout</name></member>
+      <member refid="classjac_1_1Timeout_1a72011e6a9d854b1981a71fea6a47a7ba" prot="public" virt="non-virtual"><scope>jac::Timeout</scope><name>~Timeout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

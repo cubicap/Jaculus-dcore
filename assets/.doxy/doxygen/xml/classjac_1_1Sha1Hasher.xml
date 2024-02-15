@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1Sha1Hasher" kind="class" language="C++" prot="public">
+    <compoundname>jac::Sha1Hasher</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1Sha1Hasher_1acf0e3ddc77c8b0b42ac7bba2fd7ecae8" prot="private" static="no" mutable="no">
+        <type>std::array&lt; uint8_t, 20 &gt;</type>
+        <definition>std::array&lt;uint8_t, 20&gt; jac::Sha1Hasher::_res</definition>
+        <argsstring></argsstring>
+        <name>_res</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.cpp" line="47" column="16" bodyfile="src/jac/device/uploader.cpp" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Sha1Hasher_1afc121812da3412cfff8e425c738f09f3" prot="private" static="no" mutable="no">
+        <type><ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref></type>
+        <definition>mbedtls_sha1_context jac::Sha1Hasher::_ctx</definition>
+        <argsstring></argsstring>
+        <name>_ctx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.cpp" line="48" column="26" bodyfile="src/jac/device/uploader.cpp" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1Sha1Hasher_1a615ac6d1ef189ce82f484eaf49792fba" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Sha1Hasher::Sha1Hasher</definition>
+        <argsstring>()</argsstring>
+        <name>Sha1Hasher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.cpp" line="16" column="5" bodyfile="src/jac/device/uploader.cpp" bodystart="16" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Sha1Hasher_1a29bcc26c1516fd87ad5cc2036e1c8d7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Sha1Hasher::Sha1Hasher</definition>
+        <argsstring>(const Sha1Hasher &amp;)=delete</argsstring>
+        <name>Sha1Hasher</name>
+        <param>
+          <type>const <ref refid="classjac_1_1Sha1Hasher" kindref="compound">Sha1Hasher</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.cpp" line="19" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Sha1Hasher_1ac3e52a8ca0c8f4fb8dca6f3cde4d2047" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Sha1Hasher::~Sha1Hasher</definition>
+        <argsstring>()</argsstring>
+        <name>~Sha1Hasher</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.cpp" line="20" column="5" bodyfile="src/jac/device/uploader.cpp" bodystart="20" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Sha1Hasher_1ac2c2a4040a00e635b954f78865f67710" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::span&lt; const uint8_t, 20 &gt;</type>
+        <definition>std::span&lt;const uint8_t, 20&gt; jac::Sha1Hasher::processFile</definition>
+        <argsstring>(const std::filesystem::path &amp;path)</argsstring>
+        <name>processFile</name>
+        <param>
+          <type>const std::filesystem::path &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.cpp" line="24" column="15" bodyfile="src/jac/device/uploader.cpp" bodystart="24" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/device/uploader.cpp" line="14" column="1" bodyfile="src/jac/device/uploader.cpp" bodystart="14" bodyend="49"/>
+    <listofallmembers>
+      <member refid="classjac_1_1Sha1Hasher_1afc121812da3412cfff8e425c738f09f3" prot="private" virt="non-virtual"><scope>jac::Sha1Hasher</scope><name>_ctx</name></member>
+      <member refid="classjac_1_1Sha1Hasher_1acf0e3ddc77c8b0b42ac7bba2fd7ecae8" prot="private" virt="non-virtual"><scope>jac::Sha1Hasher</scope><name>_res</name></member>
+      <member refid="classjac_1_1Sha1Hasher_1ac2c2a4040a00e635b954f78865f67710" prot="public" virt="non-virtual"><scope>jac::Sha1Hasher</scope><name>processFile</name></member>
+      <member refid="classjac_1_1Sha1Hasher_1a615ac6d1ef189ce82f484eaf49792fba" prot="public" virt="non-virtual"><scope>jac::Sha1Hasher</scope><name>Sha1Hasher</name></member>
+      <member refid="classjac_1_1Sha1Hasher_1a29bcc26c1516fd87ad5cc2036e1c8d7f" prot="public" virt="non-virtual"><scope>jac::Sha1Hasher</scope><name>Sha1Hasher</name></member>
+      <member refid="classjac_1_1Sha1Hasher_1ac3e52a8ca0c8f4fb8dca6f3cde4d2047" prot="public" virt="non-virtual"><scope>jac::Sha1Hasher</scope><name>~Sha1Hasher</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structjac_1_1Device_1_1MachineIO" kind="struct" language="C++" prot="private">
+    <compoundname>jac::Device::MachineIO</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structjac_1_1Device_1_1MachineIO_1a1cb4ab5c27c6f5a61b692a7ef32dfa73" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; InputStreamCommunicator &gt;</type>
+        <definition>std::unique_ptr&lt;InputStreamCommunicator&gt; jac::Device&lt; Machine &gt;::MachineIO::in</definition>
+        <argsstring></argsstring>
+        <name>in</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="39" column="25" bodyfile="src/jac/device/device.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1Device_1_1MachineIO_1a2583a0d5b2f71c7a70d84910c8eded2c" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; OutputStreamCommunicator &gt;</type>
+        <definition>std::unique_ptr&lt;OutputStreamCommunicator&gt; jac::Device&lt; Machine &gt;::MachineIO::out</definition>
+        <argsstring></argsstring>
+        <name>out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="40" column="25" bodyfile="src/jac/device/device.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1Device_1_1MachineIO_1af994a14ee80ab36b2309454681130080" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; OutputStreamCommunicator &gt;</type>
+        <definition>std::unique_ptr&lt;OutputStreamCommunicator&gt; jac::Device&lt; Machine &gt;::MachineIO::err</definition>
+        <argsstring></argsstring>
+        <name>err</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="41" column="25" bodyfile="src/jac/device/device.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/device/device.h" line="38" column="5" bodyfile="src/jac/device/device.h" bodystart="38" bodyend="42"/>
+    <listofallmembers>
+      <member refid="structjac_1_1Device_1_1MachineIO_1af994a14ee80ab36b2309454681130080" prot="public" virt="non-virtual"><scope>jac::Device::MachineIO</scope><name>err</name></member>
+      <member refid="structjac_1_1Device_1_1MachineIO_1a1cb4ab5c27c6f5a61b692a7ef32dfa73" prot="public" virt="non-virtual"><scope>jac::Device::MachineIO</scope><name>in</name></member>
+      <member refid="structjac_1_1Device_1_1MachineIO_1a2583a0d5b2f71c7a70d84910c8eded2c" prot="public" virt="non-virtual"><scope>jac::Device::MachineIO</scope><name>out</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

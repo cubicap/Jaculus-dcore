@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structjac_1_1Logger" kind="struct" language="C++" prot="public">
+    <compoundname>jac::Logger</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structjac_1_1Logger_1a2c8d51e54d11189774ffeddd8a4be5ec" prot="public" static="yes" mutable="no">
+        <type>std::unique_ptr&lt; OutputStreamCommunicator &gt;</type>
+        <definition>std::unique_ptr&lt; OutputStreamCommunicator &gt; jac::Logger::_errorStream</definition>
+        <argsstring></argsstring>
+        <name>_errorStream</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/logger.h" line="11" column="28" bodyfile="src/jac/device/logger.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1Logger_1a1f147e5e4ab3dcb617090bbaf55aba5f" prot="public" static="yes" mutable="no">
+        <type>std::unique_ptr&lt; OutputStreamCommunicator &gt;</type>
+        <definition>std::unique_ptr&lt; OutputStreamCommunicator &gt; jac::Logger::_logStream</definition>
+        <argsstring></argsstring>
+        <name>_logStream</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/logger.h" line="19" column="28" bodyfile="src/jac/device/logger.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1Logger_1ab2b0e6cb1bfd437de016228a26bf00c3" prot="public" static="yes" mutable="no">
+        <type>std::unique_ptr&lt; OutputStreamCommunicator &gt;</type>
+        <definition>std::unique_ptr&lt; OutputStreamCommunicator &gt; jac::Logger::_debugStream</definition>
+        <argsstring></argsstring>
+        <name>_debugStream</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/logger.h" line="27" column="28" bodyfile="src/jac/device/logger.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structjac_1_1Logger_1a708b941baed36bc207cdeb35406c518f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void jac::Logger::error</definition>
+        <argsstring>(std::string message)</argsstring>
+        <name>error</name>
+        <param>
+          <type>std::string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/logger.h" line="12" column="17" bodyfile="src/jac/device/logger.h" bodystart="12" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structjac_1_1Logger_1a03e982ab72f87ba8e58391c147aa929c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void jac::Logger::log</definition>
+        <argsstring>(std::string message)</argsstring>
+        <name>log</name>
+        <param>
+          <type>std::string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/logger.h" line="20" column="17" bodyfile="src/jac/device/logger.h" bodystart="20" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="structjac_1_1Logger_1a97fbaadd15db8d7f7dc6838624b3efd0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void jac::Logger::debug</definition>
+        <argsstring>(std::string message)</argsstring>
+        <name>debug</name>
+        <param>
+          <type>std::string</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/logger.h" line="28" column="17" bodyfile="src/jac/device/logger.h" bodystart="28" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/device/logger.h" line="10" column="1" bodyfile="src/jac/device/logger.h" bodystart="10" bodyend="34"/>
+    <listofallmembers>
+      <member refid="structjac_1_1Logger_1ab2b0e6cb1bfd437de016228a26bf00c3" prot="public" virt="non-virtual"><scope>jac::Logger</scope><name>_debugStream</name></member>
+      <member refid="structjac_1_1Logger_1a2c8d51e54d11189774ffeddd8a4be5ec" prot="public" virt="non-virtual"><scope>jac::Logger</scope><name>_errorStream</name></member>
+      <member refid="structjac_1_1Logger_1a1f147e5e4ab3dcb617090bbaf55aba5f" prot="public" virt="non-virtual"><scope>jac::Logger</scope><name>_logStream</name></member>
+      <member refid="structjac_1_1Logger_1a97fbaadd15db8d7f7dc6838624b3efd0" prot="public" virt="non-virtual"><scope>jac::Logger</scope><name>debug</name></member>
+      <member refid="structjac_1_1Logger_1a708b941baed36bc207cdeb35406c518f" prot="public" virt="non-virtual"><scope>jac::Logger</scope><name>error</name></member>
+      <member refid="structjac_1_1Logger_1a03e982ab72f87ba8e58391c147aa929c" prot="public" virt="non-virtual"><scope>jac::Logger</scope><name>log</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="classjac_1_1Controller" kind="class"><name>jac::Controller</name>
+    <member refid="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1" kind="enum"><name>Command</name></member>
+    <member refid="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1ab078ffd28db767c502ac367053f6e0ac" kind="enumvalue"><name>START</name></member>
+    <member refid="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1a615a46af313786fc4e349f34118be111" kind="enumvalue"><name>STOP</name></member>
+    <member refid="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1a5f241c8c8f985b3c51e05d39cf030f4c" kind="enumvalue"><name>STATUS</name></member>
+    <member refid="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1a021321e8c168ba3ae39ce3a2e7b3ec87" kind="enumvalue"><name>VERSION</name></member>
+    <member refid="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1af510b97de4ace11844b85f23d0fc012f" kind="enumvalue"><name>LOCK</name></member>
+    <member refid="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1a08f473e8e1515801cb25e584a6832f34" kind="enumvalue"><name>UNLOCK</name></member>
+    <member refid="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1af69a8ff9bc30b082465b943129036815" kind="enumvalue"><name>FORCE_UNLOCK</name></member>
+    <member refid="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1ae0aa021e21dddbd6d8cecec71e9cf564" kind="enumvalue"><name>OK</name></member>
+    <member refid="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1abb1ca97ec761fc37101737ba0aa2e7c5" kind="enumvalue"><name>ERROR</name></member>
+    <member refid="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1a1076d661302a96164d816306067df2ed" kind="enumvalue"><name>LOCK_NOT_OWNED</name></member>
+    <member refid="classjac_1_1Controller_1a88e6ca45a3893d586ff9efad251bb16b" kind="variable"><name>_input</name></member>
+    <member refid="classjac_1_1Controller_1af6936283e8dabf7eb56183ec0f20d377" kind="variable"><name>_output</name></member>
+    <member refid="classjac_1_1Controller_1aca4b01fd99867dac3ea616a268826025" kind="variable"><name>_thread</name></member>
+    <member refid="classjac_1_1Controller_1ad61ee6c72c78dc24767d8cbb95799076" kind="variable"><name>_stop</name></member>
+    <member refid="classjac_1_1Controller_1af7388eb01b2b9aa3990b591089e15fe7" kind="variable"><name>_devLock</name></member>
+    <member refid="classjac_1_1Controller_1a62e73bbdedc1dc769dfca326366fc319" kind="variable"><name>_machineCtrl</name></member>
+    <member refid="classjac_1_1Controller_1aeff33a0073d6ecd7d5f4f0a7a8487ab4" kind="variable"><name>_versionInfo</name></member>
+    <member refid="classjac_1_1Controller_1a5f8f329c6d8f42dfa1d924ac695de9d6" kind="function"><name>processPacket</name></member>
+    <member refid="classjac_1_1Controller_1a7131634906341fb2d90078c9ee322ff2" kind="function"><name>processStart</name></member>
+    <member refid="classjac_1_1Controller_1ab5a12e9ff2f195a0ee6dca24798e954d" kind="function"><name>processStop</name></member>
+    <member refid="classjac_1_1Controller_1a0321227070201c6898f791a6efab6c5f" kind="function"><name>processStatus</name></member>
+    <member refid="classjac_1_1Controller_1af6541614fb0f4607eba5440d5c48fd5f" kind="function"><name>processVersion</name></member>
+    <member refid="classjac_1_1Controller_1a7f015b451abb31e17201e6bb6d9f10f5" kind="function"><name>processLock</name></member>
+    <member refid="classjac_1_1Controller_1a8534a2b30027e5a1ad14110e298bc2d9" kind="function"><name>processUnlock</name></member>
+    <member refid="classjac_1_1Controller_1ae399f9855be195ea0da307ac596c1de7" kind="function"><name>processForceUnlock</name></member>
+    <member refid="classjac_1_1Controller_1a43f5e8c552dc108f61bcccbdc8aa9c5d" kind="function"><name>Controller</name></member>
+    <member refid="classjac_1_1Controller_1a195260ffa768b9810e0a33bfd7dc495c" kind="function"><name>~Controller</name></member>
+    <member refid="classjac_1_1Controller_1aebfd3f978af0ea84fae304ef6d07f994" kind="function"><name>start</name></member>
+  </compound>
+  <compound refid="classjac_1_1Device" kind="class"><name>jac::Device</name>
+    <member refid="classjac_1_1Device_1aa691bfef6998799ad5dbffcaedf8cc29" kind="variable"><name>_router</name></member>
+    <member refid="classjac_1_1Device_1a840ed33fed97807b5444e29fed3ee251" kind="variable"><name>_uploader</name></member>
+    <member refid="classjac_1_1Device_1a6867b14d4ff07f44949e111675d59b46" kind="variable"><name>_controller</name></member>
+    <member refid="classjac_1_1Device_1a59ba78fa4c63362d23a313106a1bfad7" kind="variable"><name>_lock</name></member>
+    <member refid="classjac_1_1Device_1a0d3506e91c1e79ca0aa876040fe47286" kind="variable"><name>_machine</name></member>
+    <member refid="classjac_1_1Device_1a7329277b8695e7f2a6d276af025850e2" kind="variable"><name>_onConfigureMachine</name></member>
+    <member refid="classjac_1_1Device_1ad86b8c49befcfe93584b69020ad5e561" kind="variable"><name>_machineRunning</name></member>
+    <member refid="classjac_1_1Device_1a2a57c85fad1729fbad4602b07067e27b" kind="variable"><name>_machineThread</name></member>
+    <member refid="classjac_1_1Device_1a20bde6cd5ee9625c5c80696b641df512" kind="variable"><name>_machineMutex</name></member>
+    <member refid="classjac_1_1Device_1ae828ef9762002cacd208d1b9ac23b784" kind="variable"><name>_machineIO</name></member>
+    <member refid="classjac_1_1Device_1a7255fc72dfb8cf4b027d564fc4008981" kind="variable"><name>_getMemoryStats</name></member>
+    <member refid="classjac_1_1Device_1ad90e80b2d54bfd00b9967bebd7e6d44b" kind="variable"><name>_getStorageStats</name></member>
+    <member refid="classjac_1_1Device_1a56df35ecc703c77cda657cc5e85a4594" kind="variable"><name>_rootDir</name></member>
+    <member refid="classjac_1_1Device_1aacf1b6ea6d03ddcd540f4c3c08948653" kind="variable"><name>_versionInfo</name></member>
+    <member refid="classjac_1_1Device_1ad2d6dd0c0853a6630000e84d8f102f62" kind="function"><name>configureMachine</name></member>
+    <member refid="classjac_1_1Device_1a12cbcd8ccd82af777eb738972425298d" kind="function"><name>lockTimeout</name></member>
+    <member refid="classjac_1_1Device_1aaaed085ce21ab1887fd57c13a394f9a2" kind="function"><name>Device</name></member>
+    <member refid="classjac_1_1Device_1afa9308cfb19e988dcdd40fa0a9210444" kind="function"><name>Device</name></member>
+    <member refid="classjac_1_1Device_1a6aeaa325b0ee09eb1a10bf5d88f121b7" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Device_1a5406dae25d62fb5fafc6794ee440529f" kind="function"><name>Device</name></member>
+    <member refid="classjac_1_1Device_1a931a701a1cf3f1d08b68e6bc44777ad2" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Device_1a70aa40d731709e535386ec6a4781d6d3" kind="function"><name>start</name></member>
+    <member refid="classjac_1_1Device_1a159c1d6bcb218ed40b39d9f4edc902a3" kind="function"><name>~Device</name></member>
+    <member refid="classjac_1_1Device_1a39a4943d49b55a56a8f2ef4e178394e6" kind="function"><name>router</name></member>
+    <member refid="classjac_1_1Device_1ab9dccdc49328e7d0d38268ced599d489" kind="function"><name>lock</name></member>
+    <member refid="classjac_1_1Device_1ae84dad1cee8b379be254851e98f3f653" kind="function"><name>machineIO</name></member>
+    <member refid="classjac_1_1Device_1a6b13edfd52735ca2dd293dc03bf49632" kind="function"><name>startMachine</name></member>
+    <member refid="classjac_1_1Device_1a7255f4776520b7593b72f214d617bf6b" kind="function"><name>stopMachine</name></member>
+    <member refid="classjac_1_1Device_1ab61ae515bb4eea75ec374157d3f26d4e" kind="function"><name>getMachineStatus</name></member>
+    <member refid="classjac_1_1Device_1a8184e1df7f1b979b49b3b8d05592d66f" kind="function"><name>onConfigureMachine</name></member>
+  </compound>
+  <compound refid="classjac_1_1LinkReadable" kind="class"><name>jac::LinkReadable</name>
+    <member refid="classjac_1_1LinkReadable_1a41f1423d9830ce3734066daafa746c44" kind="variable"><name>_machine</name></member>
+    <member refid="classjac_1_1LinkReadable_1a48bad13a2acf815c8f0e748c0d023844" kind="variable"><name>_comm</name></member>
+    <member refid="classjac_1_1LinkReadable_1a396a3de5b2b657bd4107867edafd0456" kind="variable"><name>_thread</name></member>
+    <member refid="classjac_1_1LinkReadable_1a9a780ccf9d5f51789a4079b942287861" kind="variable"><name>_running</name></member>
+    <member refid="classjac_1_1LinkReadable_1a6bafe3d351f4edde254325a475cd4f18" kind="function"><name>startRead</name></member>
+    <member refid="classjac_1_1LinkReadable_1a132090396067e32d4d2a478616e9b6b9" kind="function"><name>LinkReadable</name></member>
+    <member refid="classjac_1_1LinkReadable_1ad42de26ee156619bc262d740a83bfbe3" kind="function"><name>LinkReadable</name></member>
+    <member refid="classjac_1_1LinkReadable_1a796256f4eb77b3dbd7c8dd89ed5e9fa0" kind="function"><name>LinkReadable</name></member>
+    <member refid="classjac_1_1LinkReadable_1a2664f133c224c68ce19d8c892f5660a4" kind="function"><name>get</name></member>
+    <member refid="classjac_1_1LinkReadable_1abe1b37e7def2b2677b552152e70e1c37" kind="function"><name>read</name></member>
+    <member refid="classjac_1_1LinkReadable_1aabb241d6d006e304773a88458d605b8f" kind="function"><name>~LinkReadable</name></member>
+  </compound>
+  <compound refid="classjac_1_1LinkWritable" kind="class"><name>jac::LinkWritable</name>
+    <member refid="classjac_1_1LinkWritable_1a17077b4038434a1115fcac62064db688" kind="variable"><name>_comm</name></member>
+    <member refid="classjac_1_1LinkWritable_1ad8f03debb35414be3de7d732da382738" kind="function"><name>LinkWritable</name></member>
+    <member refid="classjac_1_1LinkWritable_1acf233ea69973a7ea709f696ccbab0c60" kind="function"><name>write</name></member>
+  </compound>
+  <compound refid="structjac_1_1Logger" kind="struct"><name>jac::Logger</name>
+    <member refid="structjac_1_1Logger_1a2c8d51e54d11189774ffeddd8a4be5ec" kind="variable"><name>_errorStream</name></member>
+    <member refid="structjac_1_1Logger_1a1f147e5e4ab3dcb617090bbaf55aba5f" kind="variable"><name>_logStream</name></member>
+    <member refid="structjac_1_1Logger_1ab2b0e6cb1bfd437de016228a26bf00c3" kind="variable"><name>_debugStream</name></member>
+    <member refid="structjac_1_1Logger_1a708b941baed36bc207cdeb35406c518f" kind="function"><name>error</name></member>
+    <member refid="structjac_1_1Logger_1a03e982ab72f87ba8e58391c147aa929c" kind="function"><name>log</name></member>
+    <member refid="structjac_1_1Logger_1a97fbaadd15db8d7f7dc6838624b3efd0" kind="function"><name>debug</name></member>
+  </compound>
+  <compound refid="classjac_1_1MachineCtrl" kind="class"><name>jac::MachineCtrl</name>
+    <member refid="classjac_1_1MachineCtrl_1a4330c7e6f67b557bfbc41da7d91fb102" kind="function"><name>startMachine</name></member>
+    <member refid="classjac_1_1MachineCtrl_1a08e943c1322dd7b3373aeb03341f370c" kind="function"><name>stopMachine</name></member>
+    <member refid="classjac_1_1MachineCtrl_1a95a0e3f387677af32aa35d98827abf2c" kind="function"><name>getMachineStatus</name></member>
+  </compound>
+  <compound refid="structjac_1_1Device_1_1MachineIO" kind="struct"><name>jac::Device::MachineIO</name>
+    <member refid="structjac_1_1Device_1_1MachineIO_1a1cb4ab5c27c6f5a61b692a7ef32dfa73" kind="variable"><name>in</name></member>
+    <member refid="structjac_1_1Device_1_1MachineIO_1a2583a0d5b2f71c7a70d84910c8eded2c" kind="variable"><name>out</name></member>
+    <member refid="structjac_1_1Device_1_1MachineIO_1af994a14ee80ab36b2309454681130080" kind="variable"><name>err</name></member>
+  </compound>
+  <compound refid="structmbedtls__sha1__context" kind="struct"><name>mbedtls_sha1_context</name>
+    <member refid="structmbedtls__sha1__context_1af42c660c3451b969b9618546dcc7ddeb" kind="function"><name>MBEDTLS_PRIVATE</name></member>
+    <member refid="structmbedtls__sha1__context_1a9013ba948d6cb7008b96e5db8a293d07" kind="function"><name>MBEDTLS_PRIVATE</name></member>
+    <member refid="structmbedtls__sha1__context_1aff2d8075116ee7871206d3684cc1106e" kind="function"><name>MBEDTLS_PRIVATE</name></member>
+  </compound>
+  <compound refid="classjac_1_1Sha1Hasher" kind="class"><name>jac::Sha1Hasher</name>
+    <member refid="classjac_1_1Sha1Hasher_1acf0e3ddc77c8b0b42ac7bba2fd7ecae8" kind="variable"><name>_res</name></member>
+    <member refid="classjac_1_1Sha1Hasher_1afc121812da3412cfff8e425c738f09f3" kind="variable"><name>_ctx</name></member>
+    <member refid="classjac_1_1Sha1Hasher_1a615ac6d1ef189ce82f484eaf49792fba" kind="function"><name>Sha1Hasher</name></member>
+    <member refid="classjac_1_1Sha1Hasher_1a29bcc26c1516fd87ad5cc2036e1c8d7f" kind="function"><name>Sha1Hasher</name></member>
+    <member refid="classjac_1_1Sha1Hasher_1ac3e52a8ca0c8f4fb8dca6f3cde4d2047" kind="function"><name>~Sha1Hasher</name></member>
+    <member refid="classjac_1_1Sha1Hasher_1ac2c2a4040a00e635b954f78865f67710" kind="function"><name>processFile</name></member>
+  </compound>
+  <compound refid="classjac_1_1Timeout" kind="class"><name>jac::Timeout</name>
+    <member refid="classjac_1_1Timeout_1ad0b6ecfb3a92ad72e655d7a51cea37f3" kind="variable"><name>_callback</name></member>
+    <member refid="classjac_1_1Timeout_1a0c141eb3537c58d5d605e3d838c89c75" kind="variable"><name>_duration</name></member>
+    <member refid="classjac_1_1Timeout_1a4db68a41e33c2fe32982abddb1a0949b" kind="variable"><name>_endTime</name></member>
+    <member refid="classjac_1_1Timeout_1a632df8edf1bc1645c718ce043a96ef66" kind="variable"><name>_stop</name></member>
+    <member refid="classjac_1_1Timeout_1a5e22f70fe251bcca690b298481966ead" kind="variable"><name>_running</name></member>
+    <member refid="classjac_1_1Timeout_1a6944d635075eb2cbfe032ccc721be460" kind="variable"><name>_mutex</name></member>
+    <member refid="classjac_1_1Timeout_1a76c3528c262e7b6871eda535c583f918" kind="variable"><name>_cv</name></member>
+    <member refid="classjac_1_1Timeout_1a99eb9d0e7e9182493b644a5e77e02c91" kind="variable"><name>_thread</name></member>
+    <member refid="classjac_1_1Timeout_1a3b58ae428037e2d148ab50c3373c95cf" kind="function"><name>Timeout</name></member>
+    <member refid="classjac_1_1Timeout_1ac1c64ac2e3a94afcbf8300e1d0d1c679" kind="function"><name>Timeout</name></member>
+    <member refid="classjac_1_1Timeout_1a21955b09191d7d837ba3f94cf198d892" kind="function"><name>Timeout</name></member>
+    <member refid="classjac_1_1Timeout_1a58d2b0810a077623792f4c29b445aa9b" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Timeout_1ac51f28a56b5a5f2b3da064befde50701" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Timeout_1acaaf5afe858b7454f04ee2d524cdece9" kind="function"><name>init</name></member>
+    <member refid="classjac_1_1Timeout_1a2bfeee7c3052ff48c4b5588c8697499c" kind="function"><name>start</name></member>
+    <member refid="classjac_1_1Timeout_1a753c19bf705a604113aca6b919cf53fb" kind="function"><name>reset</name></member>
+    <member refid="classjac_1_1Timeout_1a18ac8f04f680d0082b1de18cdf909a2a" kind="function"><name>stop</name></member>
+    <member refid="classjac_1_1Timeout_1a72011e6a9d854b1981a71fea6a47a7ba" kind="function"><name>~Timeout</name></member>
+  </compound>
+  <compound refid="classjac_1_1TimeoutLock" kind="class"><name>jac::TimeoutLock</name>
+    <member refid="classjac_1_1TimeoutLock_1a901d4adc14dc40b8ba4c531da2fe1241" kind="variable"><name>_timeout</name></member>
+    <member refid="classjac_1_1TimeoutLock_1a0d73648202498e6518c1254642db15fd" kind="variable"><name>_locked</name></member>
+    <member refid="classjac_1_1TimeoutLock_1a67854163501891af2899e32a2ae2aa1f" kind="variable"><name>_owner</name></member>
+    <member refid="classjac_1_1TimeoutLock_1a52eb6844148107d84b5ba4a4f9d0e1a6" kind="variable"><name>_mutex</name></member>
+    <member refid="classjac_1_1TimeoutLock_1aef6eb8daa86f19310acb01a9b083e350" kind="variable"><name>_stops</name></member>
+    <member refid="classjac_1_1TimeoutLock_1afe053220396085502903a64b3dda0adb" kind="variable"><name>_callback</name></member>
+    <member refid="classjac_1_1TimeoutLock_1abbc34d4c6857e34ec31cb340023331a8" kind="function"><name>TimeoutLock</name></member>
+    <member refid="classjac_1_1TimeoutLock_1a46a45ced518939b61ab16319550f80d3" kind="function"><name>TimeoutLock</name></member>
+    <member refid="classjac_1_1TimeoutLock_1a8a2419e056679b310e16e489c23eeffa" kind="function"><name>TimeoutLock</name></member>
+    <member refid="classjac_1_1TimeoutLock_1afe5ebe0e8321b6bb175d1fe45082465e" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1TimeoutLock_1abd4821126ad0a42ba6f1ed0f73f80cb6" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1TimeoutLock_1a936263b589f7875f02b959d8ea33997d" kind="function"><name>init</name></member>
+    <member refid="classjac_1_1TimeoutLock_1ac6af0a266dc0faa11b0518ec4163ac06" kind="function"><name>lock</name></member>
+    <member refid="classjac_1_1TimeoutLock_1aa6c8bf43800fff2590261cf0245473ce" kind="function"><name>resetTimeout</name></member>
+    <member refid="classjac_1_1TimeoutLock_1a09a2f0dc93552716be5660a7ab366597" kind="function"><name>stopTimeout</name></member>
+    <member refid="classjac_1_1TimeoutLock_1a1b0b68e51f2706391ee9588d58f4c1ce" kind="function"><name>unlock</name></member>
+    <member refid="classjac_1_1TimeoutLock_1a36c8f9cf54bd3edf6956880d028c2341" kind="function"><name>forceUnlock</name></member>
+    <member refid="classjac_1_1TimeoutLock_1a64f31d6259af3c9ee654aea3705bb9bf" kind="function"><name>ownedBy</name></member>
+    <member refid="classjac_1_1TimeoutLock_1a5efa04133c8cee0e57ec70627486861a" kind="function"><name>~TimeoutLock</name></member>
+  </compound>
+  <compound refid="classjac_1_1Uploader" kind="class"><name>jac::Uploader</name>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085" kind="enum"><name>Command</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a94ad3ee1dc2b9b6649efea996ced37e8" kind="enumvalue"><name>READ_FILE</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a67df30687d381e71d4abe530be2e2c60" kind="enumvalue"><name>WRITE_FILE</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a1fffa6180b5fb6b758779d01127ae95a" kind="enumvalue"><name>DELETE_FILE</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a2a9b9edf7fca974828588a35d7822faf" kind="enumvalue"><name>LIST_DIR</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085acffaf9b8a35c5b7a5b4ef71da889c3de" kind="enumvalue"><name>CREATE_DIR</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a62a01c0f7615354e1bb1884e20b507c5" kind="enumvalue"><name>DELETE_DIR</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085ab131dc090bf3fef41a08ba6c1a608f60" kind="enumvalue"><name>FORMAT_STORAGE</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a7a3ac132e8bf12114a168f05ddc0c66c" kind="enumvalue"><name>LIST_RESOURCES</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a82a00ba1a87af732d13e92cc9674b4cf" kind="enumvalue"><name>READ_RESOURCE</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a7df40b216c1c9bd767f9cad2d373bbb7" kind="enumvalue"><name>HAS_MORE_DATA</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085ac9c4fa760ac64c83b277f91df45178d8" kind="enumvalue"><name>LAST_DATA</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085ae0aa021e21dddbd6d8cecec71e9cf564" kind="enumvalue"><name>OK</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085abb1ca97ec761fc37101737ba0aa2e7c5" kind="enumvalue"><name>ERROR</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a8c02547a8a3b02382bac3557bcb2280d" kind="enumvalue"><name>NOT_FOUND</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a2f453cfe638e57e27bb0c9512436111e" kind="enumvalue"><name>CONTINUE</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a1076d661302a96164d816306067df2ed" kind="enumvalue"><name>LOCK_NOT_OWNED</name></member>
+    <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a45a29fd1f6b72e298b9710e0739344b8" kind="enumvalue"><name>GET_DIR_HASHES</name></member>
+    <member refid="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621" kind="enum"><name>Error</name></member>
+    <member refid="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621a30cb264a0a83011e81d5deb3b28e3295" kind="enumvalue"><name>UNKNOWN_COMMAND</name></member>
+    <member refid="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621afb170ffea05221be6d4e256c6a5b0266" kind="enumvalue"><name>FILE_OPEN_FAILED</name></member>
+    <member refid="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621a493aa76f17731aab209ecca8f0e546c6" kind="enumvalue"><name>FILE_DELETE_FAILED</name></member>
+    <member refid="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621a9d34ad6d2306802f30aee81ff6e30128" kind="enumvalue"><name>DIR_OPEN_FAILED</name></member>
+    <member refid="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621a5a7b3cb1119c734769597e66da8357d0" kind="enumvalue"><name>DIR_CREATE_FAILED</name></member>
+    <member refid="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621a12e49e6159568675a81c752792d1e3b0" kind="enumvalue"><name>DIR_DELETE_FAILED</name></member>
+    <member refid="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621afcf3ac4d14471adda4d8d9ec4e9bd5ca" kind="enumvalue"><name>INVALID_FILENAME</name></member>
+    <member refid="classjac_1_1Uploader_1a3078fa37307f315be7cb2e277840b39d" kind="enum"><name>State</name></member>
+    <member refid="classjac_1_1Uploader_1a3078fa37307f315be7cb2e277840b39dab50339a10e1de285ac99d4c3990b8693" kind="enumvalue"><name>NONE</name></member>
+    <member refid="classjac_1_1Uploader_1a3078fa37307f315be7cb2e277840b39da890bd48a847e1b46a15468bf2cf4b096" kind="enumvalue"><name>WAITING_FOR_DATA</name></member>
+    <member refid="classjac_1_1Uploader_1a9642ac2a3f9a89b60e7c55cc54bea710" kind="variable"><name>_state</name></member>
+    <member refid="classjac_1_1Uploader_1a4c22c3cea1aef43c46cfb700af8248a4" kind="variable"><name>_file</name></member>
+    <member refid="classjac_1_1Uploader_1a06815ef18372b88ed4d3eb2b45e15cbc" kind="variable"><name>_onData</name></member>
+    <member refid="classjac_1_1Uploader_1a4b7afbb0a93fa4437ceed3f0941c445d" kind="variable"><name>_onDataComplete</name></member>
+    <member refid="classjac_1_1Uploader_1a138066ecb880271bbcc07308ac204189" kind="variable"><name>_input</name></member>
+    <member refid="classjac_1_1Uploader_1acb679467ce1cd126b21b4a383e6a055a" kind="variable"><name>_output</name></member>
+    <member refid="classjac_1_1Uploader_1ae4a88d28eec668fb3de4fdfdd496bf40" kind="variable"><name>_thread</name></member>
+    <member refid="classjac_1_1Uploader_1a31935de69e46fdebf1914af64dfd7a81" kind="variable"><name>_stop</name></member>
+    <member refid="classjac_1_1Uploader_1ae91b9d148ed314a38fcb4427a1b4d5db" kind="variable"><name>_devLock</name></member>
+    <member refid="classjac_1_1Uploader_1ad9a70ae22b4bd6cf529262aa95ac25fd" kind="variable"><name>_rootDir</name></member>
+    <member refid="classjac_1_1Uploader_1ae59adf5c71ffdacf81fd39dbbe108d0f" kind="variable"><name>_formatFS</name></member>
+    <member refid="classjac_1_1Uploader_1a88ef36cacb17c1955d0b54188c136d23" kind="variable"><name>_resources</name></member>
+    <member refid="classjac_1_1Uploader_1aa26b8c68261c4544b2bf7886ea93d69e" kind="function"><name>processPacket</name></member>
+    <member refid="classjac_1_1Uploader_1af5d4b9b9eb75adeb718924eb94f42e16" kind="function"><name>processReadFile</name></member>
+    <member refid="classjac_1_1Uploader_1a88c9d4f79a098ed3df393cb8c8c118c1" kind="function"><name>processWriteFile</name></member>
+    <member refid="classjac_1_1Uploader_1a8660b8fe67c88726351f9fecc1cfc84f" kind="function"><name>processDeleteFile</name></member>
+    <member refid="classjac_1_1Uploader_1a8d2605f3d80bcba948779e16cc5a0d4e" kind="function"><name>processListDir</name></member>
+    <member refid="classjac_1_1Uploader_1adb61c8b8ffb15ac2ac239982d53ceb38" kind="function"><name>processCreateDir</name></member>
+    <member refid="classjac_1_1Uploader_1a81741af0b2a5c954c65549c7145e7f48" kind="function"><name>processDeleteDir</name></member>
+    <member refid="classjac_1_1Uploader_1aff9c7deb58f63ba28b0ced0cd567d51c" kind="function"><name>processFormatStorage</name></member>
+    <member refid="classjac_1_1Uploader_1ab15a54370f13848326989afc91b20fa0" kind="function"><name>processGetHashes</name></member>
+    <member refid="classjac_1_1Uploader_1a88bb274194b12b75594826a5abff2ed6" kind="function"><name>processListResources</name></member>
+    <member refid="classjac_1_1Uploader_1a27e16af73b2268004c3763f411e0e718" kind="function"><name>processReadResource</name></member>
+    <member refid="classjac_1_1Uploader_1a66b56dd65c9c2ffee2afb293db5d42dd" kind="function"><name>Uploader</name></member>
+    <member refid="classjac_1_1Uploader_1a56efe97aa2411908f9fb1af72255c6e8" kind="function"><name>Uploader</name></member>
+    <member refid="classjac_1_1Uploader_1acc79e6a020a93770e4338e928b610179" kind="function"><name>Uploader</name></member>
+    <member refid="classjac_1_1Uploader_1a8ec9f00a186c05e664d8b802f38feb2b" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Uploader_1a3689789ef3c5651c2d19d717cc03d0a3" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Uploader_1a778ac7b7ba389c680e75e71d86c7a2f6" kind="function"><name>lockTimeout</name></member>
+    <member refid="classjac_1_1Uploader_1a1d37920b5e27190536c8c0d72e6aeb46" kind="function"><name>start</name></member>
+    <member refid="classjac_1_1Uploader_1ac45d4baed63c0b03c7bd2e4ee842b473" kind="function"><name>~Uploader</name></member>
+  </compound>
+  <compound refid="namespacejac" kind="namespace"><name>jac</name>
+    <member refid="uploader_8cpp_1af02cad4fa99e4ff3e0437e0ea8449d0e" kind="function"><name>getAbsolute</name></member>
+    <member refid="uploader_8cpp_1a7bb7e77d93a871688028ceb9b0de191c" kind="function"><name>listDir</name></member>
+    <member refid="uploader_8cpp_1a0b2b699cc55ecf1f4a93f7aaced8264f" kind="function"><name>deleteDir</name></member>
+  </compound>
+  <compound refid="controller_8cpp" kind="file"><name>controller.cpp</name>
+  </compound>
+  <compound refid="controller_8h" kind="file"><name>controller.h</name>
+  </compound>
+  <compound refid="device_8h" kind="file"><name>device.h</name>
+  </compound>
+  <compound refid="logger_8cpp" kind="file"><name>logger.cpp</name>
+  </compound>
+  <compound refid="logger_8h" kind="file"><name>logger.h</name>
+  </compound>
+  <compound refid="uploader_8cpp" kind="file"><name>uploader.cpp</name>
+  </compound>
+  <compound refid="uploader_8h" kind="file"><name>uploader.h</name>
+  </compound>
+  <compound refid="lock_8h" kind="file"><name>lock.h</name>
+  </compound>
+  <compound refid="machineCtrl_8h" kind="file"><name>machineCtrl.h</name>
+  </compound>
+  <compound refid="sha1_8h" kind="file"><name>sha1.h</name>
+    <member refid="sha1_8h_1aedc21a3a4716f832bec1555f1d6f9464" kind="define"><name>MBEDTLS_ERR_SHA1_BAD_INPUT_DATA</name></member>
+    <member refid="sha1_8h_1a86d8d60cc3b30fc750e70bf2aa263867" kind="define"><name>MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED</name></member>
+    <member refid="sha1_8h_1a6c605419935d98db910ffd6f075c2fec" kind="define"><name>MBEDTLS_PRIVATE</name></member>
+    <member refid="sha1_8h_1ab042654d056541feab342900a9eba5de" kind="typedef"><name>mbedtls_sha1_context</name></member>
+    <member refid="sha1_8h_1af0cc8deb8dd30a095c6023c498418d24" kind="function"><name>mbedtls_sha1_init</name></member>
+    <member refid="sha1_8h_1a126091a4e884966454dca38c97770a24" kind="function"><name>mbedtls_sha1_free</name></member>
+    <member refid="sha1_8h_1a1d06f1cd6dc5b2849d08749eef1975f8" kind="function"><name>mbedtls_sha1_clone</name></member>
+    <member refid="sha1_8h_1ac514b3f4625a18e51de6247b685bacff" kind="function"><name>mbedtls_sha1_starts</name></member>
+    <member refid="sha1_8h_1a758d6771c5eb5b06ecc9ff303f4a2ef4" kind="function"><name>mbedtls_sha1_update</name></member>
+    <member refid="sha1_8h_1abe51d24037e77d104abb28ee09052357" kind="function"><name>mbedtls_sha1_finish</name></member>
+    <member refid="sha1_8h_1a691c38288ec5d507269f95f7eed2c1e0" kind="function"><name>mbedtls_internal_sha1_process</name></member>
+    <member refid="sha1_8h_1aa70ce41a571d2a6e4aef6a755fcc7f4a" kind="function"><name>mbedtls_sha1</name></member>
+  </compound>
+  <compound refid="timeout_8h" kind="file"><name>timeout.h</name>
+  </compound>
+  <compound refid="linkIo_8h" kind="file"><name>linkIo.h</name>
+  </compound>
+  <compound refid="dir_7dcf813d97a5be213fa89559baaee677" kind="dir"><name>src/jac/device</name>
+  </compound>
+  <compound refid="dir_6f95e06b732314161804ab1ef73c9681" kind="dir"><name>src/jac/features</name>
+  </compound>
+  <compound refid="dir_256037ad7d0c306238e2bc4f945d341d" kind="dir"><name>src/jac</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_5f36e4b8294e45bcbbea85a29a4cc9c0" kind="dir"><name>src/jac/device/util</name>
+  </compound>
+  <compound refid="dir_8745a1fa89e3088deda48338e7669502" kind="dir"><name>src/jac/features/util</name>
+  </compound>
+</doxygenindex>

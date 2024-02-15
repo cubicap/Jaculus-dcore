@@ -1,0 +1,825 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1Uploader" kind="class" language="C++" prot="public">
+    <compoundname>jac::Uploader</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>Command</name>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a94ad3ee1dc2b9b6649efea996ced37e8" prot="public">
+          <name>READ_FILE</name>
+          <initializer>= 0x01</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a67df30687d381e71d4abe530be2e2c60" prot="public">
+          <name>WRITE_FILE</name>
+          <initializer>= 0x02</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a1fffa6180b5fb6b758779d01127ae95a" prot="public">
+          <name>DELETE_FILE</name>
+          <initializer>= 0x03</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a2a9b9edf7fca974828588a35d7822faf" prot="public">
+          <name>LIST_DIR</name>
+          <initializer>= 0x04</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085acffaf9b8a35c5b7a5b4ef71da889c3de" prot="public">
+          <name>CREATE_DIR</name>
+          <initializer>= 0x05</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a62a01c0f7615354e1bb1884e20b507c5" prot="public">
+          <name>DELETE_DIR</name>
+          <initializer>= 0x06</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085ab131dc090bf3fef41a08ba6c1a608f60" prot="public">
+          <name>FORMAT_STORAGE</name>
+          <initializer>= 0x07</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a7a3ac132e8bf12114a168f05ddc0c66c" prot="public">
+          <name>LIST_RESOURCES</name>
+          <initializer>= 0x08</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a82a00ba1a87af732d13e92cc9674b4cf" prot="public">
+          <name>READ_RESOURCE</name>
+          <initializer>= 0x09</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a7df40b216c1c9bd767f9cad2d373bbb7" prot="public">
+          <name>HAS_MORE_DATA</name>
+          <initializer>= 0x10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085ac9c4fa760ac64c83b277f91df45178d8" prot="public">
+          <name>LAST_DATA</name>
+          <initializer>= 0x11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085ae0aa021e21dddbd6d8cecec71e9cf564" prot="public">
+          <name>OK</name>
+          <initializer>= 0x20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085abb1ca97ec761fc37101737ba0aa2e7c5" prot="public">
+          <name>ERROR</name>
+          <initializer>= 0x21</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a8c02547a8a3b02382bac3557bcb2280d" prot="public">
+          <name>NOT_FOUND</name>
+          <initializer>= 0x22</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a2f453cfe638e57e27bb0c9512436111e" prot="public">
+          <name>CONTINUE</name>
+          <initializer>= 0x23</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a1076d661302a96164d816306067df2ed" prot="public">
+          <name>LOCK_NOT_OWNED</name>
+          <initializer>= 0x24</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085a45a29fd1f6b72e298b9710e0739344b8" prot="public">
+          <name>GET_DIR_HASHES</name>
+          <initializer>= 0x25</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="20" column="5" bodyfile="src/jac/device/uploader.h" bodystart="20" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="enum" id="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>Error</name>
+        <enumvalue id="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621a30cb264a0a83011e81d5deb3b28e3295" prot="public">
+          <name>UNKNOWN_COMMAND</name>
+          <initializer>= 0x01</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621afb170ffea05221be6d4e256c6a5b0266" prot="public">
+          <name>FILE_OPEN_FAILED</name>
+          <initializer>= 0x02</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621a493aa76f17731aab209ecca8f0e546c6" prot="public">
+          <name>FILE_DELETE_FAILED</name>
+          <initializer>= 0x03</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621a9d34ad6d2306802f30aee81ff6e30128" prot="public">
+          <name>DIR_OPEN_FAILED</name>
+          <initializer>= 0x04</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621a5a7b3cb1119c734769597e66da8357d0" prot="public">
+          <name>DIR_CREATE_FAILED</name>
+          <initializer>= 0x05</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621a12e49e6159568675a81c752792d1e3b0" prot="public">
+          <name>DIR_DELETE_FAILED</name>
+          <initializer>= 0x06</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621afcf3ac4d14471adda4d8d9ec4e9bd5ca" prot="public">
+          <name>INVALID_FILENAME</name>
+          <initializer>= 0x07</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="40" column="5" bodyfile="src/jac/device/uploader.h" bodystart="40" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classjac_1_1Uploader_1a3078fa37307f315be7cb2e277840b39d" prot="private" static="no" strong="yes">
+        <type></type>
+        <name>State</name>
+        <enumvalue id="classjac_1_1Uploader_1a3078fa37307f315be7cb2e277840b39dab50339a10e1de285ac99d4c3990b8693" prot="private">
+          <name>NONE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Uploader_1a3078fa37307f315be7cb2e277840b39da890bd48a847e1b46a15468bf2cf4b096" prot="private">
+          <name>WAITING_FOR_DATA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="50" column="5" bodyfile="src/jac/device/uploader.h" bodystart="50" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1Uploader_1a9642ac2a3f9a89b60e7c55cc54bea710" prot="private" static="no" mutable="no">
+        <type>State</type>
+        <definition>State jac::Uploader::_state</definition>
+        <argsstring></argsstring>
+        <name>_state</name>
+        <initializer>= State::NONE</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="55" column="11" bodyfile="src/jac/device/uploader.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Uploader_1a4c22c3cea1aef43c46cfb700af8248a4" prot="private" static="no" mutable="no">
+        <type>std::fstream</type>
+        <definition>std::fstream jac::Uploader::_file</definition>
+        <argsstring></argsstring>
+        <name>_file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="56" column="18" bodyfile="src/jac/device/uploader.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Uploader_1a06815ef18372b88ed4d3eb2b45e15cbc" prot="private" static="no" mutable="no">
+        <type>std::function&lt; bool(std::span&lt; const uint8_t &gt;)&gt;</type>
+        <definition>std::function&lt;bool(std::span&lt;const uint8_t&gt;)&gt; jac::Uploader::_onData</definition>
+        <argsstring></argsstring>
+        <name>_onData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="57" column="19" bodyfile="src/jac/device/uploader.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Uploader_1a4b7afbb0a93fa4437ceed3f0941c445d" prot="private" static="no" mutable="no">
+        <type>std::function&lt; bool()&gt;</type>
+        <definition>std::function&lt;bool()&gt; jac::Uploader::_onDataComplete</definition>
+        <argsstring></argsstring>
+        <name>_onDataComplete</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="58" column="19" bodyfile="src/jac/device/uploader.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Uploader_1a138066ecb880271bbcc07308ac204189" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; InputPacketCommunicator &gt;</type>
+        <definition>std::unique_ptr&lt;InputPacketCommunicator&gt; jac::Uploader::_input</definition>
+        <argsstring></argsstring>
+        <name>_input</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="60" column="21" bodyfile="src/jac/device/uploader.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Uploader_1acb679467ce1cd126b21b4a383e6a055a" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; OutputPacketCommunicator &gt;</type>
+        <definition>std::unique_ptr&lt;OutputPacketCommunicator&gt; jac::Uploader::_output</definition>
+        <argsstring></argsstring>
+        <name>_output</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="61" column="21" bodyfile="src/jac/device/uploader.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Uploader_1ae4a88d28eec668fb3de4fdfdd496bf40" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread jac::Uploader::_thread</definition>
+        <argsstring></argsstring>
+        <name>_thread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="75" column="17" bodyfile="src/jac/device/uploader.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Uploader_1a31935de69e46fdebf1914af64dfd7a81" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; bool &gt;</type>
+        <definition>std::atomic&lt;bool&gt; jac::Uploader::_stop</definition>
+        <argsstring></argsstring>
+        <name>_stop</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="76" column="17" bodyfile="src/jac/device/uploader.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Uploader_1ae91b9d148ed314a38fcb4427a1b4d5db" prot="private" static="no" mutable="no">
+        <type><ref refid="classjac_1_1TimeoutLock" kindref="compound">TimeoutLock</ref> &amp;</type>
+        <definition>TimeoutLock&amp; jac::Uploader::_devLock</definition>
+        <argsstring></argsstring>
+        <name>_devLock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="78" column="17" bodyfile="src/jac/device/uploader.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Uploader_1ad9a70ae22b4bd6cf529262aa95ac25fd" prot="private" static="no" mutable="no">
+        <type>std::filesystem::path</type>
+        <definition>std::filesystem::path jac::Uploader::_rootDir</definition>
+        <argsstring></argsstring>
+        <name>_rootDir</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="80" column="27" bodyfile="src/jac/device/uploader.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Uploader_1ae59adf5c71ffdacf81fd39dbbe108d0f" prot="private" static="no" mutable="no">
+        <type>std::function&lt; void(std::filesystem::path)&gt;</type>
+        <definition>std::function&lt;void(std::filesystem::path)&gt; jac::Uploader::_formatFS</definition>
+        <argsstring></argsstring>
+        <name>_formatFS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="81" column="19" bodyfile="src/jac/device/uploader.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Uploader_1a88ef36cacb17c1955d0b54188c136d23" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, std::span&lt; const uint8_t &gt; &gt;</type>
+        <definition>std::unordered_map&lt;std::string, std::span&lt;const uint8_t&gt; &gt; jac::Uploader::_resources</definition>
+        <argsstring></argsstring>
+        <name>_resources</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="83" column="24" bodyfile="src/jac/device/uploader.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classjac_1_1Uploader_1aa26b8c68261c4544b2bf7886ea93d69e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Uploader::processPacket</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processPacket</name>
+        <param>
+          <type>int</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="63" column="10" bodyfile="src/jac/device/uploader.cpp" bodystart="116" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1af5d4b9b9eb75adeb718924eb94f42e16" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Uploader::processReadFile</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processReadFile</name>
+        <param>
+          <type>int</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="64" column="10" bodyfile="src/jac/device/uploader.cpp" bodystart="211" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1a88c9d4f79a098ed3df393cb8c8c118c1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Uploader::processWriteFile</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processWriteFile</name>
+        <param>
+          <type>int</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="65" column="10" bodyfile="src/jac/device/uploader.cpp" bodystart="249" bodyend="300"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1a8660b8fe67c88726351f9fecc1cfc84f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Uploader::processDeleteFile</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processDeleteFile</name>
+        <param>
+          <type>int</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="66" column="10" bodyfile="src/jac/device/uploader.cpp" bodystart="302" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1a8d2605f3d80bcba948779e16cc5a0d4e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Uploader::processListDir</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processListDir</name>
+        <param>
+          <type>int</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="67" column="10" bodyfile="src/jac/device/uploader.cpp" bodystart="338" bodyend="454"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1adb61c8b8ffb15ac2ac239982d53ceb38" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Uploader::processCreateDir</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processCreateDir</name>
+        <param>
+          <type>int</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="68" column="10" bodyfile="src/jac/device/uploader.cpp" bodystart="456" bodyend="494"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1a81741af0b2a5c954c65549c7145e7f48" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Uploader::processDeleteDir</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processDeleteDir</name>
+        <param>
+          <type>int</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="69" column="10" bodyfile="src/jac/device/uploader.cpp" bodystart="496" bodyend="531"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1aff9c7deb58f63ba28b0ced0cd567d51c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Uploader::processFormatStorage</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processFormatStorage</name>
+        <param>
+          <type>int</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="70" column="10" bodyfile="src/jac/device/uploader.cpp" bodystart="533" bodyend="549"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1ab15a54370f13848326989afc91b20fa0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Uploader::processGetHashes</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processGetHashes</name>
+        <param>
+          <type>int</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="71" column="10" bodyfile="src/jac/device/uploader.cpp" bodystart="551" bodyend="654"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1a88bb274194b12b75594826a5abff2ed6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Uploader::processListResources</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processListResources</name>
+        <param>
+          <type>int</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="72" column="10" bodyfile="src/jac/device/uploader.cpp" bodystart="656" bodyend="672"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1a27e16af73b2268004c3763f411e0e718" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Uploader::processReadResource</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processReadResource</name>
+        <param>
+          <type>int</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="73" column="10" bodyfile="src/jac/device/uploader.cpp" bodystart="674" bodyend="706"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1Uploader_1a66b56dd65c9c2ffee2afb293db5d42dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Uploader::Uploader</definition>
+        <argsstring>(std::unique_ptr&lt; InputPacketCommunicator &gt; input, std::unique_ptr&lt; OutputPacketCommunicator &gt; output, TimeoutLock &amp;lock, std::filesystem::path rootDir, std::function&lt; void(std::filesystem::path)&gt; formatFS, std::unordered_map&lt; std::string, std::span&lt; const uint8_t &gt;&gt; resources)</argsstring>
+        <name>Uploader</name>
+        <param>
+          <type>std::unique_ptr&lt; InputPacketCommunicator &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; OutputPacketCommunicator &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1TimeoutLock" kindref="compound">TimeoutLock</ref> &amp;</type>
+          <declname>lock</declname>
+        </param>
+        <param>
+          <type>std::filesystem::path</type>
+          <declname>rootDir</declname>
+        </param>
+        <param>
+          <type>std::function&lt; void(std::filesystem::path)&gt;</type>
+          <declname>formatFS</declname>
+        </param>
+        <param>
+          <type>std::unordered_map&lt; std::string, std::span&lt; const uint8_t &gt;&gt;</type>
+          <declname>resources</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="85" column="5" bodyfile="src/jac/device/uploader.h" bodystart="85" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1a56efe97aa2411908f9fb1af72255c6e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Uploader::Uploader</definition>
+        <argsstring>(const Uploader &amp;)=delete</argsstring>
+        <name>Uploader</name>
+        <param>
+          <type>const <ref refid="classjac_1_1Uploader" kindref="compound">Uploader</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="101" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1acc79e6a020a93770e4338e928b610179" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Uploader::Uploader</definition>
+        <argsstring>(Uploader &amp;&amp;)=delete</argsstring>
+        <name>Uploader</name>
+        <param>
+          <type><ref refid="classjac_1_1Uploader" kindref="compound">Uploader</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="102" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1a8ec9f00a186c05e664d8b802f38feb2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Uploader" kindref="compound">Uploader</ref> &amp;</type>
+        <definition>Uploader&amp; jac::Uploader::operator=</definition>
+        <argsstring>(const Uploader &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classjac_1_1Uploader" kindref="compound">Uploader</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="103" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1a3689789ef3c5651c2d19d717cc03d0a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Uploader" kindref="compound">Uploader</ref> &amp;</type>
+        <definition>Uploader&amp; jac::Uploader::operator=</definition>
+        <argsstring>(Uploader &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classjac_1_1Uploader" kindref="compound">Uploader</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="104" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1a778ac7b7ba389c680e75e71d86c7a2f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void jac::Uploader::lockTimeout</definition>
+        <argsstring>()</argsstring>
+        <name>lockTimeout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="106" column="10" bodyfile="src/jac/device/uploader.cpp" bodystart="109" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1a1d37920b5e27190536c8c0d72e6aeb46" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void jac::Uploader::start</definition>
+        <argsstring>()</argsstring>
+        <name>start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="108" column="10" bodyfile="src/jac/device/uploader.h" bodystart="108" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Uploader_1ac45d4baed63c0b03c7bd2e4ee842b473" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Uploader::~Uploader</definition>
+        <argsstring>()</argsstring>
+        <name>~Uploader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.h" line="124" column="5" bodyfile="src/jac/device/uploader.h" bodystart="124" bodyend="130"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/device/uploader.h" line="18" column="1" bodyfile="src/jac/device/uploader.h" bodystart="18" bodyend="131"/>
+    <listofallmembers>
+      <member refid="classjac_1_1Uploader_1ae91b9d148ed314a38fcb4427a1b4d5db" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>_devLock</name></member>
+      <member refid="classjac_1_1Uploader_1a4c22c3cea1aef43c46cfb700af8248a4" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>_file</name></member>
+      <member refid="classjac_1_1Uploader_1ae59adf5c71ffdacf81fd39dbbe108d0f" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>_formatFS</name></member>
+      <member refid="classjac_1_1Uploader_1a138066ecb880271bbcc07308ac204189" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>_input</name></member>
+      <member refid="classjac_1_1Uploader_1a06815ef18372b88ed4d3eb2b45e15cbc" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>_onData</name></member>
+      <member refid="classjac_1_1Uploader_1a4b7afbb0a93fa4437ceed3f0941c445d" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>_onDataComplete</name></member>
+      <member refid="classjac_1_1Uploader_1acb679467ce1cd126b21b4a383e6a055a" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>_output</name></member>
+      <member refid="classjac_1_1Uploader_1a88ef36cacb17c1955d0b54188c136d23" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>_resources</name></member>
+      <member refid="classjac_1_1Uploader_1ad9a70ae22b4bd6cf529262aa95ac25fd" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>_rootDir</name></member>
+      <member refid="classjac_1_1Uploader_1a9642ac2a3f9a89b60e7c55cc54bea710" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>_state</name></member>
+      <member refid="classjac_1_1Uploader_1a31935de69e46fdebf1914af64dfd7a81" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>_stop</name></member>
+      <member refid="classjac_1_1Uploader_1ae4a88d28eec668fb3de4fdfdd496bf40" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>_thread</name></member>
+      <member refid="classjac_1_1Uploader_1a303a7b16cd5b6ac2721518b5559a9085" prot="public" virt="non-virtual"><scope>jac::Uploader</scope><name>Command</name></member>
+      <member refid="classjac_1_1Uploader_1a7cc9aa9b93108fd6c156564de4b37621" prot="public" virt="non-virtual"><scope>jac::Uploader</scope><name>Error</name></member>
+      <member refid="classjac_1_1Uploader_1a778ac7b7ba389c680e75e71d86c7a2f6" prot="public" virt="non-virtual"><scope>jac::Uploader</scope><name>lockTimeout</name></member>
+      <member refid="classjac_1_1Uploader_1a8ec9f00a186c05e664d8b802f38feb2b" prot="public" virt="non-virtual"><scope>jac::Uploader</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Uploader_1a3689789ef3c5651c2d19d717cc03d0a3" prot="public" virt="non-virtual"><scope>jac::Uploader</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Uploader_1adb61c8b8ffb15ac2ac239982d53ceb38" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>processCreateDir</name></member>
+      <member refid="classjac_1_1Uploader_1a81741af0b2a5c954c65549c7145e7f48" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>processDeleteDir</name></member>
+      <member refid="classjac_1_1Uploader_1a8660b8fe67c88726351f9fecc1cfc84f" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>processDeleteFile</name></member>
+      <member refid="classjac_1_1Uploader_1aff9c7deb58f63ba28b0ced0cd567d51c" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>processFormatStorage</name></member>
+      <member refid="classjac_1_1Uploader_1ab15a54370f13848326989afc91b20fa0" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>processGetHashes</name></member>
+      <member refid="classjac_1_1Uploader_1a8d2605f3d80bcba948779e16cc5a0d4e" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>processListDir</name></member>
+      <member refid="classjac_1_1Uploader_1a88bb274194b12b75594826a5abff2ed6" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>processListResources</name></member>
+      <member refid="classjac_1_1Uploader_1aa26b8c68261c4544b2bf7886ea93d69e" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>processPacket</name></member>
+      <member refid="classjac_1_1Uploader_1af5d4b9b9eb75adeb718924eb94f42e16" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>processReadFile</name></member>
+      <member refid="classjac_1_1Uploader_1a27e16af73b2268004c3763f411e0e718" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>processReadResource</name></member>
+      <member refid="classjac_1_1Uploader_1a88c9d4f79a098ed3df393cb8c8c118c1" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>processWriteFile</name></member>
+      <member refid="classjac_1_1Uploader_1a1d37920b5e27190536c8c0d72e6aeb46" prot="public" virt="non-virtual"><scope>jac::Uploader</scope><name>start</name></member>
+      <member refid="classjac_1_1Uploader_1a3078fa37307f315be7cb2e277840b39d" prot="private" virt="non-virtual"><scope>jac::Uploader</scope><name>State</name></member>
+      <member refid="classjac_1_1Uploader_1a66b56dd65c9c2ffee2afb293db5d42dd" prot="public" virt="non-virtual"><scope>jac::Uploader</scope><name>Uploader</name></member>
+      <member refid="classjac_1_1Uploader_1a56efe97aa2411908f9fb1af72255c6e8" prot="public" virt="non-virtual"><scope>jac::Uploader</scope><name>Uploader</name></member>
+      <member refid="classjac_1_1Uploader_1acc79e6a020a93770e4338e928b610179" prot="public" virt="non-virtual"><scope>jac::Uploader</scope><name>Uploader</name></member>
+      <member refid="classjac_1_1Uploader_1ac45d4baed63c0b03c7bd2e4ee842b473" prot="public" virt="non-virtual"><scope>jac::Uploader</scope><name>~Uploader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

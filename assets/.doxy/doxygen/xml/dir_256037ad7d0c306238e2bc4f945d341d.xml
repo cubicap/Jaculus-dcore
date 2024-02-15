@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_256037ad7d0c306238e2bc4f945d341d" kind="dir">
+    <compoundname>src/jac</compoundname>
+    <innerdir refid="dir_7dcf813d97a5be213fa89559baaee677">src/jac/device</innerdir>
+    <innerdir refid="dir_6f95e06b732314161804ab1ef73c9681">src/jac/features</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/"/>
+  </compounddef>
+</doxygen>

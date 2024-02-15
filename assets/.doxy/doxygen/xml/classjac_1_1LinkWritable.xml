@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1LinkWritable" kind="class" language="C++" prot="public">
+    <compoundname>jac::LinkWritable</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Writable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1LinkWritable_1a17077b4038434a1115fcac62064db688" prot="private" static="no" mutable="no">
+        <type>jac::OutputStreamCommunicator *</type>
+        <definition>jac::OutputStreamCommunicator* jac::LinkWritable::_comm</definition>
+        <argsstring></argsstring>
+        <name>_comm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="15" column="35" bodyfile="src/jac/features/util/linkIo.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1LinkWritable_1ad8f03debb35414be3de7d732da382738" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::LinkWritable::LinkWritable</definition>
+        <argsstring>(jac::OutputStreamCommunicator *comm)</argsstring>
+        <name>LinkWritable</name>
+        <param>
+          <type>jac::OutputStreamCommunicator *</type>
+          <declname>comm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="17" column="5" bodyfile="src/jac/features/util/linkIo.h" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1LinkWritable_1acf233ea69973a7ea709f696ccbab0c60" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void jac::LinkWritable::write</definition>
+        <argsstring>(std::string data) override</argsstring>
+        <name>write</name>
+        <param>
+          <type>std::string</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="19" column="10" bodyfile="src/jac/features/util/linkIo.h" bodystart="19" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>jac::LinkWritable</label>
+        <link refid="classjac_1_1LinkWritable"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Writable</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>jac::LinkWritable</label>
+        <link refid="classjac_1_1LinkWritable"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Writable</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/features/util/linkIo.h" line="14" column="1" bodyfile="src/jac/features/util/linkIo.h" bodystart="14" bodyend="22"/>
+    <listofallmembers>
+      <member refid="classjac_1_1LinkWritable_1a17077b4038434a1115fcac62064db688" prot="private" virt="non-virtual"><scope>jac::LinkWritable</scope><name>_comm</name></member>
+      <member refid="classjac_1_1LinkWritable_1ad8f03debb35414be3de7d732da382738" prot="public" virt="non-virtual"><scope>jac::LinkWritable</scope><name>LinkWritable</name></member>
+      <member refid="classjac_1_1LinkWritable_1acf233ea69973a7ea709f696ccbab0c60" prot="public" virt="non-virtual"><scope>jac::LinkWritable</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
