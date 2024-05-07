@@ -47,6 +47,12 @@ void Controller::processPacket(int sender, std::span<const uint8_t> data) {
         case Command::STOP:
             processStop(sender);
             break;
+        case Command::CONFIG_SET:
+            processConfigSet(sender, std::span<const uint8_t>(begin, data.end()));
+            break;
+        case Command::CONFIG_GET:
+            processConfigGet(sender, std::span<const uint8_t>(begin, data.end()));
+            break;
         default:
             break;
     }
@@ -139,6 +145,161 @@ void Controller::processForceUnlock(int sender) {
     _devLock.forceUnlock();
 
     response->put(static_cast<uint8_t>(Command::OK));
+}
+
+void Controller::processConfigSet(int sender, std::span<const uint8_t> data) {
+    using DataType = jac::KeyValueNamespace::DataType;
+
+    auto response = this->_output->buildPacket({sender});
+
+    // 0: namespace
+    auto stringEnd = std::find(data.begin(), data.end(), '\0');
+    std::string nsname(data.begin(), stringEnd);
+    auto dataIt = stringEnd+1;
+    if(dataIt == data.end()) {
+        response->put(static_cast<uint8_t>(Command::ERROR));
+        response->send();
+        return;
+    }
+
+    auto kv = _machineCtrl.openKeyValue(nsname);
+    if(!kv) {
+        response->put(static_cast<uint8_t>(Command::ERROR));
+        response->send();
+        return;
+    }
+
+    // 1: name
+    stringEnd = std::find(dataIt, data.end(), '\0');
+    std::string name(dataIt, stringEnd);
+    dataIt = stringEnd+1;
+    if(dataIt == data.end()) {
+        response->put(static_cast<uint8_t>(Command::ERROR));
+        response->send();
+        return;
+    }
+
+    // 2: data type
+    DataType dtype = static_cast<DataType>(*dataIt);
+    ++dataIt;
+
+    // 3: value
+    switch(dtype) {
+        case DataType::INT64: {
+            if(data.end() - dataIt < 8) {
+                response->put(static_cast<uint8_t>(Command::ERROR));
+                response->send();
+                return;
+            }
+            const auto intView = std::span<const uint8_t>(dataIt, dataIt+8);
+            kv->setInt(name, *static_cast<const int64_t*>(static_cast<const void*>(intView.data())));
+            break;
+        }
+        case DataType::FLOAT32: {
+            if(data.end() - dataIt < 4) {
+                response->put(static_cast<uint8_t>(Command::ERROR));
+                response->send();
+                return;
+            }
+            const auto floatView = std::span<const uint8_t>(dataIt, dataIt+4);
+            kv->setFloat(name, *static_cast<const int64_t*>(static_cast<const void*>(floatView.data())));
+            break;
+        }
+        case DataType::STRING: {
+            if(data.end() - dataIt < 1) {
+                response->put(static_cast<uint8_t>(Command::ERROR));
+                response->send();
+                return;
+            }
+            stringEnd = std::find(dataIt, data.end(), '\0');
+            std::string value(dataIt, stringEnd);
+            kv->setString(name, value);
+            break;
+        }
+        default:
+            Logger::error("Unknown config data type: " + std::to_string(dtype));
+            response->put(static_cast<uint8_t>(Command::ERROR));
+            response->send();
+            return;
+    }
+
+    if(kv->commit()) {
+        response->put(static_cast<uint8_t>(Command::OK));
+    } else {
+        response->put(static_cast<uint8_t>(Command::ERROR));
+    }
+
+    response->send();
+}
+
+void Controller::processConfigGet(int sender, std::span<const uint8_t> data) {
+    using DataType = jac::KeyValueNamespace::DataType;
+
+    auto response = this->_output->buildPacket({sender});
+
+    // 0: namespace
+    auto stringEnd = std::find(data.begin(), data.end(), '\0');
+    std::string nsname(data.begin(), stringEnd);
+    auto dataIt = stringEnd+1;
+    if(dataIt == data.end()) {
+        response->put(static_cast<uint8_t>(Command::ERROR));
+        response->send();
+        return;
+    }
+
+    auto kv = _machineCtrl.openKeyValue(nsname);
+    if(!kv) {
+        response->put(static_cast<uint8_t>(Command::ERROR));
+        response->send();
+        return;
+    }
+
+    // 1: name
+    stringEnd = std::find(dataIt, data.end(), '\0');
+    std::string name(dataIt, stringEnd);
+    dataIt = stringEnd+1;
+    if(dataIt == data.end()) {
+        response->put(static_cast<uint8_t>(Command::ERROR));
+        response->send();
+        return;
+    }
+
+    // 2: data type
+    DataType dtype = static_cast<DataType>(*dataIt);
+    ++dataIt;
+
+    response->put(static_cast<uint8_t>(Command::CONFIG_GET));
+    response->put(dtype);
+
+    switch(dtype) {
+        case DataType::INT64: {
+            int64_t value = kv->getInt(name);
+            uint8_t *value_ptr = static_cast<uint8_t*>(static_cast<void*>(&value));
+            std::span<const uint8_t> view(value_ptr, value_ptr+8);
+            response->put(view);
+            break;
+        }
+        case DataType::FLOAT32: {
+            float value = kv->getFloat(name);
+            uint8_t *value_ptr = static_cast<uint8_t*>(static_cast<void*>(&value));
+            std::span<const uint8_t> view(value_ptr, value_ptr+4);
+            response->put(view);
+            break;
+        }
+        case DataType::STRING: {
+            auto value = kv->getString(name);
+            auto data = (uint8_t*)value.data();
+            response->put(std::span<const uint8_t>(data, data + value.size()+1));
+            break;
+        }
+        default:
+            Logger::error("Unknown config data type: " + std::to_string(dtype));
+            response->put(static_cast<uint8_t>(Command::ERROR));
+            response->send();
+            return;
+    }
+
+    response->send();
 }
 
 
