@@ -32,6 +32,7 @@ class Device : public MachineCtrl {
 
     std::unique_ptr<Machine> _machine;
     std::vector<std::function<void(Machine&)>> _onConfigureMachine;
+    std::vector<std::function<void(const std::string&, const std::string&)>> _onKeyValueModified;
     std::atomic<bool> _machineRunning = false;
     std::thread _machineThread;
     std::mutex _machineMutex;
@@ -171,8 +172,18 @@ public:
         return _openKeyValueNamespace(nsname);
     }
 
+    void emitKeyValueModified(const std::string& nsname, const std::string& key) override {
+        for(auto&f : _onKeyValueModified) {
+            f(nsname, key);
+        }
+    }
+
     void onConfigureMachine(std::function<void(Machine&)> f) {
         _onConfigureMachine.push_back(f);
+    }
+
+    void onKeyValueModified(std::function<void(const std::string&, const std::string&)> f) {
+        _onKeyValueModified.push_back(f);
     }
 };
 

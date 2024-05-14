@@ -225,6 +225,7 @@ void Controller::processConfigSet(int sender, std::span<const uint8_t> data) {
 
     if(kv->commit()) {
         response->put(static_cast<uint8_t>(Command::OK));
+        _machineCtrl.emitKeyValueModified(nsname, name);
     } else {
         response->put(static_cast<uint8_t>(Command::ERROR));
     }
