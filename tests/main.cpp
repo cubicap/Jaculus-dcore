@@ -87,6 +87,9 @@ int main() {
         },
         {
             { "test_files", resources::testFilesTar }
+        },
+        [](const std::string& nsname) -> std::unique_ptr<jac::KeyValueNamespace> {
+            return nullptr;
         }
     );
 

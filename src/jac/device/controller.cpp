@@ -289,8 +289,7 @@ void Controller::processConfigGet(int sender, std::span<const uint8_t> data) {
         }
         case DataType::STRING: {
             auto value = kv->getString(name);
-            auto data = (uint8_t*)value.data();
-            response->put(std::span<const uint8_t>(data, data + value.size()+1));
+            response->put(std::span<const uint8_t>(reinterpret_cast<const uint8_t*>(value.data()), value.size() + 1));
             break;
         }
         default:
