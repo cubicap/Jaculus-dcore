@@ -6,6 +6,7 @@
 #include "util/lock.h"
 
 #include "logger.h"
+#include "keyvalue.h"
 #include "util/machineCtrl.h"
 
 #include <atomic>
@@ -30,6 +31,8 @@ class Controller {
         OK = 0x20,
         ERROR = 0x21,
         LOCK_NOT_OWNED = 0x22,
+        CONFIG_SET = 0x30,
+        CONFIG_GET = 0x31,
     };
 
     std::unique_ptr<InputPacketCommunicator> _input;
@@ -45,6 +48,8 @@ class Controller {
     void processLock(int sender);
     void processUnlock(int sender);
     void processForceUnlock(int sender);
+    void processConfigSet(int sender, std::span<const uint8_t> data);
+    void processConfigGet(int sender, std::span<const uint8_t> data);
 
     TimeoutLock& _devLock;
     MachineCtrl& _machineCtrl;

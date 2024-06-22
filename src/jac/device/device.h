@@ -9,6 +9,7 @@
 #include "uploader.h"
 #include "logger.h"
 #include "util/machineCtrl.h"
+#include "keyvalue.h"
 
 #include <atomic>
 #include <filesystem>
@@ -31,6 +32,7 @@ class Device : public MachineCtrl {
 
     std::unique_ptr<Machine> _machine;
     std::vector<std::function<void(Machine&)>> _onConfigureMachine;
+    std::vector<std::function<void(const std::string&, const std::string&)>> _onKeyValueModified;
     std::atomic<bool> _machineRunning = false;
     std::thread _machineThread;
     std::mutex _machineMutex;
@@ -49,6 +51,8 @@ class Device : public MachineCtrl {
     std::vector<std::pair<std::string, std::string>> _versionInfo = {
         {"dcore", JAC_DCORE_VERSION}
     };
+
+    KeyValueOpener _openKeyValueNamespace;
 
     void configureMachine() {
         _machine = nullptr;
@@ -84,19 +88,20 @@ class Device : public MachineCtrl {
         _uploader->lockTimeout();
     }
 public:
-
     Device(
         std::filesystem::path rootDir,
         std::function<std::string()> getMemoryStats,
         std::function<std::string()> getStorageStats,
         std::vector<std::pair<std::string, std::string>> versionInfo,
         std::function<void(std::filesystem::path)> formatFS,
-        std::unordered_map<std::string, std::span<const uint8_t>> resources
+        std::unordered_map<std::string, std::span<const uint8_t>> resources,
+        KeyValueOpener openKeyValueNamespace
     ):
         _lock(std::chrono::seconds(1), [this] { this->lockTimeout(); }),
         _getMemoryStats(getMemoryStats),
         _getStorageStats(getStorageStats),
-        _rootDir(rootDir.lexically_normal())
+        _rootDir(rootDir.lexically_normal()),
+        _openKeyValueNamespace(openKeyValueNamespace)
     {
         Logger::_errorStream = std::make_unique<RouterOutputStreamCommunicator>(_router, 255, std::vector<int>{});
         Logger::_logStream = std::make_unique<RouterOutputStreamCommunicator>(_router, 253, std::vector<int>{});
@@ -163,8 +168,22 @@ public:
     bool stopMachine() override;
     std::tuple<bool, int, std::string> getMachineStatus() override;
 
+    std::unique_ptr<KeyValueNamespace> openKeyValue(const std::string& nsname) const override {
+        return _openKeyValueNamespace(nsname);
+    }
+
+    void emitKeyValueModified(const std::string& nsname, const std::string& key) override {
+        for(auto&f : _onKeyValueModified) {
+            f(nsname, key);
+        }
+    }
+
     void onConfigureMachine(std::function<void(Machine&)> f) {
         _onConfigureMachine.push_back(f);
+    }
+
+    void onKeyValueModified(std::function<void(const std::string&, const std::string&)> f) {
+        _onKeyValueModified.push_back(f);
     }
 };
 
