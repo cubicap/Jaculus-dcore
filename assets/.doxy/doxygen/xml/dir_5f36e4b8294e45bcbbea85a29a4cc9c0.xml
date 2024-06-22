@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_5f36e4b8294e45bcbbea85a29a4cc9c0" kind="dir">
+    <compoundname>src/jac/device/util</compoundname>
+    <innerfile refid="lock_8h">lock.h</innerfile>
+    <innerfile refid="machineCtrl_8h">machineCtrl.h</innerfile>
+    <innerfile refid="sha1_8h">sha1.h</innerfile>
+    <innerfile refid="timeout_8h">timeout.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/device/util/"/>
+  </compounddef>
+</doxygen>

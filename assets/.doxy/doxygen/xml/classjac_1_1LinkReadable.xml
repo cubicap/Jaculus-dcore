@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1LinkReadable" kind="class" language="C++" prot="public">
+    <compoundname>jac::LinkReadable</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Readable</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>class Machine</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1LinkReadable_1a41f1423d9830ce3734066daafa746c44" prot="private" static="no" mutable="no">
+        <type>Machine *</type>
+        <definition>Machine* jac::LinkReadable&lt; Machine &gt;::_machine</definition>
+        <argsstring></argsstring>
+        <name>_machine</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="26" column="13" bodyfile="src/jac/features/util/linkIo.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1LinkReadable_1a48bad13a2acf815c8f0e748c0d023844" prot="private" static="no" mutable="no">
+        <type>jac::InputStreamCommunicator *</type>
+        <definition>jac::InputStreamCommunicator* jac::LinkReadable&lt; Machine &gt;::_comm</definition>
+        <argsstring></argsstring>
+        <name>_comm</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="27" column="34" bodyfile="src/jac/features/util/linkIo.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1LinkReadable_1a396a3de5b2b657bd4107867edafd0456" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread jac::LinkReadable&lt; Machine &gt;::_thread</definition>
+        <argsstring></argsstring>
+        <name>_thread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="28" column="17" bodyfile="src/jac/features/util/linkIo.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1LinkReadable_1a9a780ccf9d5f51789a4079b942287861" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; bool &gt;</type>
+        <definition>std::atomic&lt;bool&gt; jac::LinkReadable&lt; Machine &gt;::_running</definition>
+        <argsstring></argsstring>
+        <name>_running</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="29" column="17" bodyfile="src/jac/features/util/linkIo.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classjac_1_1LinkReadable_1a6bafe3d351f4edde254325a475cd4f18" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::LinkReadable&lt; Machine &gt;::startRead</definition>
+        <argsstring>(auto callback)</argsstring>
+        <name>startRead</name>
+        <param>
+          <type>auto</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="31" column="10" bodyfile="src/jac/features/util/linkIo.h" bodystart="31" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1LinkReadable_1a132090396067e32d4d2a478616e9b6b9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::LinkReadable&lt; Machine &gt;::LinkReadable</definition>
+        <argsstring>(Machine *machine, jac::InputStreamCommunicator *comm)</argsstring>
+        <name>LinkReadable</name>
+        <param>
+          <type>Machine *</type>
+          <declname>machine</declname>
+        </param>
+        <param>
+          <type>jac::InputStreamCommunicator *</type>
+          <declname>comm</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="45" column="5" bodyfile="src/jac/features/util/linkIo.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1LinkReadable_1ad42de26ee156619bc262d740a83bfbe3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::LinkReadable&lt; Machine &gt;::LinkReadable</definition>
+        <argsstring>(LinkReadable &amp;)=delete</argsstring>
+        <name>LinkReadable</name>
+        <param>
+          <type><ref refid="classjac_1_1LinkReadable" kindref="compound">LinkReadable</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="46" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1LinkReadable_1a796256f4eb77b3dbd7c8dd89ed5e9fa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::LinkReadable&lt; Machine &gt;::LinkReadable</definition>
+        <argsstring>(LinkReadable &amp;&amp;)=delete</argsstring>
+        <name>LinkReadable</name>
+        <param>
+          <type><ref refid="classjac_1_1LinkReadable" kindref="compound">LinkReadable</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="47" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1LinkReadable_1a2664f133c224c68ce19d8c892f5660a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::LinkReadable&lt; Machine &gt;::get</definition>
+        <argsstring>(std::function&lt; void(char)&gt; callback) override</argsstring>
+        <name>get</name>
+        <param>
+          <type>std::function&lt; void(char)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="49" column="10" bodyfile="src/jac/features/util/linkIo.h" bodystart="49" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1LinkReadable_1abe1b37e7def2b2677b552152e70e1c37" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::LinkReadable&lt; Machine &gt;::read</definition>
+        <argsstring>(std::function&lt; void(std::string)&gt; callback) override</argsstring>
+        <name>read</name>
+        <param>
+          <type>std::function&lt; void(std::string)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="63" column="10" bodyfile="src/jac/features/util/linkIo.h" bodystart="63" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1LinkReadable_1aabb241d6d006e304773a88458d605b8f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::LinkReadable&lt; Machine &gt;::~LinkReadable</definition>
+        <argsstring>() override</argsstring>
+        <name>~LinkReadable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/util/linkIo.h" line="79" column="5" bodyfile="src/jac/features/util/linkIo.h" bodystart="79" bodyend="86"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Readable</label>
+      </node>
+      <node id="1">
+        <label>jac::LinkReadable&lt; Machine &gt;</label>
+        <link refid="classjac_1_1LinkReadable"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Readable</label>
+      </node>
+      <node id="1">
+        <label>jac::LinkReadable&lt; Machine &gt;</label>
+        <link refid="classjac_1_1LinkReadable"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/features/util/linkIo.h" line="25" column="1" bodyfile="src/jac/features/util/linkIo.h" bodystart="25" bodyend="87"/>
+    <listofallmembers>
+      <member refid="classjac_1_1LinkReadable_1a48bad13a2acf815c8f0e748c0d023844" prot="private" virt="non-virtual"><scope>jac::LinkReadable</scope><name>_comm</name></member>
+      <member refid="classjac_1_1LinkReadable_1a41f1423d9830ce3734066daafa746c44" prot="private" virt="non-virtual"><scope>jac::LinkReadable</scope><name>_machine</name></member>
+      <member refid="classjac_1_1LinkReadable_1a9a780ccf9d5f51789a4079b942287861" prot="private" virt="non-virtual"><scope>jac::LinkReadable</scope><name>_running</name></member>
+      <member refid="classjac_1_1LinkReadable_1a396a3de5b2b657bd4107867edafd0456" prot="private" virt="non-virtual"><scope>jac::LinkReadable</scope><name>_thread</name></member>
+      <member refid="classjac_1_1LinkReadable_1a2664f133c224c68ce19d8c892f5660a4" prot="public" virt="non-virtual"><scope>jac::LinkReadable</scope><name>get</name></member>
+      <member refid="classjac_1_1LinkReadable_1a132090396067e32d4d2a478616e9b6b9" prot="public" virt="non-virtual"><scope>jac::LinkReadable</scope><name>LinkReadable</name></member>
+      <member refid="classjac_1_1LinkReadable_1ad42de26ee156619bc262d740a83bfbe3" prot="public" virt="non-virtual"><scope>jac::LinkReadable</scope><name>LinkReadable</name></member>
+      <member refid="classjac_1_1LinkReadable_1a796256f4eb77b3dbd7c8dd89ed5e9fa0" prot="public" virt="non-virtual"><scope>jac::LinkReadable</scope><name>LinkReadable</name></member>
+      <member refid="classjac_1_1LinkReadable_1abe1b37e7def2b2677b552152e70e1c37" prot="public" virt="non-virtual"><scope>jac::LinkReadable</scope><name>read</name></member>
+      <member refid="classjac_1_1LinkReadable_1a6bafe3d351f4edde254325a475cd4f18" prot="private" virt="non-virtual"><scope>jac::LinkReadable</scope><name>startRead</name></member>
+      <member refid="classjac_1_1LinkReadable_1aabb241d6d006e304773a88458d605b8f" prot="public" virt="non-virtual"><scope>jac::LinkReadable</scope><name>~LinkReadable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
