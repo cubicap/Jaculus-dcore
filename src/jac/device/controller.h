@@ -33,6 +33,7 @@ class Controller {
         LOCK_NOT_OWNED = 0x22,
         CONFIG_SET = 0x30,
         CONFIG_GET = 0x31,
+        CONFIG_ERASE = 0x32,
     };
 
     std::unique_ptr<InputPacketCommunicator> _input;
@@ -50,6 +51,7 @@ class Controller {
     void processForceUnlock(int sender);
     void processConfigSet(int sender, std::span<const uint8_t> data);
     void processConfigGet(int sender, std::span<const uint8_t> data);
+    void processConfigErase(int sender, std::span<const uint8_t> data);
 
     TimeoutLock& _devLock;
     MachineCtrl& _machineCtrl;
