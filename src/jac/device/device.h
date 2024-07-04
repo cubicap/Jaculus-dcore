@@ -3,6 +3,7 @@
 #include <jac/link/mux.h>
 #include <jac/link/router.h>
 #include <jac/link/routerCommunicator.h>
+#include <jac/machine/values.h>
 #include "util/lock.h"
 
 #include "controller.h"
@@ -54,8 +55,9 @@ class Device : public MachineCtrl {
 
     KeyValueOpener _openKeyValueNamespace;
 
+    std::atomic<int> _lastExitCode = 0;
+
     void configureMachine() {
-        _machine = nullptr;
         _machine = std::make_unique<Machine>();
 
         if (!std::filesystem::exists(_rootDir / "data")) {
@@ -239,6 +241,9 @@ bool Device<Machine>::startMachine(std::string path) {
         std::string message = "Machine exited with code " + std::to_string(self._machine->getExitCode()) + "\n";
         this->_machineIO.err->write(std::span<const uint8_t>(reinterpret_cast<const uint8_t*>(message.data()), message.size()));
 
+        _lastExitCode = self._machine->getExitCode();
+        _machine = nullptr;
+
         self._machineRunning = false;
     });
 
@@ -266,12 +271,12 @@ bool Device<Machine>::stopMachine() {
 template<class Machine>
 std::tuple<bool, int, std::string> Device<Machine>::getMachineStatus() {
     bool running = _machineRunning;
-    int code = _machine ? _machine->getExitCode() : 0;
+    int code = _lastExitCode;
 
     std::stringstream oss;
     oss << "Memory usage: " << _getMemoryStats() << std::endl;
     oss << "Storage usage: " << _getStorageStats() << std::endl;
-    return {running, code, oss.str()};
+    return { running, code, oss.str() };
 }
 
 } // namespace jac
