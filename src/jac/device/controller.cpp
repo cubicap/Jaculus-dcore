@@ -53,6 +53,8 @@ void Controller::processPacket(int sender, std::span<const uint8_t> data) {
         case Command::CONFIG_GET:
             processConfigGet(sender, std::span<const uint8_t>(begin, data.end()));
             break;
+        case Command::CONFIG_ERASE:
+            processConfigErase(sender, std::span<const uint8_t>(begin, data.end()));
         default:
             break;
     }
@@ -297,6 +299,48 @@ void Controller::processConfigGet(int sender, std::span<const uint8_t> data) {
             response->put(static_cast<uint8_t>(Command::ERROR));
             response->send();
             return;
+    }
+
+    response->send();
+}
+
+void Controller::processConfigErase(int sender, std::span<const uint8_t> data) {
+    auto response = this->_output->buildPacket({sender});
+
+    // 0: namespace
+    auto stringEnd = std::find(data.begin(), data.end(), '\0');
+    std::string nsname(data.begin(), stringEnd);
+    auto dataIt = stringEnd+1;
+    if(dataIt == data.end()) {
+        response->put(static_cast<uint8_t>(Command::ERROR));
+        response->send();
+        return;
+    }
+
+    auto kv = _machineCtrl.openKeyValue(nsname);
+    if(!kv) {
+        response->put(static_cast<uint8_t>(Command::ERROR));
+        response->send();
+        return;
+    }
+
+    // 1: name
+    stringEnd = std::find(dataIt, data.end(), '\0');
+    std::string name(dataIt, stringEnd);
+    dataIt = stringEnd+1;
+    if(dataIt != data.end()) {
+        response->put(static_cast<uint8_t>(Command::ERROR));
+        response->send();
+        return;
+    }
+
+    kv->erase(name);
+
+    if(kv->commit()) {
+        response->put(static_cast<uint8_t>(Command::OK));
+        _machineCtrl.emitKeyValueModified(nsname, name);
+    } else {
+        response->put(static_cast<uint8_t>(Command::ERROR));
     }
 
     response->send();
