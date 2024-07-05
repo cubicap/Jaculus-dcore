@@ -15,6 +15,8 @@ public:
         INT64 = 0,
         FLOAT32 = 1,
         STRING = 2,
+
+        NOT_FOUND = 0xFF,
     };
 
     KeyValueNamespace() {}
@@ -30,6 +32,11 @@ public:
     virtual int64_t getInt(const std::string& name, int64_t def_value = 0) = 0;
     virtual float getFloat(const std::string& name, float def_value = 0.f) = 0;
     virtual std::string getString(const std::string& name, std::string def_value = "") = 0;
+
+    virtual DataType getType(const std::string& name) = 0;
+    bool exists(const std::string& name) {
+        return getType(name) != NOT_FOUND;
+    }
 
     virtual bool commit() = 0;
 };
