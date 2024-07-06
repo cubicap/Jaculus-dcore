@@ -170,6 +170,10 @@ public:
     bool stopMachine() override;
     std::tuple<bool, int, std::string> getMachineStatus() override;
 
+    const KeyValueOpener& getKeyValueOpener() const {
+        return _openKeyValueNamespace;
+    }
+
     std::unique_ptr<KeyValueNamespace> openKeyValue(const std::string& nsname) const override {
         return _openKeyValueNamespace(nsname);
     }
