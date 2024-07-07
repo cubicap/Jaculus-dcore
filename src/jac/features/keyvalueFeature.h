@@ -8,13 +8,15 @@
 #include <noal_func.h>
 #include <memory>
 
-#include "freertos/FreeRTOS.h"
+
+namespace jac {
+
 
 struct KeyValueNamespaceProtoBuilder : public jac::ProtoBuilder::Opaque<jac::KeyValueNamespace>, public jac::ProtoBuilder::Properties {
     static jac::Value get(jac::ContextRef ctx, jac::ValueWeak thisVal, std::string key) {
         using namespace jac;
         using DT = KeyValueNamespace::DataType;
-        
+
         auto& self = *KeyValueNamespaceProtoBuilder::getOpaque(ctx, thisVal);
         switch(self.getType(key)) {
             case DT::INT64:
@@ -33,35 +35,35 @@ struct KeyValueNamespaceProtoBuilder : public jac::ProtoBuilder::Opaque<jac::Key
 
         proto.defineProperty("get", ff.newFunctionThis(std::function(&get)), jac::PropFlags::Enumerable);
 
-        proto.defineProperty("getString", ff.newFunctionThis([](jac::ContextRef ctx, jac::ValueWeak thisVal, std::string key) {
-            auto res = get(ctx, thisVal, key);
+        proto.defineProperty("getString", ff.newFunctionThis([](jac::ContextRef ctx_, jac::ValueWeak thisVal, std::string key) {
+            auto res = get(ctx_, thisVal, key);
             if(JS_IsString(res.getVal())) {
                 return res;
             }
-            return jac::Value::null(ctx);
+            return jac::Value::null(ctx_);
         }), jac::PropFlags::Enumerable);
 
-        proto.defineProperty("getNumber", ff.newFunctionThis([](jac::ContextRef ctx, jac::ValueWeak thisVal, std::string key) {
-            auto res = get(ctx, thisVal, key);
+        proto.defineProperty("getNumber", ff.newFunctionThis([](jac::ContextRef ctx_, jac::ValueWeak thisVal, std::string key) {
+            auto res = get(ctx_, thisVal, key);
             if(JS_IsNumber(res.getVal())) {
                 return res;
             }
-            return jac::Value::null(ctx);
+            return jac::Value::null(ctx_);
         }), jac::PropFlags::Enumerable);
 
-        proto.defineProperty("set", ff.newFunctionThis([](jac::ContextRef ctx, jac::ValueWeak thisVal, std::string key, jac::Value value) {
+        proto.defineProperty("set", ff.newFunctionThis([](jac::ContextRef ctx_, jac::ValueWeak thisVal, std::string key, jac::Value value) {
             using namespace jac;
 
             if(key.length() > 15) {
                 throw Exception::create(Exception::Type::TypeError, "key is too long (max 15 chars)");
             }
-            
-            auto& self = *KeyValueNamespaceProtoBuilder::getOpaque(ctx, thisVal);
+
+            auto& self = *KeyValueNamespaceProtoBuilder::getOpaque(ctx_, thisVal);
             auto tag = JS_VALUE_GET_TAG(value.getVal());
             if(tag == JS_TAG_INT) {
-                self.setInt(key, JS_VALUE_GET_INT(value.getVal()));
+                self.setInt(key, value.to<int64_t>());
             } else if(JS_TAG_IS_FLOAT64(tag)) {
-                self.setFloat(key, JS_VALUE_GET_FLOAT64(value.getVal()));
+                self.setFloat(key, value.to<double>());
             } else if(tag == JS_TAG_STRING) {
                 self.setString(key, value.to<std::string>());
             } else {
@@ -69,19 +71,19 @@ struct KeyValueNamespaceProtoBuilder : public jac::ProtoBuilder::Opaque<jac::Key
             }
         }), jac::PropFlags::Enumerable);
 
-        proto.defineProperty("erase", ff.newFunctionThis([](jac::ContextRef ctx, jac::ValueWeak thisVal, std::string key) {
-            auto& self = *KeyValueNamespaceProtoBuilder::getOpaque(ctx, thisVal);
+        proto.defineProperty("erase", ff.newFunctionThis([](jac::ContextRef ctx_, jac::ValueWeak thisVal, std::string key) {
+            auto& self = *KeyValueNamespaceProtoBuilder::getOpaque(ctx_, thisVal);
             self.erase(key);
         }), jac::PropFlags::Enumerable);
 
-        proto.defineProperty("exists", ff.newFunctionThis([](jac::ContextRef ctx, jac::ValueWeak thisVal, std::string key) {
-            auto& self = *KeyValueNamespaceProtoBuilder::getOpaque(ctx, thisVal);
+        proto.defineProperty("exists", ff.newFunctionThis([](jac::ContextRef ctx_, jac::ValueWeak thisVal, std::string key) {
+            auto& self = *KeyValueNamespaceProtoBuilder::getOpaque(ctx_, thisVal);
             return self.exists(key);
         }), jac::PropFlags::Enumerable);
 
-        proto.defineProperty("commit", ff.newFunctionThis([](jac::ContextRef ctx, jac::ValueWeak thisVal) {
+        proto.defineProperty("commit", ff.newFunctionThis([](jac::ContextRef ctx_, jac::ValueWeak thisVal) {
             using namespace jac;
-            auto& self = *KeyValueNamespaceProtoBuilder::getOpaque(ctx, thisVal);
+            auto& self = *KeyValueNamespaceProtoBuilder::getOpaque(ctx_, thisVal);
             if(!self.commit()) {
                 throw Exception::create(Exception::Type::InternalError, "NVS saving failed");
             }
@@ -130,3 +132,6 @@ public:
         })));
     }
 };
+
+
+} // namespace jac

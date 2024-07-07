@@ -1,27 +1,27 @@
 #include <jac/machine/machine.h>
 #include <jac/machine/values.h>
+#include <jac/features/basicStreamFeature.h>
 #include <jac/features/eventLoopFeature.h>
 #include <jac/features/eventQueueFeature.h>
-#include <jac/features/timersFeature.h>
-#include <jac/features/moduleLoaderFeature.h>
 #include <jac/features/filesystemFeature.h>
-#include <jac/features/basicStreamFeature.h>
+#include <jac/features/keyvalueFeature.h>
+#include <jac/features/moduleLoaderFeature.h>
 #include <jac/features/stdioFeature.h>
+#include <jac/features/timersFeature.h>
+
+#include <jac/features/util/linkIo.h>
 
 #include <jac/device/device.h>
 #include <jac/device/logger.h>
 
-#include <jac/link/mux.h>
 #include <jac/link/encoders/cobs.h>
+#include <jac/link/mux.h>
 
 #include <any>
-#include <string>
 #include <filesystem>
-
-#include <jac/features/util/linkIo.h>
+#include <string>
 
 #include "util.h"
-
 #include "resources.h"
 
 
@@ -67,7 +67,8 @@ int main() {
         jac::ModuleLoaderFeature,
         jac::EventLoopFeature,
         jac::TimersFeature,
-        jac::EventLoopTerminal
+        jac::EventLoopTerminal,
+        jac::KeyValueFeature
     >;
 
     // create Device

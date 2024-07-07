@@ -1,10 +1,10 @@
 #pragma once
 
+#include <jac/link/communicator.h>
 #include <jac/machine/machine.h>
 #include <jac/features/types/streams.h>
 
 #include <atomic>
-#include <vector>
 #include <thread>
 
 
