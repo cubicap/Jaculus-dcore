@@ -5,8 +5,7 @@ include(CTest)
 
 FetchContent_Declare(
     Catch2
-    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-    GIT_TAG        v3.2.0
+    URL https://github.com/catchorg/Catch2/archive/refs/tags/v3.8.1.tar.gz
 )
 
 FetchContent_MakeAvailable(Catch2)

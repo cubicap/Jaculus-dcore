@@ -22,15 +22,13 @@ else()
 
     FetchContent_Declare(
         Jaculus-machine
-        GIT_REPOSITORY https://github.com/cubicap/Jaculus-machine.git
-        GIT_TAG        v0.0.7
+        URL https://github.com/cubicap/Jaculus-machine/archive/refs/tags/v0.0.9.tar.gz
     )
     FetchContent_MakeAvailable(Jaculus-machine)
 
     FetchContent_Declare(
         Jaculus-link
-        GIT_REPOSITORY https://github.com/cubicap/Jaculus-link.git
-        GIT_TAG        v0.0.3
+        URL https://github.com/cubicap/Jaculus-link/archive/refs/tags/v0.0.3.tar.gz
     )
     FetchContent_MakeAvailable(Jaculus-link)
 
