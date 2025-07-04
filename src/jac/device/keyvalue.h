@@ -24,6 +24,7 @@ public:
     virtual ~KeyValueNamespace() { }
 
     virtual bool erase(const std::string& name) = 0;
+    virtual std::vector<std::string> keys() = 0;
 
     virtual void setInt(const std::string& name, int64_t value) = 0;
     virtual void setFloat(const std::string& name, float value) = 0;

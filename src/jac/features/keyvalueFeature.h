@@ -88,6 +88,18 @@ struct KeyValueNamespaceProtoBuilder : public jac::ProtoBuilder::Opaque<jac::Key
                 throw Exception::create(Exception::Type::InternalError, "NVS saving failed");
             }
         }), jac::PropFlags::Enumerable);
+
+        proto.defineProperty("keys", ff.newFunctionThis([](jac::ContextRef ctx_, jac::ValueWeak thisVal) {
+            auto& self = *KeyValueNamespaceProtoBuilder::getOpaque(ctx_, thisVal);
+            auto keys = self.keys();
+            auto arr = jac::Array::create(ctx_);
+
+            auto atom = jac::Atom::create(ctx_, "push");
+            for(const auto& key : keys) {
+                arr.invoke<void>(atom, key);
+            }
+            return arr;
+        }), jac::PropFlags::Enumerable);
     }
 };
 
