@@ -220,8 +220,7 @@ bool Device<Machine>::startMachine(std::string path) {
         }
 
         try {
-            self._machine->evalFile(path);
-            self._machine->runEventLoop();
+            self._machine->evalFileWithEventLoop(path);
         }
         catch (jac::Exception& e) {
             std::string message = "Uncaught " + std::string(e.what()) + "\n";
