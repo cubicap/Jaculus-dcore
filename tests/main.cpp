@@ -63,9 +63,9 @@ int main() {
         jac::EventQueueFeature,
         jac::BasicStreamFeature,
         jac::StdioFeature,
+        jac::EventLoopFeature,
         jac::FilesystemFeature,
         jac::ModuleLoaderFeature,
-        jac::EventLoopFeature,
         jac::TimersFeature,
         jac::EventLoopTerminal,
         jac::KeyValueFeature
