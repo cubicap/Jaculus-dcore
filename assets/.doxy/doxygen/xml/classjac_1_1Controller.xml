@@ -1,0 +1,538 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classjac_1_1Controller" kind="class" language="C++" prot="public">
+    <compoundname>jac::Controller</compoundname>
+    <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1" prot="private" static="no" strong="yes">
+        <type><ref refid="classjac_1_1Device" kindref="compound">uint8_t</ref></type>
+        <name>Command</name>
+        <qualifiedname>jac::Controller::Command</qualifiedname>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1ab078ffd28db767c502ac367053f6e0ac" prot="private">
+          <name>START</name>
+          <initializer>= 0x01</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1a615a46af313786fc4e349f34118be111" prot="private">
+          <name>STOP</name>
+          <initializer>= 0x02</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1a5f241c8c8f985b3c51e05d39cf030f4c" prot="private">
+          <name>STATUS</name>
+          <initializer>= 0x03</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1a021321e8c168ba3ae39ce3a2e7b3ec87" prot="private">
+          <name>VERSION</name>
+          <initializer>= 0x04</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1af510b97de4ace11844b85f23d0fc012f" prot="private">
+          <name>LOCK</name>
+          <initializer>= 0x10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1a08f473e8e1515801cb25e584a6832f34" prot="private">
+          <name>UNLOCK</name>
+          <initializer>= 0x11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1af69a8ff9bc30b082465b943129036815" prot="private">
+          <name>FORCE_UNLOCK</name>
+          <initializer>= 0x12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1ae0aa021e21dddbd6d8cecec71e9cf564" prot="private">
+          <name>OK</name>
+          <initializer>= 0x20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1abb1ca97ec761fc37101737ba0aa2e7c5" prot="private">
+          <name>ERROR</name>
+          <initializer>= 0x21</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1a1076d661302a96164d816306067df2ed" prot="private">
+          <name>LOCK_NOT_OWNED</name>
+          <initializer>= 0x22</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1a5a0fcce86a75eb684b5798e7b6205f77" prot="private">
+          <name>CONFIG_SET</name>
+          <initializer>= 0x30</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1a646b5a7b5a337085fc77ca63de98c110" prot="private">
+          <name>CONFIG_GET</name>
+          <initializer>= 0x31</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1ab2e7992a04d380fbc6f38e05e14901d4" prot="private">
+          <name>CONFIG_ERASE</name>
+          <initializer>= 0x32</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="23" column="5" bodyfile="src/jac/device/controller.h" bodystart="23" bodyend="37"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1Controller_1a88e6ca45a3893d586ff9efad251bb16b" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classjac_1_1Device" kindref="compound">InputPacketCommunicator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;InputPacketCommunicator&gt; jac::Controller::_input</definition>
+        <argsstring></argsstring>
+        <name>_input</name>
+        <qualifiedname>jac::Controller::_input</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="39" column="21" bodyfile="src/jac/device/controller.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Controller_1af6936283e8dabf7eb56183ec0f20d377" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classjac_1_1Device" kindref="compound">OutputPacketCommunicator</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;OutputPacketCommunicator&gt; jac::Controller::_output</definition>
+        <argsstring></argsstring>
+        <name>_output</name>
+        <qualifiedname>jac::Controller::_output</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="40" column="21" bodyfile="src/jac/device/controller.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Controller_1aca4b01fd99867dac3ea616a268826025" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread jac::Controller::_thread</definition>
+        <argsstring></argsstring>
+        <name>_thread</name>
+        <qualifiedname>jac::Controller::_thread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="41" column="17" bodyfile="src/jac/device/controller.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Controller_1ad61ee6c72c78dc24767d8cbb95799076" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; <ref refid="classjac_1_1Device" kindref="compound">bool</ref> &gt;</type>
+        <definition>std::atomic&lt;bool&gt; jac::Controller::_stop</definition>
+        <argsstring></argsstring>
+        <name>_stop</name>
+        <qualifiedname>jac::Controller::_stop</qualifiedname>
+        <initializer>= <ref refid="classjac_1_1Device" kindref="compound">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="42" column="17" bodyfile="src/jac/device/controller.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Controller_1af7388eb01b2b9aa3990b591089e15fe7" prot="private" static="no" mutable="no">
+        <type><ref refid="classjac_1_1TimeoutLock" kindref="compound">TimeoutLock</ref> &amp;</type>
+        <definition>TimeoutLock&amp; jac::Controller::_devLock</definition>
+        <argsstring></argsstring>
+        <name>_devLock</name>
+        <qualifiedname>jac::Controller::_devLock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="56" column="17" bodyfile="src/jac/device/controller.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Controller_1a62e73bbdedc1dc769dfca326366fc319" prot="private" static="no" mutable="no">
+        <type><ref refid="classjac_1_1MachineCtrl" kindref="compound">MachineCtrl</ref> &amp;</type>
+        <definition>MachineCtrl&amp; jac::Controller::_machineCtrl</definition>
+        <argsstring></argsstring>
+        <name>_machineCtrl</name>
+        <qualifiedname>jac::Controller::_machineCtrl</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="57" column="17" bodyfile="src/jac/device/controller.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Controller_1aeff33a0073d6ecd7d5f4f0a7a8487ab4" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; &amp;</type>
+        <definition>std::vector&lt;std::pair&lt;std::string, std::string&gt; &gt;&amp; jac::Controller::_versionInfo</definition>
+        <argsstring></argsstring>
+        <name>_versionInfo</name>
+        <qualifiedname>jac::Controller::_versionInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="58" column="17" bodyfile="src/jac/device/controller.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classjac_1_1Controller_1a5f8f329c6d8f42dfa1d924ac695de9d6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Controller::processPacket</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processPacket</name>
+        <qualifiedname>jac::Controller::processPacket</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int</ref></type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; <ref refid="classjac_1_1Device" kindref="compound">const</ref> <ref refid="classjac_1_1Device" kindref="compound">uint8_t</ref> &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="44" column="10" bodyfile="src/jac/device/controller.cpp" bodystart="7" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Controller_1a7131634906341fb2d90078c9ee322ff2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Controller::processStart</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processStart</name>
+        <qualifiedname>jac::Controller::processStart</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int</ref></type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; <ref refid="classjac_1_1Device" kindref="compound">const</ref> <ref refid="classjac_1_1Device" kindref="compound">uint8_t</ref> &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="45" column="10" bodyfile="src/jac/device/controller.cpp" bodystart="63" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Controller_1ab5a12e9ff2f195a0ee6dca24798e954d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Controller::processStop</definition>
+        <argsstring>(int sender)</argsstring>
+        <name>processStop</name>
+        <qualifiedname>jac::Controller::processStop</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int</ref></type>
+          <declname>sender</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="46" column="10" bodyfile="src/jac/device/controller.cpp" bodystart="77" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Controller_1a0321227070201c6898f791a6efab6c5f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Controller::processStatus</definition>
+        <argsstring>(int sender)</argsstring>
+        <name>processStatus</name>
+        <qualifiedname>jac::Controller::processStatus</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int</ref></type>
+          <declname>sender</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="47" column="10" bodyfile="src/jac/device/controller.cpp" bodystart="89" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Controller_1af6541614fb0f4607eba5440d5c48fd5f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Controller::processVersion</definition>
+        <argsstring>(int sender)</argsstring>
+        <name>processVersion</name>
+        <qualifiedname>jac::Controller::processVersion</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int</ref></type>
+          <declname>sender</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="48" column="10" bodyfile="src/jac/device/controller.cpp" bodystart="102" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Controller_1a7f015b451abb31e17201e6bb6d9f10f5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Controller::processLock</definition>
+        <argsstring>(int sender)</argsstring>
+        <name>processLock</name>
+        <qualifiedname>jac::Controller::processLock</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int</ref></type>
+          <declname>sender</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="49" column="10" bodyfile="src/jac/device/controller.cpp" bodystart="115" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Controller_1a8534a2b30027e5a1ad14110e298bc2d9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Controller::processUnlock</definition>
+        <argsstring>(int sender)</argsstring>
+        <name>processUnlock</name>
+        <qualifiedname>jac::Controller::processUnlock</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int</ref></type>
+          <declname>sender</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="50" column="10" bodyfile="src/jac/device/controller.cpp" bodystart="131" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Controller_1ae399f9855be195ea0da307ac596c1de7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Controller::processForceUnlock</definition>
+        <argsstring>(int sender)</argsstring>
+        <name>processForceUnlock</name>
+        <qualifiedname>jac::Controller::processForceUnlock</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int</ref></type>
+          <declname>sender</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="51" column="10" bodyfile="src/jac/device/controller.cpp" bodystart="144" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Controller_1a6edcd411efd17d12305e9cd2c918853d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Controller::processConfigSet</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processConfigSet</name>
+        <qualifiedname>jac::Controller::processConfigSet</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int</ref></type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; <ref refid="classjac_1_1Device" kindref="compound">const</ref> <ref refid="classjac_1_1Device" kindref="compound">uint8_t</ref> &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="52" column="10" bodyfile="src/jac/device/controller.cpp" bodystart="152" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Controller_1aca20abb031a549a599a976eae6790b93" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Controller::processConfigGet</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processConfigGet</name>
+        <qualifiedname>jac::Controller::processConfigGet</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int</ref></type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; <ref refid="classjac_1_1Device" kindref="compound">const</ref> <ref refid="classjac_1_1Device" kindref="compound">uint8_t</ref> &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="53" column="10" bodyfile="src/jac/device/controller.cpp" bodystart="238" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Controller_1a01822eff9c2ebb55fb341ddd20864694" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Controller::processConfigErase</definition>
+        <argsstring>(int sender, std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>processConfigErase</name>
+        <qualifiedname>jac::Controller::processConfigErase</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int</ref></type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>std::span&lt; <ref refid="classjac_1_1Device" kindref="compound">const</ref> <ref refid="classjac_1_1Device" kindref="compound">uint8_t</ref> &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="54" column="10" bodyfile="src/jac/device/controller.cpp" bodystart="307" bodyend="347"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1Controller_1a829ee4d5c39092ed5746b297f992c4c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Controller::Controller</definition>
+        <argsstring>(std::unique_ptr&lt; InputPacketCommunicator &gt; input, std::unique_ptr&lt; OutputPacketCommunicator &gt; output, TimeoutLock &amp;lock, MachineCtrl &amp;machineCtrl, std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; &amp;versionInfo)</argsstring>
+        <name>Controller</name>
+        <qualifiedname>jac::Controller::Controller</qualifiedname>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classjac_1_1Device" kindref="compound">InputPacketCommunicator</ref> &gt;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classjac_1_1Device" kindref="compound">OutputPacketCommunicator</ref> &gt;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1TimeoutLock" kindref="compound">TimeoutLock</ref> &amp;</type>
+          <declname>lock</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1MachineCtrl" kindref="compound">MachineCtrl</ref> &amp;</type>
+          <declname>machineCtrl</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; &amp;</type>
+          <declname>versionInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="61" column="5" bodyfile="src/jac/device/controller.h" bodystart="61" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Controller_1a195260ffa768b9810e0a33bfd7dc495c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Controller::~Controller</definition>
+        <argsstring>()</argsstring>
+        <name>~Controller</name>
+        <qualifiedname>jac::Controller::~Controller</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="70" column="5" bodyfile="src/jac/device/controller.h" bodystart="70" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Controller_1aebfd3f978af0ea84fae304ef6d07f994" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Controller::start</definition>
+        <argsstring>()</argsstring>
+        <name>start</name>
+        <qualifiedname>jac::Controller::start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/controller.h" line="78" column="10" bodyfile="src/jac/device/controller.h" bodystart="78" bodyend="92"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/device/controller.h" line="22" column="1" bodyfile="src/jac/device/controller.h" bodystart="22" bodyend="93"/>
+    <listofallmembers>
+      <member refid="classjac_1_1Controller_1af7388eb01b2b9aa3990b591089e15fe7" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>_devLock</name></member>
+      <member refid="classjac_1_1Controller_1a88e6ca45a3893d586ff9efad251bb16b" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>_input</name></member>
+      <member refid="classjac_1_1Controller_1a62e73bbdedc1dc769dfca326366fc319" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>_machineCtrl</name></member>
+      <member refid="classjac_1_1Controller_1af6936283e8dabf7eb56183ec0f20d377" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>_output</name></member>
+      <member refid="classjac_1_1Controller_1ad61ee6c72c78dc24767d8cbb95799076" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>_stop</name></member>
+      <member refid="classjac_1_1Controller_1aca4b01fd99867dac3ea616a268826025" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>_thread</name></member>
+      <member refid="classjac_1_1Controller_1aeff33a0073d6ecd7d5f4f0a7a8487ab4" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>_versionInfo</name></member>
+      <member refid="classjac_1_1Controller_1a4cf3c224450eb5eebeb858e3426b23c1" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>Command</name></member>
+      <member refid="classjac_1_1Controller_1a829ee4d5c39092ed5746b297f992c4c7" prot="public" virt="non-virtual"><scope>jac::Controller</scope><name>Controller</name></member>
+      <member refid="classjac_1_1Controller_1a01822eff9c2ebb55fb341ddd20864694" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>processConfigErase</name></member>
+      <member refid="classjac_1_1Controller_1aca20abb031a549a599a976eae6790b93" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>processConfigGet</name></member>
+      <member refid="classjac_1_1Controller_1a6edcd411efd17d12305e9cd2c918853d" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>processConfigSet</name></member>
+      <member refid="classjac_1_1Controller_1ae399f9855be195ea0da307ac596c1de7" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>processForceUnlock</name></member>
+      <member refid="classjac_1_1Controller_1a7f015b451abb31e17201e6bb6d9f10f5" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>processLock</name></member>
+      <member refid="classjac_1_1Controller_1a5f8f329c6d8f42dfa1d924ac695de9d6" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>processPacket</name></member>
+      <member refid="classjac_1_1Controller_1a7131634906341fb2d90078c9ee322ff2" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>processStart</name></member>
+      <member refid="classjac_1_1Controller_1a0321227070201c6898f791a6efab6c5f" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>processStatus</name></member>
+      <member refid="classjac_1_1Controller_1ab5a12e9ff2f195a0ee6dca24798e954d" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>processStop</name></member>
+      <member refid="classjac_1_1Controller_1a8534a2b30027e5a1ad14110e298bc2d9" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>processUnlock</name></member>
+      <member refid="classjac_1_1Controller_1af6541614fb0f4607eba5440d5c48fd5f" prot="private" virt="non-virtual"><scope>jac::Controller</scope><name>processVersion</name></member>
+      <member refid="classjac_1_1Controller_1aebfd3f978af0ea84fae304ef6d07f994" prot="public" virt="non-virtual"><scope>jac::Controller</scope><name>start</name></member>
+      <member refid="classjac_1_1Controller_1a195260ffa768b9810e0a33bfd7dc495c" prot="public" virt="non-virtual"><scope>jac::Controller</scope><name>~Controller</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

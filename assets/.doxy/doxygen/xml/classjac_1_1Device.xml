@@ -1,0 +1,679 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classjac_1_1Device" kind="class" language="C++" prot="public">
+    <compoundname>jac::Device</compoundname>
+    <basecompoundref refid="classjac_1_1MachineCtrl" prot="public" virt="non-virtual">jac::MachineCtrl</basecompoundref>
+    <innerclass refid="structjac_1_1Device_1_1MachineIO" prot="private">jac::Device::MachineIO</innerclass>
+    <templateparamlist>
+      <param>
+        <type><ref refid="classjac_1_1Device" kindref="compound">class</ref> <ref refid="classjac_1_1Device" kindref="compound">Machine</ref></type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1Device_1aa691bfef6998799ad5dbffcaedf8cc29" prot="private" static="no" mutable="no">
+        <type><ref refid="classjac_1_1Device" kindref="compound">Router</ref></type>
+        <definition>Router jac::Device&lt; Machine &gt;::_router</definition>
+        <argsstring></argsstring>
+        <name>_router</name>
+        <qualifiedname>jac::Device::_router</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="27" column="12" bodyfile="src/jac/device/device.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1a840ed33fed97807b5444e29fed3ee251" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="classjac_1_1Uploader" kindref="compound">Uploader</ref> &gt;</type>
+        <definition>std::optional&lt;Uploader&gt; jac::Device&lt; Machine &gt;::_uploader</definition>
+        <argsstring></argsstring>
+        <name>_uploader</name>
+        <qualifiedname>jac::Device::_uploader</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="29" column="19" bodyfile="src/jac/device/device.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1a6867b14d4ff07f44949e111675d59b46" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="classjac_1_1Controller" kindref="compound">Controller</ref> &gt;</type>
+        <definition>std::optional&lt;Controller&gt; jac::Device&lt; Machine &gt;::_controller</definition>
+        <argsstring></argsstring>
+        <name>_controller</name>
+        <qualifiedname>jac::Device::_controller</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="30" column="19" bodyfile="src/jac/device/device.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1a59ba78fa4c63362d23a313106a1bfad7" prot="private" static="no" mutable="no">
+        <type><ref refid="classjac_1_1TimeoutLock" kindref="compound">TimeoutLock</ref></type>
+        <definition>TimeoutLock jac::Device&lt; Machine &gt;::_lock</definition>
+        <argsstring></argsstring>
+        <name>_lock</name>
+        <qualifiedname>jac::Device::_lock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="32" column="17" bodyfile="src/jac/device/device.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1a0d3506e91c1e79ca0aa876040fe47286" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classjac_1_1Device" kindref="compound">Machine</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;Machine&gt; jac::Device&lt; Machine &gt;::_machine</definition>
+        <argsstring></argsstring>
+        <name>_machine</name>
+        <qualifiedname>jac::Device::_machine</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="34" column="21" bodyfile="src/jac/device/device.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1a7329277b8695e7f2a6d276af025850e2" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; <ref refid="classjac_1_1Device" kindref="compound">void</ref>(<ref refid="classjac_1_1Device" kindref="compound">Machine</ref> &amp;)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(Machine&amp;)&gt; &gt; jac::Device&lt; Machine &gt;::_onConfigureMachine</definition>
+        <argsstring></argsstring>
+        <name>_onConfigureMachine</name>
+        <qualifiedname>jac::Device::_onConfigureMachine</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="35" column="17" bodyfile="src/jac/device/device.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1a4bafa658c2c23c11df34c3b41b186c37" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; <ref refid="classjac_1_1Device" kindref="compound">void</ref>(<ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;, <ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(const std::string&amp;, const std::string&amp;)&gt; &gt; jac::Device&lt; Machine &gt;::_onKeyValueModified</definition>
+        <argsstring></argsstring>
+        <name>_onKeyValueModified</name>
+        <qualifiedname>jac::Device::_onKeyValueModified</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="36" column="17" bodyfile="src/jac/device/device.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1ad86b8c49befcfe93584b69020ad5e561" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; <ref refid="classjac_1_1Device" kindref="compound">bool</ref> &gt;</type>
+        <definition>std::atomic&lt;bool&gt; jac::Device&lt; Machine &gt;::_machineRunning</definition>
+        <argsstring></argsstring>
+        <name>_machineRunning</name>
+        <qualifiedname>jac::Device::_machineRunning</qualifiedname>
+        <initializer>= <ref refid="classjac_1_1Device" kindref="compound">false</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="37" column="17" bodyfile="src/jac/device/device.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1a2a57c85fad1729fbad4602b07067e27b" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread jac::Device&lt; Machine &gt;::_machineThread</definition>
+        <argsstring></argsstring>
+        <name>_machineThread</name>
+        <qualifiedname>jac::Device::_machineThread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="38" column="17" bodyfile="src/jac/device/device.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1a20bde6cd5ee9625c5c80696b641df512" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex jac::Device&lt; Machine &gt;::_machineMutex</definition>
+        <argsstring></argsstring>
+        <name>_machineMutex</name>
+        <qualifiedname>jac::Device::_machineMutex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="39" column="16" bodyfile="src/jac/device/device.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1ae828ef9762002cacd208d1b9ac23b784" prot="private" static="no" mutable="no">
+        <type><ref refid="classjac_1_1Device" kindref="compound">struct</ref> jac::Device::MachineIO</type>
+        <definition>struct jac::Device::MachineIO jac::Device&lt; Machine &gt;::_machineIO</definition>
+        <argsstring></argsstring>
+        <name>_machineIO</name>
+        <qualifiedname>jac::Device::_machineIO</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="45" column="16"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1a7255fc72dfb8cf4b027d564fc4008981" prot="private" static="no" mutable="no">
+        <type>std::function&lt; std::string()&gt;</type>
+        <definition>std::function&lt;std::string()&gt; jac::Device&lt; Machine &gt;::_getMemoryStats</definition>
+        <argsstring></argsstring>
+        <name>_getMemoryStats</name>
+        <qualifiedname>jac::Device::_getMemoryStats</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="47" column="19" bodyfile="src/jac/device/device.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1ad90e80b2d54bfd00b9967bebd7e6d44b" prot="private" static="no" mutable="no">
+        <type>std::function&lt; std::string()&gt;</type>
+        <definition>std::function&lt;std::string()&gt; jac::Device&lt; Machine &gt;::_getStorageStats</definition>
+        <argsstring></argsstring>
+        <name>_getStorageStats</name>
+        <qualifiedname>jac::Device::_getStorageStats</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="48" column="19" bodyfile="src/jac/device/device.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1a56df35ecc703c77cda657cc5e85a4594" prot="private" static="no" mutable="no">
+        <type>std::filesystem::path</type>
+        <definition>std::filesystem::path jac::Device&lt; Machine &gt;::_rootDir</definition>
+        <argsstring></argsstring>
+        <name>_rootDir</name>
+        <qualifiedname>jac::Device::_rootDir</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="50" column="27" bodyfile="src/jac/device/device.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1aacf1b6ea6d03ddcd540f4c3c08948653" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt;</type>
+        <definition>std::vector&lt;std::pair&lt;std::string, std::string&gt; &gt; jac::Device&lt; Machine &gt;::_versionInfo</definition>
+        <argsstring></argsstring>
+        <name>_versionInfo</name>
+        <qualifiedname>jac::Device::_versionInfo</qualifiedname>
+        <initializer>= {
+        {&quot;dcore&quot;, <ref refid="classjac_1_1Device" kindref="compound">JAC_DCORE_VERSION</ref>}
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="52" column="17" bodyfile="src/jac/device/device.h" bodystart="52" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1a171633fe1728eb1a8ddeae099fe4691e" prot="private" static="no" mutable="no">
+        <type>KeyValueOpener</type>
+        <definition>KeyValueOpener jac::Device&lt; Machine &gt;::_openKeyValueNamespace</definition>
+        <argsstring></argsstring>
+        <name>_openKeyValueNamespace</name>
+        <qualifiedname>jac::Device::_openKeyValueNamespace</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="56" column="20" bodyfile="src/jac/device/device.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Device_1a7459be8cce4181f9040dc103e4053785" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; <ref refid="classjac_1_1Device" kindref="compound">int</ref> &gt;</type>
+        <definition>std::atomic&lt;int&gt; jac::Device&lt; Machine &gt;::_lastExitCode</definition>
+        <argsstring></argsstring>
+        <name>_lastExitCode</name>
+        <qualifiedname>jac::Device::_lastExitCode</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="58" column="17" bodyfile="src/jac/device/device.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classjac_1_1Device_1ad2d6dd0c0853a6630000e84d8f102f62" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Device&lt; Machine &gt;::configureMachine</definition>
+        <argsstring>()</argsstring>
+        <name>configureMachine</name>
+        <qualifiedname>jac::Device::configureMachine</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="60" column="10" bodyfile="src/jac/device/device.h" bodystart="60" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a12cbcd8ccd82af777eb738972425298d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Device&lt; Machine &gt;::lockTimeout</definition>
+        <argsstring>()</argsstring>
+        <name>lockTimeout</name>
+        <qualifiedname>jac::Device::lockTimeout</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="87" column="10" bodyfile="src/jac/device/device.h" bodystart="87" bodyend="91"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1Device_1a7dd06d77ba0e167c0c4efcbf1c8d3da3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Device&lt; Machine &gt;::Device</definition>
+        <argsstring>(std::filesystem::path rootDir, std::function&lt; std::string()&gt; getMemoryStats, std::function&lt; std::string()&gt; getStorageStats, std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt; versionInfo, std::function&lt; void(std::filesystem::path)&gt; formatFS, std::unordered_map&lt; std::string, std::span&lt; const uint8_t &gt; &gt; resources, KeyValueOpener openKeyValueNamespace)</argsstring>
+        <name>Device</name>
+        <qualifiedname>jac::Device::Device</qualifiedname>
+        <param>
+          <type>std::filesystem::path</type>
+          <declname>rootDir</declname>
+        </param>
+        <param>
+          <type>std::function&lt; std::string()&gt;</type>
+          <declname>getMemoryStats</declname>
+        </param>
+        <param>
+          <type>std::function&lt; std::string()&gt;</type>
+          <declname>getStorageStats</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::pair&lt; std::string, std::string &gt; &gt;</type>
+          <declname>versionInfo</declname>
+        </param>
+        <param>
+          <type>std::function&lt; <ref refid="classjac_1_1Device" kindref="compound">void</ref>(std::filesystem::path)&gt;</type>
+          <declname>formatFS</declname>
+        </param>
+        <param>
+          <type>std::unordered_map&lt; std::string, std::span&lt; <ref refid="classjac_1_1Device" kindref="compound">const</ref> <ref refid="classjac_1_1Device" kindref="compound">uint8_t</ref> &gt; &gt;</type>
+          <declname>resources</declname>
+        </param>
+        <param>
+          <type>KeyValueOpener</type>
+          <declname>openKeyValueNamespace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="93" column="5" bodyfile="src/jac/device/device.h" bodystart="93" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1afa9308cfb19e988dcdd40fa0a9210444" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Device&lt; Machine &gt;::Device</definition>
+        <argsstring>(const Device &amp;)=delete</argsstring>
+        <name>Device</name>
+        <qualifiedname>jac::Device::Device</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> <ref refid="classjac_1_1Device" kindref="compound">Device</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="142" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a437c6bf7bad6fa010a621937523890f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">Device</ref> &amp;</type>
+        <definition>Device &amp; jac::Device&lt; Machine &gt;::operator=</definition>
+        <argsstring>(const Device &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>jac::Device::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> <ref refid="classjac_1_1Device" kindref="compound">Device</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="143" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a5406dae25d62fb5fafc6794ee440529f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Device&lt; Machine &gt;::Device</definition>
+        <argsstring>(Device &amp;&amp;)=delete</argsstring>
+        <name>Device</name>
+        <qualifiedname>jac::Device::Device</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">Device</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="144" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a4d84354680c331715c415021f3bf8830" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">Device</ref> &amp;</type>
+        <definition>Device &amp; jac::Device&lt; Machine &gt;::operator=</definition>
+        <argsstring>(Device &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>jac::Device::operator=</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">Device</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="145" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a70aa40d731709e535386ec6a4781d6d3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Device&lt; Machine &gt;::start</definition>
+        <argsstring>()</argsstring>
+        <name>start</name>
+        <qualifiedname>jac::Device::start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="147" column="10" bodyfile="src/jac/device/device.h" bodystart="147" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a159c1d6bcb218ed40b39d9f4edc902a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Device&lt; Machine &gt;::~Device</definition>
+        <argsstring>()</argsstring>
+        <name>~Device</name>
+        <qualifiedname>jac::Device::~Device</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="153" column="5" bodyfile="src/jac/device/device.h" bodystart="153" bodyend="155"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a30a17e13c096723ae30c2daddf981201" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">Router</ref> &amp;</type>
+        <definition>Router &amp; jac::Device&lt; Machine &gt;::router</definition>
+        <argsstring>()</argsstring>
+        <name>router</name>
+        <qualifiedname>jac::Device::router</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="157" column="12" bodyfile="src/jac/device/device.h" bodystart="157" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a7551ec537b4224a29c00f8b63e0b3e2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1TimeoutLock" kindref="compound">TimeoutLock</ref> &amp;</type>
+        <definition>TimeoutLock &amp; jac::Device&lt; Machine &gt;::lock</definition>
+        <argsstring>()</argsstring>
+        <name>lock</name>
+        <qualifiedname>jac::Device::lock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="161" column="17" bodyfile="src/jac/device/device.h" bodystart="161" bodyend="163"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a450400dfef46cb173be3a9ec82dcf07e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>MachineIO &amp;</type>
+        <definition>MachineIO &amp; jac::Device&lt; Machine &gt;::machineIO</definition>
+        <argsstring>()</argsstring>
+        <name>machineIO</name>
+        <qualifiedname>jac::Device::machineIO</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="165" column="15" bodyfile="src/jac/device/device.h" bodystart="165" bodyend="167"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a6b13edfd52735ca2dd293dc03bf49632" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">bool</ref></type>
+        <definition>bool jac::Device&lt; Machine &gt;::startMachine</definition>
+        <argsstring>(std::string path) override</argsstring>
+        <name>startMachine</name>
+        <qualifiedname>jac::Device::startMachine</qualifiedname>
+        <reimplements refid="classjac_1_1MachineCtrl_1a4330c7e6f67b557bfbc41da7d91fb102">startMachine</reimplements>
+        <param>
+          <type>std::string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="169" column="10" bodyfile="src/jac/device/device.h" bodystart="197" bodyend="254"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a7255f4776520b7593b72f214d617bf6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">bool</ref></type>
+        <definition>bool jac::Device&lt; Machine &gt;::stopMachine</definition>
+        <argsstring>() override</argsstring>
+        <name>stopMachine</name>
+        <qualifiedname>jac::Device::stopMachine</qualifiedname>
+        <reimplements refid="classjac_1_1MachineCtrl_1a08e943c1322dd7b3373aeb03341f370c">stopMachine</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="170" column="10" bodyfile="src/jac/device/device.h" bodystart="257" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1ab61ae515bb4eea75ec374157d3f26d4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::tuple&lt; <ref refid="classjac_1_1Device" kindref="compound">bool</ref>, <ref refid="classjac_1_1Device" kindref="compound">int</ref>, std::string &gt;</type>
+        <definition>std::tuple&lt; bool, int, std::string &gt; jac::Device&lt; Machine &gt;::getMachineStatus</definition>
+        <argsstring>() override</argsstring>
+        <name>getMachineStatus</name>
+        <qualifiedname>jac::Device::getMachineStatus</qualifiedname>
+        <reimplements refid="classjac_1_1MachineCtrl_1a12a279780a690f0b216fd7f7c118e8fc">getMachineStatus</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="171" column="16" bodyfile="src/jac/device/device.h" bodystart="275" bodyend="283"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a8fe65ab74b6dc6e881a1b2ca5e6f517c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> KeyValueOpener &amp;</type>
+        <definition>const KeyValueOpener &amp; jac::Device&lt; Machine &gt;::getKeyValueOpener</definition>
+        <argsstring>() const</argsstring>
+        <name>getKeyValueOpener</name>
+        <qualifiedname>jac::Device::getKeyValueOpener</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="173" column="26" bodyfile="src/jac/device/device.h" bodystart="173" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a7ec4b24c4aa23e7939bb8f92144f02bf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::unique_ptr&lt; <ref refid="classjac_1_1KeyValueNamespace" kindref="compound">KeyValueNamespace</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; KeyValueNamespace &gt; jac::Device&lt; Machine &gt;::openKeyValue</definition>
+        <argsstring>(const std::string &amp;nsname) const override</argsstring>
+        <name>openKeyValue</name>
+        <qualifiedname>jac::Device::openKeyValue</qualifiedname>
+        <reimplements refid="classjac_1_1MachineCtrl_1a6aeaf0488cd2e791aba3d8edf4922b22">openKeyValue</reimplements>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>nsname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="177" column="21" bodyfile="src/jac/device/device.h" bodystart="177" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1ac88277e8baf85ae4b00053773e7baa78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Device&lt; Machine &gt;::emitKeyValueModified</definition>
+        <argsstring>(const std::string &amp;nsname, const std::string &amp;key) override</argsstring>
+        <name>emitKeyValueModified</name>
+        <qualifiedname>jac::Device::emitKeyValueModified</qualifiedname>
+        <reimplements refid="classjac_1_1MachineCtrl_1a750b9e124088be03519a060ccba25973">emitKeyValueModified</reimplements>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>nsname</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="181" column="10" bodyfile="src/jac/device/device.h" bodystart="181" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a8184e1df7f1b979b49b3b8d05592d66f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Device&lt; Machine &gt;::onConfigureMachine</definition>
+        <argsstring>(std::function&lt; void(Machine &amp;)&gt; f)</argsstring>
+        <name>onConfigureMachine</name>
+        <qualifiedname>jac::Device::onConfigureMachine</qualifiedname>
+        <param>
+          <type>std::function&lt; <ref refid="classjac_1_1Device" kindref="compound">void</ref>(<ref refid="classjac_1_1Device" kindref="compound">Machine</ref> &amp;)&gt;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="187" column="10" bodyfile="src/jac/device/device.h" bodystart="187" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Device_1a4945615a4b7bff78212c2c3f825b182b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::Device&lt; Machine &gt;::onKeyValueModified</definition>
+        <argsstring>(std::function&lt; void(const std::string &amp;, const std::string &amp;)&gt; f)</argsstring>
+        <name>onKeyValueModified</name>
+        <qualifiedname>jac::Device::onKeyValueModified</qualifiedname>
+        <param>
+          <type>std::function&lt; <ref refid="classjac_1_1Device" kindref="compound">void</ref>(<ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;, <ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;)&gt;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/device.h" line="191" column="10" bodyfile="src/jac/device/device.h" bodystart="191" bodyend="193"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>jac::Device&lt; Machine &gt;</label>
+        <link refid="classjac_1_1Device"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jac::MachineCtrl</label>
+        <link refid="classjac_1_1MachineCtrl"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>jac::Device&lt; Machine &gt;</label>
+        <link refid="classjac_1_1Device"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jac::MachineCtrl</label>
+        <link refid="classjac_1_1MachineCtrl"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/device/device.h" line="26" column="1" bodyfile="src/jac/device/device.h" bodystart="26" bodyend="194"/>
+    <listofallmembers>
+      <member refid="classjac_1_1Device_1a6867b14d4ff07f44949e111675d59b46" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_controller</name></member>
+      <member refid="classjac_1_1Device_1a7255fc72dfb8cf4b027d564fc4008981" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_getMemoryStats</name></member>
+      <member refid="classjac_1_1Device_1ad90e80b2d54bfd00b9967bebd7e6d44b" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_getStorageStats</name></member>
+      <member refid="classjac_1_1Device_1a7459be8cce4181f9040dc103e4053785" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_lastExitCode</name></member>
+      <member refid="classjac_1_1Device_1a59ba78fa4c63362d23a313106a1bfad7" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_lock</name></member>
+      <member refid="classjac_1_1Device_1a0d3506e91c1e79ca0aa876040fe47286" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_machine</name></member>
+      <member refid="classjac_1_1Device_1ae828ef9762002cacd208d1b9ac23b784" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_machineIO</name></member>
+      <member refid="classjac_1_1Device_1a20bde6cd5ee9625c5c80696b641df512" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_machineMutex</name></member>
+      <member refid="classjac_1_1Device_1ad86b8c49befcfe93584b69020ad5e561" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_machineRunning</name></member>
+      <member refid="classjac_1_1Device_1a2a57c85fad1729fbad4602b07067e27b" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_machineThread</name></member>
+      <member refid="classjac_1_1Device_1a7329277b8695e7f2a6d276af025850e2" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_onConfigureMachine</name></member>
+      <member refid="classjac_1_1Device_1a4bafa658c2c23c11df34c3b41b186c37" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_onKeyValueModified</name></member>
+      <member refid="classjac_1_1Device_1a171633fe1728eb1a8ddeae099fe4691e" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_openKeyValueNamespace</name></member>
+      <member refid="classjac_1_1Device_1a56df35ecc703c77cda657cc5e85a4594" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_rootDir</name></member>
+      <member refid="classjac_1_1Device_1aa691bfef6998799ad5dbffcaedf8cc29" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_router</name></member>
+      <member refid="classjac_1_1Device_1a840ed33fed97807b5444e29fed3ee251" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_uploader</name></member>
+      <member refid="classjac_1_1Device_1aacf1b6ea6d03ddcd540f4c3c08948653" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>_versionInfo</name></member>
+      <member refid="classjac_1_1Device_1ad2d6dd0c0853a6630000e84d8f102f62" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>configureMachine</name></member>
+      <member refid="classjac_1_1Device_1a7dd06d77ba0e167c0c4efcbf1c8d3da3" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>Device</name></member>
+      <member refid="classjac_1_1Device_1afa9308cfb19e988dcdd40fa0a9210444" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>Device</name></member>
+      <member refid="classjac_1_1Device_1a5406dae25d62fb5fafc6794ee440529f" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>Device</name></member>
+      <member refid="classjac_1_1Device_1ac88277e8baf85ae4b00053773e7baa78" prot="public" virt="virtual"><scope>jac::Device</scope><name>emitKeyValueModified</name></member>
+      <member refid="classjac_1_1Device_1a8fe65ab74b6dc6e881a1b2ca5e6f517c" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>getKeyValueOpener</name></member>
+      <member refid="classjac_1_1Device_1ab61ae515bb4eea75ec374157d3f26d4e" prot="public" virt="virtual"><scope>jac::Device</scope><name>getMachineStatus</name></member>
+      <member refid="classjac_1_1Device_1a7551ec537b4224a29c00f8b63e0b3e2a" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>lock</name></member>
+      <member refid="classjac_1_1Device_1a12cbcd8ccd82af777eb738972425298d" prot="private" virt="non-virtual"><scope>jac::Device</scope><name>lockTimeout</name></member>
+      <member refid="classjac_1_1Device_1a450400dfef46cb173be3a9ec82dcf07e" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>machineIO</name></member>
+      <member refid="classjac_1_1Device_1a8184e1df7f1b979b49b3b8d05592d66f" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>onConfigureMachine</name></member>
+      <member refid="classjac_1_1Device_1a4945615a4b7bff78212c2c3f825b182b" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>onKeyValueModified</name></member>
+      <member refid="classjac_1_1Device_1a7ec4b24c4aa23e7939bb8f92144f02bf" prot="public" virt="virtual"><scope>jac::Device</scope><name>openKeyValue</name></member>
+      <member refid="classjac_1_1Device_1a437c6bf7bad6fa010a621937523890f0" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Device_1a4d84354680c331715c415021f3bf8830" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Device_1a30a17e13c096723ae30c2daddf981201" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>router</name></member>
+      <member refid="classjac_1_1Device_1a70aa40d731709e535386ec6a4781d6d3" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>start</name></member>
+      <member refid="classjac_1_1Device_1a6b13edfd52735ca2dd293dc03bf49632" prot="public" virt="virtual"><scope>jac::Device</scope><name>startMachine</name></member>
+      <member refid="classjac_1_1Device_1a7255f4776520b7593b72f214d617bf6b" prot="public" virt="virtual"><scope>jac::Device</scope><name>stopMachine</name></member>
+      <member refid="classjac_1_1Device_1a159c1d6bcb218ed40b39d9f4edc902a3" prot="public" virt="non-virtual"><scope>jac::Device</scope><name>~Device</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

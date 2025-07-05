@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structjac_1_1KeyValueNamespaceProtoBuilder" kind="struct" language="C++" prot="public">
+    <compoundname>jac::KeyValueNamespaceProtoBuilder</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">jac::ProtoBuilder::Opaque&lt; jac::KeyValueNamespace &gt;</basecompoundref>
+    <basecompoundref prot="public" virt="non-virtual">jac::ProtoBuilder::Properties</basecompoundref>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structjac_1_1KeyValueNamespaceProtoBuilder_1aea2f8941d92d466b6e87268ff7cbe8e0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">jac::Value</ref></type>
+        <definition>static jac::Value jac::KeyValueNamespaceProtoBuilder::get</definition>
+        <argsstring>(jac::ContextRef ctx, jac::ValueWeak thisVal, std::string key)</argsstring>
+        <name>get</name>
+        <qualifiedname>jac::KeyValueNamespaceProtoBuilder::get</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">jac::ContextRef</ref></type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">jac::ValueWeak</ref></type>
+          <declname>thisVal</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/keyvalueFeature.h" line="16" column="23" bodyfile="src/jac/features/keyvalueFeature.h" bodystart="16" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="structjac_1_1KeyValueNamespaceProtoBuilder_1ab2ff4f56a1e475fd8c031d61a44c9ef6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>static void jac::KeyValueNamespaceProtoBuilder::addProperties</definition>
+        <argsstring>(JSContext *ctx, jac::Object proto)</argsstring>
+        <name>addProperties</name>
+        <qualifiedname>jac::KeyValueNamespaceProtoBuilder::addProperties</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">JSContext</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">jac::Object</ref></type>
+          <declname>proto</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/keyvalueFeature.h" line="33" column="17" bodyfile="src/jac/features/keyvalueFeature.h" bodystart="33" bodyend="103"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>jac::KeyValueNamespaceProtoBuilder</label>
+        <link refid="structjac_1_1KeyValueNamespaceProtoBuilder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jac::ProtoBuilder::Opaque&lt; jac::KeyValueNamespace &gt;</label>
+      </node>
+      <node id="3">
+        <label>jac::ProtoBuilder::Properties</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>jac::KeyValueNamespaceProtoBuilder</label>
+        <link refid="structjac_1_1KeyValueNamespaceProtoBuilder"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jac::ProtoBuilder::Opaque&lt; jac::KeyValueNamespace &gt;</label>
+      </node>
+      <node id="3">
+        <label>jac::ProtoBuilder::Properties</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/features/keyvalueFeature.h" line="15" column="1" bodyfile="src/jac/features/keyvalueFeature.h" bodystart="15" bodyend="104"/>
+    <listofallmembers>
+      <member refid="structjac_1_1KeyValueNamespaceProtoBuilder_1ab2ff4f56a1e475fd8c031d61a44c9ef6" prot="public" virt="non-virtual"><scope>jac::KeyValueNamespaceProtoBuilder</scope><name>addProperties</name></member>
+      <member refid="structjac_1_1KeyValueNamespaceProtoBuilder_1aea2f8941d92d466b6e87268ff7cbe8e0" prot="public" virt="non-virtual"><scope>jac::KeyValueNamespaceProtoBuilder</scope><name>get</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

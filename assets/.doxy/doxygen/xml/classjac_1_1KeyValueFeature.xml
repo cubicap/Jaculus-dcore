@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classjac_1_1KeyValueFeature" kind="class" language="C++" prot="public">
+    <compoundname>jac::KeyValueFeature</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Next</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type><ref refid="classjac_1_1Device" kindref="compound">class</ref> Next</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classjac_1_1KeyValueFeature_1a71b7b59b5df0df63569dfbd7347f49a2" prot="public" static="no">
+        <type><ref refid="classjac_1_1Device" kindref="compound">jac::Class</ref>&lt; <ref refid="structjac_1_1KeyValueNamespaceProtoBuilder" kindref="compound">KeyValueNamespaceProtoBuilder</ref> &gt;</type>
+        <definition>using jac::KeyValueFeature&lt; Next &gt;::KvClass =  jac::Class&lt;KeyValueNamespaceProtoBuilder&gt;</definition>
+        <argsstring></argsstring>
+        <name>KvClass</name>
+        <qualifiedname>jac::KeyValueFeature::KvClass</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/keyvalueFeature.h" line="110" column="5" bodyfile="src/jac/features/keyvalueFeature.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classjac_1_1KeyValueFeature_1a1714949499f30597fae31a71ee699962" prot="public" static="no" mutable="no">
+        <type>jac::KeyValueOpener</type>
+        <definition>jac::KeyValueOpener jac::KeyValueFeature&lt; Next &gt;::kvOpener</definition>
+        <argsstring></argsstring>
+        <name>kvOpener</name>
+        <qualifiedname>jac::KeyValueFeature::kvOpener</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/keyvalueFeature.h" line="112" column="25" bodyfile="src/jac/features/keyvalueFeature.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1KeyValueFeature_1ab685007be3ebdb8093f051b2e4129a64" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::KeyValueFeature&lt; Next &gt;::KeyValueFeature</definition>
+        <argsstring>()</argsstring>
+        <name>KeyValueFeature</name>
+        <qualifiedname>jac::KeyValueFeature::KeyValueFeature</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/keyvalueFeature.h" line="114" column="5" bodyfile="src/jac/features/keyvalueFeature.h" bodystart="114" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueFeature_1ae3747e75a3d088186b33ebcc8f570bea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>void jac::KeyValueFeature&lt; Next &gt;::initialize</definition>
+        <argsstring>()</argsstring>
+        <name>initialize</name>
+        <qualifiedname>jac::KeyValueFeature::initialize</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/features/keyvalueFeature.h" line="118" column="10" bodyfile="src/jac/features/keyvalueFeature.h" bodystart="118" bodyend="145"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Next</label>
+      </node>
+      <node id="1">
+        <label>jac::KeyValueFeature&lt; Next &gt;</label>
+        <link refid="classjac_1_1KeyValueFeature"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Next</label>
+      </node>
+      <node id="1">
+        <label>jac::KeyValueFeature&lt; Next &gt;</label>
+        <link refid="classjac_1_1KeyValueFeature"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/features/keyvalueFeature.h" line="108" column="1" bodyfile="src/jac/features/keyvalueFeature.h" bodystart="108" bodyend="146"/>
+    <listofallmembers>
+      <member refid="classjac_1_1KeyValueFeature_1ae3747e75a3d088186b33ebcc8f570bea" prot="public" virt="non-virtual"><scope>jac::KeyValueFeature</scope><name>initialize</name></member>
+      <member refid="classjac_1_1KeyValueFeature_1ab685007be3ebdb8093f051b2e4129a64" prot="public" virt="non-virtual"><scope>jac::KeyValueFeature</scope><name>KeyValueFeature</name></member>
+      <member refid="classjac_1_1KeyValueFeature_1a71b7b59b5df0df63569dfbd7347f49a2" prot="public" virt="non-virtual"><scope>jac::KeyValueFeature</scope><name>KvClass</name></member>
+      <member refid="classjac_1_1KeyValueFeature_1a1714949499f30597fae31a71ee699962" prot="public" virt="non-virtual"><scope>jac::KeyValueFeature</scope><name>kvOpener</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

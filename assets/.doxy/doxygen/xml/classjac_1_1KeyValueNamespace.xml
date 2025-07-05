@@ -1,0 +1,344 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classjac_1_1KeyValueNamespace" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>jac::KeyValueNamespace</compoundname>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classjac_1_1KeyValueNamespace_1a157e5896f52cec748fb22d8f7dc94256" prot="public" static="no" strong="no">
+        <type><ref refid="classjac_1_1Device" kindref="compound">uint8_t</ref></type>
+        <name>DataType</name>
+        <qualifiedname>jac::KeyValueNamespace::DataType</qualifiedname>
+        <enumvalue id="classjac_1_1KeyValueNamespace_1a157e5896f52cec748fb22d8f7dc94256a1dc223e129e1ea3fd1f723fa56e69acc" prot="public">
+          <name>INT64</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1KeyValueNamespace_1a157e5896f52cec748fb22d8f7dc94256a58064a1d6becc4b1b7de859409a29e0b" prot="public">
+          <name>FLOAT32</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1KeyValueNamespace_1a157e5896f52cec748fb22d8f7dc94256a8e66b6e0ee1e990c1cf77219d09c1373" prot="public">
+          <name>STRING</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classjac_1_1KeyValueNamespace_1a157e5896f52cec748fb22d8f7dc94256a8305bc11dedb67e5be6a0d177a820962" prot="public">
+          <name>NOT_FOUND</name>
+          <initializer>= 0xFF</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="14" column="5" bodyfile="src/jac/device/keyvalue.h" bodystart="14" bodyend="20"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1a90ee61cd0e98f9e699cbe094ed70bdcc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::KeyValueNamespace::KeyValueNamespace</definition>
+        <argsstring>(KeyValueNamespace &amp;)=delete</argsstring>
+        <name>KeyValueNamespace</name>
+        <qualifiedname>jac::KeyValueNamespace::KeyValueNamespace</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1KeyValueNamespace" kindref="compound">KeyValueNamespace</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="11" column="5"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1a6e12748490f684467f8d61ae9e163c10" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::KeyValueNamespace::KeyValueNamespace</definition>
+        <argsstring>()</argsstring>
+        <name>KeyValueNamespace</name>
+        <qualifiedname>jac::KeyValueNamespace::KeyValueNamespace</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="22" column="5" bodyfile="src/jac/device/keyvalue.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1ae0a77ff5417f064c97d6dfb163142555" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual jac::KeyValueNamespace::~KeyValueNamespace</definition>
+        <argsstring>()</argsstring>
+        <name>~KeyValueNamespace</name>
+        <qualifiedname>jac::KeyValueNamespace::~KeyValueNamespace</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="24" column="13" bodyfile="src/jac/device/keyvalue.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1ac397b7c2b83d7205b393fe47470df568" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">bool</ref></type>
+        <definition>virtual bool jac::KeyValueNamespace::erase</definition>
+        <argsstring>(const std::string &amp;name)=0</argsstring>
+        <name>erase</name>
+        <qualifiedname>jac::KeyValueNamespace::erase</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="26" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1aad2bdf9f7de4bb81a331937fc94517b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>virtual std::vector&lt; std::string &gt; jac::KeyValueNamespace::keys</definition>
+        <argsstring>()=0</argsstring>
+        <name>keys</name>
+        <qualifiedname>jac::KeyValueNamespace::keys</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="27" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1a589f15e445494319a870abfd9d0d0f94" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>virtual void jac::KeyValueNamespace::setInt</definition>
+        <argsstring>(const std::string &amp;name, int64_t value)=0</argsstring>
+        <name>setInt</name>
+        <qualifiedname>jac::KeyValueNamespace::setInt</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int64_t</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="29" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1a049b4ee4043e632b16297f3c81cb75be" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>virtual void jac::KeyValueNamespace::setFloat</definition>
+        <argsstring>(const std::string &amp;name, float value)=0</argsstring>
+        <name>setFloat</name>
+        <qualifiedname>jac::KeyValueNamespace::setFloat</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">float</ref></type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="30" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1a171832a134ce59c07faa08fdfc64e789" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>virtual void jac::KeyValueNamespace::setString</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;value)=0</argsstring>
+        <name>setString</name>
+        <qualifiedname>jac::KeyValueNamespace::setString</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="31" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1aa0e728db064c9eeaae0405221c113003" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">int64_t</ref></type>
+        <definition>virtual int64_t jac::KeyValueNamespace::getInt</definition>
+        <argsstring>(const std::string &amp;name, int64_t def_value=0)=0</argsstring>
+        <name>getInt</name>
+        <qualifiedname>jac::KeyValueNamespace::getInt</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">int64_t</ref></type>
+          <declname>def_value</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="33" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1a93e51ffab5d264da3ec2771e1a9d65da" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">float</ref></type>
+        <definition>virtual float jac::KeyValueNamespace::getFloat</definition>
+        <argsstring>(const std::string &amp;name, float def_value=0.f)=0</argsstring>
+        <name>getFloat</name>
+        <qualifiedname>jac::KeyValueNamespace::getFloat</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">float</ref></type>
+          <declname>def_value</declname>
+          <defval>0.<ref refid="classjac_1_1Device" kindref="compound">f</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="34" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1aeba81f7d61b75f302a458e88d59680a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string jac::KeyValueNamespace::getString</definition>
+        <argsstring>(const std::string &amp;name, std::string def_value=&quot;&quot;)=0</argsstring>
+        <name>getString</name>
+        <qualifiedname>jac::KeyValueNamespace::getString</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>def_value</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="35" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1ab75cc59b8600dca71f82c805f41facf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>DataType</type>
+        <definition>virtual DataType jac::KeyValueNamespace::getType</definition>
+        <argsstring>(const std::string &amp;name)=0</argsstring>
+        <name>getType</name>
+        <qualifiedname>jac::KeyValueNamespace::getType</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="37" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1a6c1c04bdc07d3613bae1ef1d06c7ecab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">bool</ref></type>
+        <definition>bool jac::KeyValueNamespace::exists</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>exists</name>
+        <qualifiedname>jac::KeyValueNamespace::exists</qualifiedname>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="38" column="10" bodyfile="src/jac/device/keyvalue.h" bodystart="38" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1KeyValueNamespace_1a655092a2f3167eafa3b0cb11250681fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">bool</ref></type>
+        <definition>virtual bool jac::KeyValueNamespace::commit</definition>
+        <argsstring>()=0</argsstring>
+        <name>commit</name>
+        <qualifiedname>jac::KeyValueNamespace::commit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="42" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/device/keyvalue.h" line="10" column="1" bodyfile="src/jac/device/keyvalue.h" bodystart="10" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classjac_1_1KeyValueNamespace_1a655092a2f3167eafa3b0cb11250681fc" prot="public" virt="pure-virtual"><scope>jac::KeyValueNamespace</scope><name>commit</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1a157e5896f52cec748fb22d8f7dc94256" prot="public" virt="non-virtual"><scope>jac::KeyValueNamespace</scope><name>DataType</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1ac397b7c2b83d7205b393fe47470df568" prot="public" virt="pure-virtual"><scope>jac::KeyValueNamespace</scope><name>erase</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1a6c1c04bdc07d3613bae1ef1d06c7ecab" prot="public" virt="non-virtual"><scope>jac::KeyValueNamespace</scope><name>exists</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1a157e5896f52cec748fb22d8f7dc94256a58064a1d6becc4b1b7de859409a29e0b" prot="public" virt="non-virtual"><scope>jac::KeyValueNamespace</scope><name>FLOAT32</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1a93e51ffab5d264da3ec2771e1a9d65da" prot="public" virt="pure-virtual"><scope>jac::KeyValueNamespace</scope><name>getFloat</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1aa0e728db064c9eeaae0405221c113003" prot="public" virt="pure-virtual"><scope>jac::KeyValueNamespace</scope><name>getInt</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1aeba81f7d61b75f302a458e88d59680a4" prot="public" virt="pure-virtual"><scope>jac::KeyValueNamespace</scope><name>getString</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1ab75cc59b8600dca71f82c805f41facf3" prot="public" virt="pure-virtual"><scope>jac::KeyValueNamespace</scope><name>getType</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1a157e5896f52cec748fb22d8f7dc94256a1dc223e129e1ea3fd1f723fa56e69acc" prot="public" virt="non-virtual"><scope>jac::KeyValueNamespace</scope><name>INT64</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1aad2bdf9f7de4bb81a331937fc94517b0" prot="public" virt="pure-virtual"><scope>jac::KeyValueNamespace</scope><name>keys</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1a90ee61cd0e98f9e699cbe094ed70bdcc" prot="private" virt="non-virtual"><scope>jac::KeyValueNamespace</scope><name>KeyValueNamespace</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1a6e12748490f684467f8d61ae9e163c10" prot="public" virt="non-virtual"><scope>jac::KeyValueNamespace</scope><name>KeyValueNamespace</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1a157e5896f52cec748fb22d8f7dc94256a8305bc11dedb67e5be6a0d177a820962" prot="public" virt="non-virtual"><scope>jac::KeyValueNamespace</scope><name>NOT_FOUND</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1a049b4ee4043e632b16297f3c81cb75be" prot="public" virt="pure-virtual"><scope>jac::KeyValueNamespace</scope><name>setFloat</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1a589f15e445494319a870abfd9d0d0f94" prot="public" virt="pure-virtual"><scope>jac::KeyValueNamespace</scope><name>setInt</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1a171832a134ce59c07faa08fdfc64e789" prot="public" virt="pure-virtual"><scope>jac::KeyValueNamespace</scope><name>setString</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1a157e5896f52cec748fb22d8f7dc94256a8e66b6e0ee1e990c1cf77219d09c1373" prot="public" virt="non-virtual"><scope>jac::KeyValueNamespace</scope><name>STRING</name></member>
+      <member refid="classjac_1_1KeyValueNamespace_1ae0a77ff5417f064c97d6dfb163142555" prot="public" virt="virtual"><scope>jac::KeyValueNamespace</scope><name>~KeyValueNamespace</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

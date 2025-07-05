@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacejac" kind="namespace" language="C++">
+    <compoundname>jac</compoundname>
+    <innerclass refid="classjac_1_1Controller" prot="public">jac::Controller</innerclass>
+    <innerclass refid="classjac_1_1Device" prot="public">jac::Device</innerclass>
+    <innerclass refid="classjac_1_1KeyValueFeature" prot="public">jac::KeyValueFeature</innerclass>
+    <innerclass refid="classjac_1_1KeyValueNamespace" prot="public">jac::KeyValueNamespace</innerclass>
+    <innerclass refid="structjac_1_1KeyValueNamespaceProtoBuilder" prot="public">jac::KeyValueNamespaceProtoBuilder</innerclass>
+    <innerclass refid="classjac_1_1LinkReadable" prot="public">jac::LinkReadable</innerclass>
+    <innerclass refid="classjac_1_1LinkWritable" prot="public">jac::LinkWritable</innerclass>
+    <innerclass refid="structjac_1_1Logger" prot="public">jac::Logger</innerclass>
+    <innerclass refid="classjac_1_1MachineCtrl" prot="public">jac::MachineCtrl</innerclass>
+    <innerclass refid="classjac_1_1Sha1Hasher" prot="public">jac::Sha1Hasher</innerclass>
+    <innerclass refid="classjac_1_1Timeout" prot="public">jac::Timeout</innerclass>
+    <innerclass refid="classjac_1_1TimeoutLock" prot="public">jac::TimeoutLock</innerclass>
+    <innerclass refid="classjac_1_1Uploader" prot="public">jac::Uploader</innerclass>
+    <innernamespace refid="namespacejac_1_1ProtoBuilder">jac::ProtoBuilder</innernamespace>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="keyvalue_8h_1a946467843029da7bcf96f8b0573cf776" prot="public" static="no">
+        <type>std::function&lt; std::unique_ptr&lt; <ref refid="classjac_1_1KeyValueNamespace" kindref="compound">KeyValueNamespace</ref> &gt;(<ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;)&gt;</type>
+        <definition>using jac::KeyValueOpener = typedef std::function&lt;std::unique_ptr&lt;KeyValueNamespace&gt;(const std::string&amp;)&gt;</definition>
+        <argsstring></argsstring>
+        <name>KeyValueOpener</name>
+        <qualifiedname>jac::KeyValueOpener</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/keyvalue.h" line="45" column="1" bodyfile="src/jac/device/keyvalue.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="uploader_8cpp_1ad208060fb802a2b34a3597eb2e4274d1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; std::filesystem::path &gt;</type>
+        <definition>static std::optional&lt; std::filesystem::path &gt; jac::getAbsolute</definition>
+        <argsstring>(std::string filename, std::filesystem::path &amp;rootDir)</argsstring>
+        <name>getAbsolute</name>
+        <qualifiedname>jac::getAbsolute</qualifiedname>
+        <param>
+          <type>std::string</type>
+          <declname>filename</declname>
+        </param>
+        <param>
+          <type>std::filesystem::path &amp;</type>
+          <declname>rootDir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.cpp" line="51" column="22" bodyfile="src/jac/device/uploader.cpp" bodystart="51" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="uploader_8cpp_1a17720341e73eb01732e9d8dfc629d6b1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; std::pair&lt; std::vector&lt; std::string &gt;, <ref refid="classjac_1_1Device" kindref="compound">size_t</ref> &gt; &gt;</type>
+        <definition>static std::optional&lt; std::pair&lt; std::vector&lt; std::string &gt;, size_t &gt; &gt; jac::listDir</definition>
+        <argsstring>(std::filesystem::path &amp;path)</argsstring>
+        <name>listDir</name>
+        <qualifiedname>jac::listDir</qualifiedname>
+        <param>
+          <type>std::filesystem::path &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.cpp" line="61" column="22" bodyfile="src/jac/device/uploader.cpp" bodystart="61" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="uploader_8cpp_1a0b2b699cc55ecf1f4a93f7aaced8264f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">bool</ref></type>
+        <definition>static bool jac::deleteDir</definition>
+        <argsstring>(std::filesystem::path &amp;path, bool onlyContents)</argsstring>
+        <name>deleteDir</name>
+        <qualifiedname>jac::deleteDir</qualifiedname>
+        <param>
+          <type>std::filesystem::path &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">bool</ref></type>
+          <declname>onlyContents</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/uploader.cpp" line="85" column="13" bodyfile="src/jac/device/uploader.cpp" bodystart="85" bodyend="107"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/device/controller.cpp" line="4" column="1"/>
+  </compounddef>
+</doxygen>

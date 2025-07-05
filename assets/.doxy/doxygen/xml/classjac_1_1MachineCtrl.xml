@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classjac_1_1MachineCtrl" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>jac::MachineCtrl</compoundname>
+    <derivedcompoundref refid="classjac_1_1Device" prot="public" virt="non-virtual">jac::Device&lt; Machine &gt;</derivedcompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1MachineCtrl_1a4330c7e6f67b557bfbc41da7d91fb102" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">bool</ref></type>
+        <definition>virtual bool jac::MachineCtrl::startMachine</definition>
+        <argsstring>(std::string path)=0</argsstring>
+        <name>startMachine</name>
+        <qualifiedname>jac::MachineCtrl::startMachine</qualifiedname>
+        <reimplementedby refid="classjac_1_1Device_1a6b13edfd52735ca2dd293dc03bf49632">startMachine</reimplementedby>
+        <param>
+          <type>std::string</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/machineCtrl.h" line="12" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1MachineCtrl_1a08e943c1322dd7b3373aeb03341f370c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">bool</ref></type>
+        <definition>virtual bool jac::MachineCtrl::stopMachine</definition>
+        <argsstring>()=0</argsstring>
+        <name>stopMachine</name>
+        <qualifiedname>jac::MachineCtrl::stopMachine</qualifiedname>
+        <reimplementedby refid="classjac_1_1Device_1a7255f4776520b7593b72f214d617bf6b">stopMachine</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/machineCtrl.h" line="13" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1MachineCtrl_1a12a279780a690f0b216fd7f7c118e8fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::tuple&lt; <ref refid="classjac_1_1Device" kindref="compound">bool</ref>, <ref refid="classjac_1_1Device" kindref="compound">int</ref>, std::string &gt;</type>
+        <definition>virtual std::tuple&lt; bool, int, std::string &gt; jac::MachineCtrl::getMachineStatus</definition>
+        <argsstring>()=0</argsstring>
+        <name>getMachineStatus</name>
+        <qualifiedname>jac::MachineCtrl::getMachineStatus</qualifiedname>
+        <reimplementedby refid="classjac_1_1Device_1ab61ae515bb4eea75ec374157d3f26d4e">getMachineStatus</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/machineCtrl.h" line="14" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1MachineCtrl_1a6aeaf0488cd2e791aba3d8edf4922b22" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classjac_1_1KeyValueNamespace" kindref="compound">KeyValueNamespace</ref> &gt;</type>
+        <definition>virtual std::unique_ptr&lt; KeyValueNamespace &gt; jac::MachineCtrl::openKeyValue</definition>
+        <argsstring>(const std::string &amp;nsname) const =0</argsstring>
+        <name>openKeyValue</name>
+        <qualifiedname>jac::MachineCtrl::openKeyValue</qualifiedname>
+        <reimplementedby refid="classjac_1_1Device_1a7ec4b24c4aa23e7939bb8f92144f02bf">openKeyValue</reimplementedby>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>nsname</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/machineCtrl.h" line="16" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1MachineCtrl_1a750b9e124088be03519a060ccba25973" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classjac_1_1Device" kindref="compound">void</ref></type>
+        <definition>virtual void jac::MachineCtrl::emitKeyValueModified</definition>
+        <argsstring>(const std::string &amp;nsname, const std::string &amp;key)=0</argsstring>
+        <name>emitKeyValueModified</name>
+        <qualifiedname>jac::MachineCtrl::emitKeyValueModified</qualifiedname>
+        <reimplementedby refid="classjac_1_1Device_1ac88277e8baf85ae4b00053773e7baa78">emitKeyValueModified</reimplementedby>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>nsname</declname>
+        </param>
+        <param>
+          <type><ref refid="classjac_1_1Device" kindref="compound">const</ref> std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/machineCtrl.h" line="17" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>jac::Device&lt; Machine &gt;</label>
+        <link refid="classjac_1_1Device"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>jac::MachineCtrl</label>
+        <link refid="classjac_1_1MachineCtrl"/>
+      </node>
+    </inheritancegraph>
+    <location file="src/jac/device/util/machineCtrl.h" line="10" column="1" bodyfile="src/jac/device/util/machineCtrl.h" bodystart="10" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classjac_1_1MachineCtrl_1a750b9e124088be03519a060ccba25973" prot="public" virt="pure-virtual"><scope>jac::MachineCtrl</scope><name>emitKeyValueModified</name></member>
+      <member refid="classjac_1_1MachineCtrl_1a12a279780a690f0b216fd7f7c118e8fc" prot="public" virt="pure-virtual"><scope>jac::MachineCtrl</scope><name>getMachineStatus</name></member>
+      <member refid="classjac_1_1MachineCtrl_1a6aeaf0488cd2e791aba3d8edf4922b22" prot="public" virt="pure-virtual"><scope>jac::MachineCtrl</scope><name>openKeyValue</name></member>
+      <member refid="classjac_1_1MachineCtrl_1a4330c7e6f67b557bfbc41da7d91fb102" prot="public" virt="pure-virtual"><scope>jac::MachineCtrl</scope><name>startMachine</name></member>
+      <member refid="classjac_1_1MachineCtrl_1a08e943c1322dd7b3373aeb03341f370c" prot="public" virt="pure-virtual"><scope>jac::MachineCtrl</scope><name>stopMachine</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

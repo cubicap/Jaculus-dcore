@@ -1,0 +1,523 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="sha1_8h" kind="file" language="C++">
+    <compoundname>sha1.h</compoundname>
+    <includes local="no">stddef.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includedby refid="uploader_8cpp" local="yes">src/jac/device/uploader.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>src/jac/device/util/sha1.h</label>
+        <link refid="sha1_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>stddef.h</label>
+      </node>
+      <node id="3">
+        <label>stdint.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structmbedtls__sha1__context" prot="public">mbedtls_sha1_context</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="sha1_8h_1aedc21a3a4716f832bec1555f1d6f9464" prot="public" static="no">
+        <name>MBEDTLS_ERR_SHA1_BAD_INPUT_DATA</name>
+        <initializer>-0x0073</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>SHA-1 input data was malformed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="40" column="9" bodyfile="src/jac/device/util/sha1.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="sha1_8h_1a86d8d60cc3b30fc750e70bf2aa263867" prot="public" static="no">
+        <name>MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED</name>
+        <initializer>-0x006E</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="41" column="9" bodyfile="src/jac/device/util/sha1.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="sha1_8h_1a6c605419935d98db910ffd6f075c2fec" prot="public" static="no">
+        <name>MBEDTLS_PRIVATE</name>
+        <param><defname>x</defname></param>
+        <initializer>x</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="43" column="9" bodyfile="src/jac/device/util/sha1.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="sha1_8h_1ab042654d056541feab342900a9eba5de" prot="public" static="no">
+        <type>struct <ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref></type>
+        <definition>typedef struct mbedtls_sha1_context mbedtls_sha1_context</definition>
+        <argsstring></argsstring>
+        <name>mbedtls_sha1_context</name>
+        <briefdescription>
+<para>The SHA-1 context structure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>SHA-1 is considered a weak message digest and its use constitutes a security risk. We recommend considering stronger message digests instead. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="65" column="21"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="sha1_8h_1af0cc8deb8dd30a095c6023c498418d24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mbedtls_sha1_init</definition>
+        <argsstring>(mbedtls_sha1_context *ctx)</argsstring>
+        <name>mbedtls_sha1_init</name>
+        <param>
+          <type><ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>This function initializes a SHA-1 context. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>SHA-1 is considered a weak message digest and its use constitutes a security risk. We recommend considering stronger message digests instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SHA-1 context to initialize. This must not be <computeroutput>NULL</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="78" column="6" declfile="src/jac/device/util/sha1.h" declline="78" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="sha1_8h_1a126091a4e884966454dca38c97770a24" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mbedtls_sha1_free</definition>
+        <argsstring>(mbedtls_sha1_context *ctx)</argsstring>
+        <name>mbedtls_sha1_free</name>
+        <param>
+          <type><ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>This function clears a SHA-1 context. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>SHA-1 is considered a weak message digest and its use constitutes a security risk. We recommend considering stronger message digests instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SHA-1 context to clear. This may be <computeroutput>NULL</computeroutput>, in which case this function does nothing. If it is not <computeroutput>NULL</computeroutput>, it must point to an initialized SHA-1 context. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="93" column="6" declfile="src/jac/device/util/sha1.h" declline="93" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="sha1_8h_1a1d06f1cd6dc5b2849d08749eef1975f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mbedtls_sha1_clone</definition>
+        <argsstring>(mbedtls_sha1_context *dst, const mbedtls_sha1_context *src)</argsstring>
+        <name>mbedtls_sha1_clone</name>
+        <param>
+          <type><ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref> *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref> *</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+<para>This function clones the state of a SHA-1 context. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>SHA-1 is considered a weak message digest and its use constitutes a security risk. We recommend considering stronger message digests instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SHA-1 context to clone to. This must be initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SHA-1 context to clone from. This must be initialized. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="106" column="6" declfile="src/jac/device/util/sha1.h" declline="106" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="sha1_8h_1ac514b3f4625a18e51de6247b685bacff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mbedtls_sha1_starts</definition>
+        <argsstring>(mbedtls_sha1_context *ctx)</argsstring>
+        <name>mbedtls_sha1_starts</name>
+        <param>
+          <type><ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <briefdescription>
+<para>This function starts a SHA-1 checksum calculation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>SHA-1 is considered a weak message digest and its use constitutes a security risk. We recommend considering stronger message digests instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SHA-1 context to initialize. This must be initialized.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>0</computeroutput> on success. </para>
+</simplesect>
+<simplesect kind="return"><para>A negative error code on failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="122" column="5" declfile="src/jac/device/util/sha1.h" declline="122" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="sha1_8h_1a758d6771c5eb5b06ecc9ff303f4a2ef4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mbedtls_sha1_update</definition>
+        <argsstring>(mbedtls_sha1_context *ctx, const unsigned char *input, size_t ilen)</argsstring>
+        <name>mbedtls_sha1_update</name>
+        <param>
+          <type><ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>const unsigned char *</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>ilen</declname>
+        </param>
+        <briefdescription>
+<para>This function feeds an input buffer into an ongoing SHA-1 checksum calculation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>SHA-1 is considered a weak message digest and its use constitutes a security risk. We recommend considering stronger message digests instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SHA-1 context. This must be initialized and have a hash operation started. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer holding the input data. This must be a readable buffer of length <computeroutput>ilen</computeroutput> Bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ilen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length of the input data <computeroutput>input</computeroutput> in Bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>0</computeroutput> on success. </para>
+</simplesect>
+<simplesect kind="return"><para>A negative error code on failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="141" column="5" declfile="src/jac/device/util/sha1.h" declline="141" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="sha1_8h_1abe51d24037e77d104abb28ee09052357" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mbedtls_sha1_finish</definition>
+        <argsstring>(mbedtls_sha1_context *ctx, unsigned char output[20])</argsstring>
+        <name>mbedtls_sha1_finish</name>
+        <param>
+          <type><ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>unsigned char</type>
+          <declname>output</declname>
+          <array>[20]</array>
+        </param>
+        <briefdescription>
+<para>This function finishes the SHA-1 operation, and writes the result to the output buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>SHA-1 is considered a weak message digest and its use constitutes a security risk. We recommend considering stronger message digests instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SHA-1 context to use. This must be initialized and have a hash operation started. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SHA-1 checksum result. This must be a writable buffer of length <computeroutput>20</computeroutput> Bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>0</computeroutput> on success. </para>
+</simplesect>
+<simplesect kind="return"><para>A negative error code on failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="161" column="5" declfile="src/jac/device/util/sha1.h" declline="161" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="sha1_8h_1a691c38288ec5d507269f95f7eed2c1e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mbedtls_internal_sha1_process</definition>
+        <argsstring>(mbedtls_sha1_context *ctx, const unsigned char data[64])</argsstring>
+        <name>mbedtls_internal_sha1_process</name>
+        <param>
+          <type><ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref> *</type>
+          <declname>ctx</declname>
+        </param>
+        <param>
+          <type>const unsigned char</type>
+          <declname>data</declname>
+          <array>[64]</array>
+        </param>
+        <briefdescription>
+<para>SHA-1 process data block (internal use only). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="warning"><para>SHA-1 is considered a weak message digest and its use constitutes a security risk. We recommend considering stronger message digests instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SHA-1 context to use. This must be initialized. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The data block being processed. This must be a readable buffer of length <computeroutput>64</computeroutput> Bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>0</computeroutput> on success. </para>
+</simplesect>
+<simplesect kind="return"><para>A negative error code on failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="179" column="5" declfile="src/jac/device/util/sha1.h" declline="179" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="sha1_8h_1aa70ce41a571d2a6e4aef6a755fcc7f4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mbedtls_sha1</definition>
+        <argsstring>(const unsigned char *input, size_t ilen, unsigned char output[20])</argsstring>
+        <name>mbedtls_sha1</name>
+        <param>
+          <type>const unsigned char *</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>ilen</declname>
+        </param>
+        <param>
+          <type>unsigned char</type>
+          <declname>output</declname>
+          <array>[20]</array>
+        </param>
+        <briefdescription>
+<para>This function calculates the SHA-1 checksum of a buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>            The function allocates the context, performs the
+            calculation, and frees the context.
+
+            The SHA-1 result is calculated as
+            output = SHA-1(input buffer).
+</verbatim> <simplesect kind="warning"><para>SHA-1 is considered a weak message digest and its use constitutes a security risk. We recommend considering stronger message digests instead.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>input</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer holding the input data. This must be a readable buffer of length <computeroutput>ilen</computeroutput> Bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>ilen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The length of the input data <computeroutput>input</computeroutput> in Bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>output</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SHA-1 checksum result. This must be a writable buffer of length <computeroutput>20</computeroutput> Bytes.</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para><computeroutput>0</computeroutput> on success. </para>
+</simplesect>
+<simplesect kind="return"><para>A negative error code on failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/device/util/sha1.h" line="205" column="5" declfile="src/jac/device/util/sha1.h" declline="205" declcolumn="5"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This file contains SHA-1 definitions and functions. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The Secure Hash Algorithm 1 (SHA-1) cryptographic hash function is defined in <emphasis>FIPS 180-4: Secure Hash Standard (SHS)</emphasis>.</para>
+<para><simplesect kind="warning"><para>SHA-1 is considered a weak message digest and its use constitutes a security risk. We recommend considering stronger message digests instead. </para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifdef<sp/>JAC_DCORE_USE_MBEDTLS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mbedtls/sha1.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/>Copyright<sp/>The<sp/>Mbed<sp/>TLS<sp/>Contributors</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/><sp/>SPDX-License-Identifier:<sp/>Apache-2.0</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/><sp/>Licensed<sp/>under<sp/>the<sp/>Apache<sp/>License,<sp/>Version<sp/>2.0<sp/>(the<sp/>&quot;License&quot;);<sp/>you<sp/>may</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/><sp/>not<sp/>use<sp/>this<sp/>file<sp/>except<sp/>in<sp/>compliance<sp/>with<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/><sp/>You<sp/>may<sp/>obtain<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>License<sp/>at</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/><sp/>http://www.apache.org/licenses/LICENSE-2.0</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/><sp/>Unless<sp/>required<sp/>by<sp/>applicable<sp/>law<sp/>or<sp/>agreed<sp/>to<sp/>in<sp/>writing,<sp/>software</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/><sp/>distributed<sp/>under<sp/>the<sp/>License<sp/>is<sp/>distributed<sp/>on<sp/>an<sp/>&quot;AS<sp/>IS&quot;<sp/>BASIS,<sp/>WITHOUT</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/><sp/>WARRANTIES<sp/>OR<sp/>CONDITIONS<sp/>OF<sp/>ANY<sp/>KIND,<sp/>either<sp/>express<sp/>or<sp/>implied.</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/><sp/>See<sp/>the<sp/>License<sp/>for<sp/>the<sp/>specific<sp/>language<sp/>governing<sp/>permissions<sp/>and</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/><sp/>limitations<sp/>under<sp/>the<sp/>License.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MBEDTLS_SHA1_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MBEDTLS_SHA1_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="sha1_8h_1aedc21a3a4716f832bec1555f1d6f9464" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MBEDTLS_ERR_SHA1_BAD_INPUT_DATA<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>-0x0073</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MBEDTLS_ERR_ERROR_CORRUPTION_DETECTED<sp/>-0x006E</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MBEDTLS_PRIVATE(x)<sp/>x</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Regular<sp/>implementation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="structmbedtls__sha1__context" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref><sp/>{</highlight></codeline>
+<codeline lineno="61" refid="structmbedtls__sha1__context_1af42c660c3451b969b9618546dcc7ddeb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="structmbedtls__sha1__context_1af42c660c3451b969b9618546dcc7ddeb" kindref="member">MBEDTLS_PRIVATE</ref>(total)[2];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="62" refid="structmbedtls__sha1__context_1a9013ba948d6cb7008b96e5db8a293d07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="structmbedtls__sha1__context_1a9013ba948d6cb7008b96e5db8a293d07" kindref="member">MBEDTLS_PRIVATE</ref>(state)[5];<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="63" refid="structmbedtls__sha1__context_1aff2d8075116ee7871206d3684cc1106e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="structmbedtls__sha1__context_1aff2d8075116ee7871206d3684cc1106e" kindref="member">MBEDTLS_PRIVATE</ref>(buffer)[64];<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65" refid="sha1_8h_1ab042654d056541feab342900a9eba5de" refkind="member"><highlight class="normal"><ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref>;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="sha1_8h_1af0cc8deb8dd30a095c6023c498418d24" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="sha1_8h_1af0cc8deb8dd30a095c6023c498418d24" kindref="member">mbedtls_sha1_init</ref>(<ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref><sp/>*ctx);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93" refid="sha1_8h_1a126091a4e884966454dca38c97770a24" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="sha1_8h_1a126091a4e884966454dca38c97770a24" kindref="member">mbedtls_sha1_free</ref>(<ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref><sp/>*ctx);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="sha1_8h_1a1d06f1cd6dc5b2849d08749eef1975f8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="sha1_8h_1a1d06f1cd6dc5b2849d08749eef1975f8" kindref="member">mbedtls_sha1_clone</ref>(<ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref><sp/>*dst,</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref><sp/>*src);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122" refid="sha1_8h_1ac514b3f4625a18e51de6247b685bacff" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sha1_8h_1ac514b3f4625a18e51de6247b685bacff" kindref="member">mbedtls_sha1_starts</ref>(<ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref><sp/>*ctx);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="sha1_8h_1a758d6771c5eb5b06ecc9ff303f4a2ef4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sha1_8h_1a758d6771c5eb5b06ecc9ff303f4a2ef4" kindref="member">mbedtls_sha1_update</ref>(<ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref><sp/>*ctx,</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*input,</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ilen);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="sha1_8h_1abe51d24037e77d104abb28ee09052357" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sha1_8h_1abe51d24037e77d104abb28ee09052357" kindref="member">mbedtls_sha1_finish</ref>(<ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref><sp/>*ctx,</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>output[20]);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179" refid="sha1_8h_1a691c38288ec5d507269f95f7eed2c1e0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sha1_8h_1a691c38288ec5d507269f95f7eed2c1e0" kindref="member">mbedtls_internal_sha1_process</ref>(<ref refid="structmbedtls__sha1__context" kindref="compound">mbedtls_sha1_context</ref><sp/>*ctx,</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>data[64]);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205" refid="sha1_8h_1aa70ce41a571d2a6e4aef6a755fcc7f4a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sha1_8h_1aa70ce41a571d2a6e4aef6a755fcc7f4a" kindref="member">mbedtls_sha1</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*input,</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ilen,</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>output[20]);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>mbedtls_sha1.h<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!JAC_DCORE_USE_MBEDTLS<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="src/jac/device/util/sha1.h"/>
+  </compounddef>
+</doxygen>

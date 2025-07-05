@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="keyvalueFeature_8h" kind="file" language="C++">
+    <compoundname>keyvalueFeature.h</compoundname>
+    <includes local="no">jac/machine/machine.h</includes>
+    <includes local="no">jac/machine/functionFactory.h</includes>
+    <includes local="no">jac/machine/class.h</includes>
+    <includes refid="keyvalue_8h" local="no">jac/device/keyvalue.h</includes>
+    <includes local="no">noal_func.h</includes>
+    <includes local="no">memory</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>jac/device/keyvalue.h</label>
+        <link refid="keyvalue_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>src/jac/features/keyvalueFeature.h</label>
+        <link refid="keyvalueFeature_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>functional</label>
+      </node>
+      <node id="4">
+        <label>jac/machine/class.h</label>
+      </node>
+      <node id="3">
+        <label>jac/machine/functionFactory.h</label>
+      </node>
+      <node id="2">
+        <label>jac/machine/machine.h</label>
+      </node>
+      <node id="6">
+        <label>memory</label>
+      </node>
+      <node id="10">
+        <label>noal_func.h</label>
+      </node>
+      <node id="8">
+        <label>stdint.h</label>
+      </node>
+      <node id="9">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structjac_1_1KeyValueNamespaceProtoBuilder" prot="public">jac::KeyValueNamespaceProtoBuilder</innerclass>
+    <innerclass refid="classjac_1_1KeyValueFeature" prot="public">jac::KeyValueFeature</innerclass>
+    <innernamespace refid="namespacejac">jac</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;jac/machine/machine.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;jac/machine/functionFactory.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;jac/machine/class.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;jac/device/keyvalue.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;noal_func.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">jac<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="structjac_1_1KeyValueNamespaceProtoBuilder" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structjac_1_1KeyValueNamespaceProtoBuilder" kindref="compound">KeyValueNamespaceProtoBuilder</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>jac::ProtoBuilder::Opaque&lt;jac::KeyValueNamespace&gt;,<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>jac::ProtoBuilder::Properties<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1Device" kindref="compound">jac::Value</ref><sp/>get(<ref refid="classjac_1_1Device" kindref="compound">jac::ContextRef</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">ctx</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">jac::ValueWeak</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>,<sp/>std::string<sp/><ref refid="classjac_1_1Device" kindref="compound">key</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">jac;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classjac_1_1Device" kindref="compound">DT</ref><sp/>=<sp/>KeyValueNamespace::DataType;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref><sp/>=<sp/>*KeyValueNamespaceProtoBuilder::getOpaque(<ref refid="classjac_1_1Device" kindref="compound">ctx</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">(<ref refid="classjac_1_1Device" kindref="compound">self</ref>.getType(<ref refid="classjac_1_1Device" kindref="compound">key</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>DT::INT64:</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Value::from(<ref refid="classjac_1_1Device" kindref="compound">ctx</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref>.getInt(<ref refid="classjac_1_1Device" kindref="compound">key</ref>));</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>DT::FLOAT32:</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Value::from(<ref refid="classjac_1_1Device" kindref="compound">ctx</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref>.getFloat(<ref refid="classjac_1_1Device" kindref="compound">key</ref>));</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>DT::STRING:</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Value::from(<ref refid="classjac_1_1Device" kindref="compound">ctx</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref>.getString(<ref refid="classjac_1_1Device" kindref="compound">key</ref>));</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Value::null(<ref refid="classjac_1_1Device" kindref="compound">ctx</ref>);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addProperties(<ref refid="classjac_1_1Device" kindref="compound">JSContext</ref>*<sp/><ref refid="classjac_1_1Device" kindref="compound">ctx</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">jac::Object</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">proto</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">jac::FunctionFactory</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">ff</ref>(<ref refid="classjac_1_1Device" kindref="compound">ctx</ref>);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">proto</ref>.defineProperty(</highlight><highlight class="stringliteral">&quot;get&quot;</highlight><highlight class="normal">,<sp/><ref refid="classjac_1_1Device" kindref="compound">ff</ref>.newFunctionThis(std::function(&amp;get)),<sp/>jac::PropFlags::Enumerable);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">proto</ref>.defineProperty(</highlight><highlight class="stringliteral">&quot;getString&quot;</highlight><highlight class="normal">,<sp/><ref refid="classjac_1_1Device" kindref="compound">ff</ref>.newFunctionThis([](<ref refid="classjac_1_1Device" kindref="compound">jac::ContextRef</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">jac::ValueWeak</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>,<sp/>std::string<sp/><ref refid="classjac_1_1Device" kindref="compound">key</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>auto<sp/>res<sp/>=<sp/>get(ctx_,<sp/>thisVal,<sp/>key);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(JS_IsString(res.getVal()))<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>return<sp/>res;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>jac::Value::null(<ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}),<sp/>jac::PropFlags::Enumerable);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">proto</ref>.defineProperty(</highlight><highlight class="stringliteral">&quot;getNumber&quot;</highlight><highlight class="normal">,<sp/><ref refid="classjac_1_1Device" kindref="compound">ff</ref>.newFunctionThis([](<ref refid="classjac_1_1Device" kindref="compound">jac::ContextRef</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">jac::ValueWeak</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>,<sp/>std::string<sp/><ref refid="classjac_1_1Device" kindref="compound">key</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1Device" kindref="compound">res</ref><sp/>=<sp/>get(<ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">key</ref>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classjac_1_1Device" kindref="compound">JS_IsNumber</ref>(<ref refid="classjac_1_1Device" kindref="compound">res</ref>.getVal()))<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1Device" kindref="compound">res</ref>;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>jac::Value::null(<ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}),<sp/>jac::PropFlags::Enumerable);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">proto</ref>.defineProperty(</highlight><highlight class="stringliteral">&quot;set&quot;</highlight><highlight class="normal">,<sp/><ref refid="classjac_1_1Device" kindref="compound">ff</ref>.newFunctionThis([](<ref refid="classjac_1_1Device" kindref="compound">jac::ContextRef</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">jac::ValueWeak</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>,<sp/>std::string<sp/><ref refid="classjac_1_1Device" kindref="compound">key</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">jac::Value</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">value</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">jac;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classjac_1_1Device" kindref="compound">key</ref>.length()<sp/>&gt;<sp/>15)<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>Exception::create(Exception::Type::TypeError,<sp/></highlight><highlight class="stringliteral">&quot;key<sp/>is<sp/>too<sp/>long<sp/>(max<sp/>15<sp/>chars)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref><sp/>=<sp/>*KeyValueNamespaceProtoBuilder::getOpaque(<ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1Device" kindref="compound">tag</ref><sp/>=<sp/><ref refid="classjac_1_1Device" kindref="compound">JS_VALUE_GET_TAG</ref>(<ref refid="classjac_1_1Device" kindref="compound">value</ref>.getVal());</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classjac_1_1Device" kindref="compound">tag</ref><sp/>==<sp/><ref refid="classjac_1_1Device" kindref="compound">JS_TAG_INT</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref>.setInt(<ref refid="classjac_1_1Device" kindref="compound">key</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">value</ref>.to&lt;<ref refid="classjac_1_1Device" kindref="compound">int64_t</ref>&gt;());</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classjac_1_1Device" kindref="compound">JS_TAG_IS_FLOAT64</ref>(<ref refid="classjac_1_1Device" kindref="compound">tag</ref>))<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref>.setFloat(<ref refid="classjac_1_1Device" kindref="compound">key</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">value</ref>.to&lt;</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&gt;());</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classjac_1_1Device" kindref="compound">tag</ref><sp/>==<sp/><ref refid="classjac_1_1Device" kindref="compound">JS_TAG_STRING</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref>.setString(<ref refid="classjac_1_1Device" kindref="compound">key</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">value</ref>.to&lt;std::string&gt;());</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>Exception::create(Exception::Type::TypeError,<sp/></highlight><highlight class="stringliteral">&quot;value<sp/>has<sp/>wrong<sp/>type&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}),<sp/>jac::PropFlags::Enumerable);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">proto</ref>.defineProperty(</highlight><highlight class="stringliteral">&quot;erase&quot;</highlight><highlight class="normal">,<sp/><ref refid="classjac_1_1Device" kindref="compound">ff</ref>.newFunctionThis([](<ref refid="classjac_1_1Device" kindref="compound">jac::ContextRef</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">jac::ValueWeak</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>,<sp/>std::string<sp/><ref refid="classjac_1_1Device" kindref="compound">key</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref><sp/>=<sp/>*KeyValueNamespaceProtoBuilder::getOpaque(<ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref>.erase(<ref refid="classjac_1_1Device" kindref="compound">key</ref>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}),<sp/>jac::PropFlags::Enumerable);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">proto</ref>.defineProperty(</highlight><highlight class="stringliteral">&quot;exists&quot;</highlight><highlight class="normal">,<sp/><ref refid="classjac_1_1Device" kindref="compound">ff</ref>.newFunctionThis([](<ref refid="classjac_1_1Device" kindref="compound">jac::ContextRef</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">jac::ValueWeak</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>,<sp/>std::string<sp/><ref refid="classjac_1_1Device" kindref="compound">key</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref><sp/>=<sp/>*KeyValueNamespaceProtoBuilder::getOpaque(<ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref>.exists(<ref refid="classjac_1_1Device" kindref="compound">key</ref>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}),<sp/>jac::PropFlags::Enumerable);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">proto</ref>.defineProperty(</highlight><highlight class="stringliteral">&quot;commit&quot;</highlight><highlight class="normal">,<sp/><ref refid="classjac_1_1Device" kindref="compound">ff</ref>.newFunctionThis([](<ref refid="classjac_1_1Device" kindref="compound">jac::ContextRef</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">jac::ValueWeak</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">jac;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref><sp/>=<sp/>*KeyValueNamespaceProtoBuilder::getOpaque(<ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="classjac_1_1Device" kindref="compound">self</ref>.commit())<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>Exception::create(Exception::Type::InternalError,<sp/></highlight><highlight class="stringliteral">&quot;NVS<sp/>saving<sp/>failed&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}),<sp/>jac::PropFlags::Enumerable);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">proto</ref>.defineProperty(</highlight><highlight class="stringliteral">&quot;keys&quot;</highlight><highlight class="normal">,<sp/><ref refid="classjac_1_1Device" kindref="compound">ff</ref>.newFunctionThis([](<ref refid="classjac_1_1Device" kindref="compound">jac::ContextRef</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">jac::ValueWeak</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref><sp/>=<sp/>*KeyValueNamespaceProtoBuilder::getOpaque(<ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">thisVal</ref>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>keys<sp/>=<sp/><ref refid="classjac_1_1Device" kindref="compound">self</ref>.keys();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1Device" kindref="compound">arr</ref><sp/>=<sp/>jac::Array::create(<ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>);</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1Device" kindref="compound">atom</ref><sp/>=<sp/>jac::Atom::create(<ref refid="classjac_1_1Device" kindref="compound">ctx_</ref>,<sp/></highlight><highlight class="stringliteral">&quot;push&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/><ref refid="classjac_1_1Device" kindref="compound">key</ref><sp/>:<sp/>keys)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">arr</ref>.invoke&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">&gt;(<ref refid="classjac_1_1Device" kindref="compound">atom</ref>,<sp/><ref refid="classjac_1_1Device" kindref="compound">key</ref>);</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1Device" kindref="compound">arr</ref>;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}),<sp/>jac::PropFlags::Enumerable);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>Next&gt;</highlight></codeline>
+<codeline lineno="108" refid="classjac_1_1KeyValueFeature" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classjac_1_1KeyValueFeature" kindref="compound">KeyValueFeature</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Next<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="classjac_1_1Device" kindref="compound">KvClass</ref><sp/>=<sp/><ref refid="classjac_1_1Device" kindref="compound">jac::Class&lt;KeyValueNamespaceProtoBuilder&gt;</ref>;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>jac::KeyValueOpener<sp/>kvOpener;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1KeyValueFeature" kindref="compound">KeyValueFeature</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>KvClass::init(</highlight><highlight class="stringliteral">&quot;KeyValueNamespace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initialize()<sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">jac;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Next::initialize();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">FunctionFactory</ref><sp/><ref refid="classjac_1_1Device" kindref="compound">ff</ref>(this-&gt;<ref refid="classjac_1_1Device" kindref="compound">context</ref>());</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">Module</ref>&amp;<sp/><ref refid="classjac_1_1Device" kindref="compound">mod</ref><sp/>=<sp/>this-&gt;<ref refid="classjac_1_1Device" kindref="compound">newModule</ref>(</highlight><highlight class="stringliteral">&quot;keyvalue&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classjac_1_1Device" kindref="compound">mod</ref>.addExport(</highlight><highlight class="stringliteral">&quot;open&quot;</highlight><highlight class="normal">,<sp/><ref refid="classjac_1_1Device" kindref="compound">ff</ref>.newFunction(noal::function([</highlight><highlight class="keyword">this</highlight><highlight class="normal">](std::string<sp/><ref refid="classjac_1_1Device" kindref="compound">nsname</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if(!kvOpener)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>Exception::create(Exception::Type::InternalError,<sp/></highlight><highlight class="stringliteral">&quot;KeyValueFeature<sp/>not<sp/>set<sp/>up&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classjac_1_1Device" kindref="compound">nsname</ref>.length()<sp/>&gt;<sp/>15)<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>Exception::create(Exception::Type::TypeError,<sp/></highlight><highlight class="stringliteral">&quot;namespace<sp/>is<sp/>too<sp/>long<sp/>(max<sp/>15<sp/>chars)&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="classjac_1_1Device" kindref="compound">nsname</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;wifi_net&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>throw<sp/>Exception::create(Exception::Type::InternalError,<sp/></highlight><highlight class="stringliteral">&quot;this<sp/>namespace<sp/>is<sp/>protected&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1Device" kindref="compound">nsHandle</ref><sp/>=<sp/>kvOpener(<ref refid="classjac_1_1Device" kindref="compound">nsname</ref>);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(!<ref refid="classjac_1_1Device" kindref="compound">nsHandle</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>Exception::create(Exception::Type::InternalError,<sp/></highlight><highlight class="stringliteral">&quot;failed<sp/>to<sp/>open<sp/>namespace&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>KvClass::createInstance(this-&gt;<ref refid="classjac_1_1Device" kindref="compound">context</ref>(),<sp/><ref refid="classjac_1_1Device" kindref="compound">nsHandle</ref>.release());</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>})));</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>jac</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/jac/features/keyvalueFeature.h"/>
+  </compounddef>
+</doxygen>
